@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kitri.perform.Rcheck">
+	<select id="list" resultType="Rcheck" parameterType="Rcheck">
+		SELECT r.prf_reserve_num, r.prf_day, r.ftf_starttime, p.prfnm FROM performance p, reservation r WHERE p.prfid = r.mem_id
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+

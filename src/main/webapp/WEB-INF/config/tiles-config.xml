@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+       
+<tiles-definitions>
+	<!-- 기본템플릿 정의 By.kimtaehyung -->
+	<definition name="mainTemplate" template="/WEB-INF/layout/mainLayout.jsp">
+		<put-attribute name="top" 		value="/WEB-INF/include/top.jsp"/>
+		<put-attribute name="content" 	value="/WEB-INF/include/content.jsp"/>
+		<put-attribute name="footer" 	value="/WEB-INF/include/footer.jsp"/>
+		
+	</definition>
+  
+  <definition name="index" extends="mainTemplate">
+	</definition>		
+ 
+  <!--인규	-->
+  <definition name="mypageTemplate" template="/WEB-INF/layout/mypageLayout.jsp">
+		<put-attribute name="top" 		value="/WEB-INF/include/top.jsp"/>
+		<put-attribute name="mypage_menu" value="/WEB-INF/mypage/mypage_menu.jsp"/>
+		<put-attribute name="content" 	value="/WEB-INF/include/content.jsp"/>
+		<put-attribute name="footer" 	value="/WEB-INF/include/footer.jsp"/>
+	</definition>
+	
+	
+	<definition name="mypage" extends="mypageTemplate"/>
+	
+	
+	<definition name="mypageRcheck/list" extends="mypageTemplate">
+		<put-attribute name="content" value="/WEB-INF/mypage/mypage_Rcheck.jsp" />
+	</definition>
+	
+	<!-- JeonInGyu mypageTemplate update Start -->
+	<definition name="searchResult/list" extends="mainTemplate">
+		<put-attribute name="content" value="/WEB-INF/search/searchResult.jsp" />
+	</definition>
+	<!-- JeonInGyu mypageTemplate update End -->	
+	
+	<!-- 공연예매 17.01.07 By.kimtaehyung-->
+	<definition name="reservationTemplate" template="/WEB-INF/layout/reservationLayout.jsp">
+		<put-attribute name="top" 		value="/WEB-INF/include/top.jsp"/>
+		<put-attribute name="content" 	value="/WEB-INF/reservation/include/reservation_service.jsp"/>
+		<put-attribute name="footer" 	value="/WEB-INF/include/footer.jsp"/>
+	</definition>
+	
+	<definition name="reservationMain" extends="reservationTemplate"/>
+	<definition name="reservation_seat" extends="reservationTemplate">
+		<put-attribute name="content" 	value="/WEB-INF/reservation/include/seat.jsp"/>
+	</definition>
+	
+	<!-- 지훈 adminTemplate-->
+	<definition name="adminTemplate" template="/WEB-INF/layout/adminLayout.jsp">
+		<put-attribute name="top" 		value="/WEB-INF/include/top.jsp"/>
+		<put-attribute name="content" 	value="/WEB-INF/admin/admin_main.jsp"/>
+		<put-attribute name="footer" 	value="/WEB-INF/include/footer.jsp"/>
+	</definition>
+	
+	<definition name="adminMain" extends="adminTemplate">
+	</definition>
+	
+	<!-- 몽고DB테스트중 01.06 By.Kimtaehyung -->
+	<definition name="index_mongo" template="/WEB-INF/views_taehyung/index.jsp"/>	
+	<definition name="list_mongo" template="/WEB-INF/views_taehyung/list.jsp"/>	
+	<definition name="insert_mongo" template="/WEB-INF/views_taehyung/mongo_insert.jsp"/>
+	<definition name="detail_mongo" template="/WEB-INF/views_taehyung/mongo_detail.jsp"/>
+	<definition name="update_mongo" template="/WEB-INF/views_taehyung/mongo_update.jsp"/>
+	<definition name="search_mongo" template="/WEB-INF/views_taehyung/mongo_search.jsp"/>
+	
+	<!-- review 01.09 By.KangJeongA -->
+	<definition name="review/Reviewinsert" template="/WEB-INF/review/Reviewinsert.jsp"/>
+  
+  	<!-- 승현 -->
+	<definition name="register_member" extends="mainTemplate">
+		<put-attribute name="content" value="/WEB-INF/user/include/signup.jsp"/>
+	</definition>
+	<definition name="list_member" extends="mainTemplate">
+		<put-attribute name="content" value="/WEB-INF/user/include/userlist.jsp"/>	
+	</definition>
+
+	<!-- 공연정보 메인 수정누나 -->
+	<definition name="perform_main" template="/WEB-INF/layout/performLayout.jsp">
+		<put-attribute name="top" 		value="/WEB-INF/include/top.jsp"/>
+		<put-attribute name="side"		value="/WEB-INF/performinfo/include/perform_menu.jsp"/>
+		<put-attribute name="content" 	value="/WEB-INF/performinfo/include/content.jsp"/>
+		<put-attribute name="footer" 	value="/WEB-INF/include/footer.jsp"/>
+	</definition>
+	<!-- 공연정보 공연리스트 -->
+	<definition name="perform_prf" extends="perform_main">
+		<put-attribute name="content" value="/WEB-INF/performinfo/performanceinfo/main.jsp"/>
+	</definition>
+</tiles-definitions>

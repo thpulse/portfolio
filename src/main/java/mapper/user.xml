@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kitri.perform.user">
+
+	<insert id="insert" parameterType="user">
+     	insert into userinfo values(#{user_id}
+     								,#{user_pass}
+     								,#{user_pass2}
+     								,#{user_name}
+     								,#{user_ssn}
+     								,#{user_tel}
+     								,#{user_email}
+     								,#{user_gender}
+     								,#{user_gerne})
+     					
+    </insert>
+    
+    <select id="login" resultType="login" parameterType="Map">
+    	select * from userinfo where user_id=#{id} and user_pass=#{pass}
+    </select>
+    
+    <select id="list" resultType="user">
+    	select * from userinfo
+    </select>
+    
+
+</mapper>

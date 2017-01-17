@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>		
+		<typeAlias type="kitri.stats.vo.StatsVO" alias="stats"/>
+		<typeAlias type="kitri.mypageRcheck.vo.RcheckVO" alias="Rcheck"/>
+		<typeAlias type="kitri.performinfo.boxweekly.dto.BoxWeeklyDTO" alias="box"/>
+		<typeAlias type="kitri.pro.area.dto.AreaVO" alias="area"/>
+		<typeAlias type="kitri.performinfo.performance.dto.PerformanceDTO" alias="perform"/>
+		<typeAlias type="kitri.performinfo.performance.dto.PerformanceSogaeimgDTO" alias="performsogae"/>
+		<typeAlias type="kitri.performinfo.prfplace.dto.PrfplaceDTO" alias="place"/>
+		<typeAlias type="kitri.search.vo.SearchVO" alias="search"/>
+		<typeAlias type="kitri.reservation.vo.reservationVO" alias="reservation"/>
+		<typeAlias type="kitri.user.vo.UserVO" alias="user"/>
+		<typeAlias type="kitri.user.vo.loginVO" alias="login"/>
+	</typeAliases>
+
+	
+ 
+	<mappers>		
+		<mapper resource="mapper/stats.xml"/>
+		<mapper resource="mapper/Rcheck.xml"/>
+		<mapper resource="mapper/search.xml"/>
+		<mapper resource="mapper/boxweekly.xml"/>
+		<mapper resource="mapper/weather.xml"/>
+		<mapper resource="mapper/performanceinfo.xml"/>
+		<mapper resource="mapper/prfplaceinfo.xml"/>
+		<mapper resource="mapper/reservation.xml"/>
+		<mapper resource="mapper/user.xml"/>
+	</mappers>
+</configuration>
