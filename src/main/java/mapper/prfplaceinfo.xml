@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kitri.prfplaceinfo">
+	<select id="Total_PrfPlace" resultType="place">
+		select * from prf_place
+	</select>
+	<insert id="Add_prfplace" parameterType="place">
+		insert into prf_place values(#{plcid},#{sidonm},#{gugunnm},#{plcnm},#{plcnum},#{plcchar},#{seatscale},#{tel},#{relateurl},#{address},#{la},#{lo})
+	</insert>
+	<select id="PrfPlace_Info" parameterType="place" resultType="place">
+		select * from prf_place where plcid=#{plcid}
+	</select>
+</mapper>

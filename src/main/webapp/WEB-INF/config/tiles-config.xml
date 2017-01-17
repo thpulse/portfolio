@@ -78,7 +78,14 @@
 		<put-attribute name="content" value="/WEB-INF/user/include/userlist.jsp"/>	
 	</definition>
 
-	<!-- 공연정보 메인 수정누나 -->
+	<!-- 수정 -->
+	<!-- 관리자페이지 메인 -->
+	<definition name="admin" extends="mainTemplate">
+		<put-attribute name="top" 		value="/WEB-INF/include/top.jsp"/>
+		<put-attribute name="content" 	value="/WEB-INF/performinfo/include/ad_main.jsp"/>
+		<put-attribute name="footer" 	value="/WEB-INF/include/footer.jsp"/>
+	</definition>
+	<!-- 공연정보 메인 -->
 	<definition name="perform_main" template="/WEB-INF/layout/performLayout.jsp">
 		<put-attribute name="top" 		value="/WEB-INF/include/top.jsp"/>
 		<put-attribute name="side"		value="/WEB-INF/performinfo/include/perform_menu.jsp"/>
@@ -88,5 +95,17 @@
 	<!-- 공연정보 공연리스트 -->
 	<definition name="perform_prf" extends="perform_main">
 		<put-attribute name="content" value="/WEB-INF/performinfo/performanceinfo/main.jsp"/>
+	</definition>
+	<!-- 공연정보 공연리스트 소개이미지 -->
+	<definition name="perform_prf_info" extends="perform_main">
+		<put-attribute name="content" value="/WEB-INF/performinfo/performanceinfo/read.jsp"/>
+	</definition>
+	<!-- 공연장 현황보기(목록보기) -->
+	<definition name="perform_place" extends="perform_main">
+		<put-attribute name="content" value="/WEB-INF/performinfo/placeinfo/main.jsp"/>
+	</definition>
+	<!-- 공연장 상세보기 -->
+	<definition name="perform_place_info" extends="perform_main">
+		<put-attribute name="content" value="/WEB-INF/performinfo/placeinfo/read.jsp"/>
 	</definition>
 </tiles-definitions>
