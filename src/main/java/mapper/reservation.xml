@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!-- JeonInGyu mapper update Start -->
 <mapper namespace="kitri.reservation">
-	<insert id="insert" parameterType="reservation">
+	<select id="call_hall_bySido" parameterType="String" resultType="place">
+		select * from prf_place where sidonm =#{sido}		
+	</select>
 		
-	</insert>
+	<select id="call_hall_bygungu" parameterType="String" resultType="place">
+		select * from prf_place where gugunnm = #{gungu}		
+	</select>	
+	
+	<select id="call_perform_byHall" parameterType="String" resultType="perform">
+		select * from performance where plcid = #{hallId}		
+	</select>
+	
+	<select id="perform_detail" parameterType="String" resultType="perform">
+		select * from performance where prfid = #{prfid}		
+	</select>
 </mapper>
 
 
