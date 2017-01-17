@@ -12,7 +12,8 @@
      								,#{user_tel}
      								,#{user_email}
      								,#{user_gender}
-     								,#{user_gerne})
+     								,#{user_gerne}
+     								,1)
      					
     </insert>
     
@@ -21,8 +22,12 @@
     </select>
     
     <select id="list" resultType="user">
-    	select * from userinfo
+    	select * from userinfo where del_flg = 1
     </select>
+    
+    <update id="delete" parameterType="String">
+    	update userinfo set del_flg =0 where user_id = #{user_id}
+    </update>
     
 
 </mapper>

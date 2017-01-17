@@ -20,14 +20,13 @@ public class UserDAOImpl implements UserDAO {
 	
 	@Override
 	public void insert(UserVO user) {
-		
+		System.out.println(user);
 		sqlSession.insert("kitri.perform.user.insert", user);
 	
 	}
 
 	@Override
 	public loginVO login(String user_id, String user_pass) {
-		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("id", user_id);
 		map.put("pass", user_pass);
@@ -42,8 +41,11 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public List<UserVO> delete(String user_id) {
-		
-		return null;
+		System.out.println("µé¾î¿Ó³Ä »õ²¥"+user_id);
+		return sqlSession.selectList("kitri.perform.user.delete", user_id);
 	}
 
+	
+
+	
 }

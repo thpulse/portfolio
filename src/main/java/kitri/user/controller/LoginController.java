@@ -22,6 +22,7 @@ public class LoginController {
 	
 	@RequestMapping(value="/login.do", method=RequestMethod.POST)
 	public ModelAndView runLogin(HttpServletRequest req, loginVO loginUser){
+		System.out.println("да"+loginUser);
 		loginVO checkUser = service.login(loginUser.getUser_id(),
 													loginUser.getUser_pass());
 		String url ="";

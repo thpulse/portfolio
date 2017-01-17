@@ -109,8 +109,11 @@
                   <li>
 							<a href="/project_final/admin/main.do"><i class="fa fa-user"></i><br>Admin</a>
 						</li>
-                  <%--    <%if(loginUser==null){ %>
-                  <%}else if(loginUser.getUser_Id().equals("racer")){ %> --%>               
+                  <c:if test="${loginUser.user_id=='racer' }">
+						<li>
+							<a href="/project_final/list.do" onclick="list"><i class="fa fa-user"></i><br>회원관리</a>
+						</li>
+					</c:if>         
                   <li>
                      <c:if test="${loginUser.user_id==null}">
                      <a href="#" onclick="login" data-toggle="modal" data-target="#myModal"><i class="fa fa-unlock"></i><br>Log-in</a>
@@ -127,8 +130,8 @@
                         <div class="modal-header">
                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
-                        Id : <input id="login__username" type="text" class="form__input" placeholder="Username" required><br><br>
-                         Password : <input id="login__password" type="password" class="form__input" placeholder="Password" required>
+                        Id : <input type="text" name="user_id" class="form__input" placeholder="Username" required><br><br>
+                         Password : <input type="password" name="user_pass" class="form__input" placeholder="Password" required>
                         </div>
 
                           <div class="form__field">

@@ -33,4 +33,14 @@ public class UserServiceImpl implements UserService {
 		return dao.userList();
 	}
 
+	@Override
+	public List<UserVO> delete(String user_id) {
+		System.out.println("µé¾î¿È?"+user_id);
+		return dao.delete(user_id);
+	}
+
+	
+
+	
+
 }
