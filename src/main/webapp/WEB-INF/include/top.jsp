@@ -91,15 +91,24 @@
                   <li>
                      <a href="/project_final/reservation/main.do"><i class="fa fa-comments"></i><br>Reservation</a>
                   </li>
-                  <li>
-                     <a href="#"><i class="fa fa-tasks"></i><br>Perform2.0</a>
-                  </li>
+                  <li class="dropdown active">
+							<a href="/project_final/stat/weather_main.do" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">
+								<i class="fa fa-tasks"></i><br>Pro 2.0 <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu dropdown-menu-left" role="menu">
+								<li class="active"><a href="/project_final/stat/weather_main.do">날씨별 통계</a></li>
+								<li><a href="/project_final/stat/month_main.do">월별 통계</a></li>
+							</ul>
+						</li>
                   <li>
                      <a href="/project_final/mypage/mypage.do"><i class="fa fa-user"></i><br>MyPage</a>
                   </li>
                   <li>
                      <a href="/project_final/review/Reviewlist.do"><i class="fa fa-envelope"></i><br>Review</a>
                   </li>
+                  <li>
+							<a href="/project_final/admin/main.do"><i class="fa fa-user"></i><br>Admin</a>
+						</li>
                   <%--    <%if(loginUser==null){ %>
                   <%}else if(loginUser.getUser_Id().equals("racer")){ %> --%>               
                   <li>

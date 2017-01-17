@@ -59,6 +59,16 @@
 	<definition name="adminMain" extends="adminTemplate">
 	</definition>
 	
+		<!-- 지훈 statTemplate-->
+	<definition name="stat/weather" extends="mainTemplate">
+		<put-attribute name="content" 
+				value="/WEB-INF/stat/weather_main.jsp"/>
+	</definition>
+	<definition name="stat/month" extends="mainTemplate">
+		<put-attribute name="content" 
+				value="/WEB-INF/stat/month_main.jsp"/>
+	</definition>
+	
 	<!-- 몽고DB테스트중 01.06 By.Kimtaehyung -->
 	<definition name="index_mongo" template="/WEB-INF/views_taehyung/index.jsp"/>	
 	<definition name="list_mongo" template="/WEB-INF/views_taehyung/list.jsp"/>	

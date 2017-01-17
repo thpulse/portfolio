@@ -4,9 +4,14 @@
 <mapper namespace="kitri.pro.weather">
 
 	<select id="arealist" resultType="area">
-		select * from area
+		select * from area where addr1 in ('02','05','06','07','08','09','10','11')
 	</select>
-	
+		<insert id="weatherinsert" parameterType="weather">
+		insert into weather values(#{days},#{max_temp},#{min_temp},#{info},#{addr1},#{addr2},#{addr3},#{addr4})
+	</insert>
+		<select id="lastweather" resultType="weather">
+		 	select * from (select * from weather order by rownum desc) where rownum=1
+	</select>
 </mapper>
 
 

@@ -8,18 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>ADMIN 메인페이지</h1>
+	<h1>날씨별 장르 선호도</h1>
 
-	<div class="service wow fadeInUp">
-		<!-- fa fa-eye" -->
-		<div class="service-icon">
-			<i class="fa fa-table"></i>
-		</div>
-		<h3>날씨 데이터 삽입</h3>
-		<h3>( 마지막으로 삽입된 날짜 : ${last.days } )</h3>
-
-	</div>
-	<br/>
 
 </body>
 </html>
