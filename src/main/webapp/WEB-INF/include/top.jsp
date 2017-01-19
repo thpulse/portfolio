@@ -2,7 +2,7 @@
     pageEncoding="EUC-KR"%>
 <%@ page import="kitri.user.vo.*" %>
     <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+   <%@ taglib prefix="se" uri="http://www.springframework.org/security/tags"%>
 <style>  
    * {box-sizing: border-box;}  
       body{margin: 0;}  
@@ -42,7 +42,7 @@
    }
 </style>  
         
-    <%loginVO user = (loginVO) session.getAttribute("loginUser"); %>
+ 	<%--  <%loginVO user = (loginVO) session.getAttribute("loginUser"); %> --%>
     <%-- <%UserVO user2 = (UserVO) session.getAttribute("loginUser"); %> --%>
 
 <body>
@@ -52,49 +52,76 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="top-navbar-1">
                <ul class="nav navbar-nav navbar-right">
-               
-                  <li>
-                     <a href="/project_final/index.do"><i class="fa fa-home"></i><br>Home</a>
-                  </li>
-                  <li>
-                     <a href="/project_final/perform/prfinfo/select.do"><i class="fa fa-camera"></i><br>Perform_Info</a>
-                  </li>
-                  <li>
-                     <a href="/project_final/reservation/main.do"><i class="fa fa-comments"></i><br>Reservation</a>
-                  </li>
-                  <li class="dropdown active">
-							<a href="/project_final/stat/weather_main.do" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">
-								<i class="fa fa-tasks"></i><br>Pro 2.0 <span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu dropdown-menu-left" role="menu">
-								<li class="active"><a href="/project_final/stat/weather_main.do">날씨별 통계</a></li>
-								<li><a href="/project_final/stat/month_main.do">월별 통계</a></li>
-							</ul>
-						</li>
-                  <li>
-                     <a href="/project_final/mypage/mypage.do"><i class="fa fa-user"></i><br>MyPage</a>
-                  </li>
-                  <li>
-                     <a href="/project_final/review/Reviewlist.do"><i class="fa fa-envelope"></i><br>Review</a>
-                  </li>
-                  <li>
-							<a href="/project_final/admin/main.do"><i class="fa fa-user"></i><br>Admin</a>
-						</li>
-                  <c:if test="${loginUser.user_id=='racer' }">
-						<li>
-							<a href="/project_final/list.do" onclick="list"><i class="fa fa-user"></i><br>회원관리</a>
-						</li>
-					</c:if>         
-                  <li>
-                     <c:if test="${loginUser.user_id==null}">
-                     <a href="#" onclick="login" data-toggle="modal" data-target="#myModal"><i class="fa fa-unlock"></i><br>Log-in</a>
-                     </c:if>
-                     <c:if test="${loginUser.user_id!=null}">
-                     <a href="/project_final/logout.do" onclick="logout"><i class="fa fa-lock"></i><br>LogOut</a>
-                     </c:if>
-                  <form role="form" action="/project_final/login.do" method="POST">
 
+			   <se:authorize access="isAnonymous()">
+               <li>
+                  <a href="/project_final/index.do"><i class="fa fa-home"></i><br>Home</a>
+               </li>
+               </se:authorize>
+              
+               <se:authorize access="isAuthenticated()">
+               <li>
+                   <a href="/project_final/perform/prfinfo/select.do"><i class="fa fa-camera"></i><br>Perform_Info</a>
+                </li>
+               </se:authorize>
+               
+               <li>
+                   <a href="/project_final/reservation/main.do"><i class="fa fa-comments"></i><br>Reservation</a>
+                </li>
+               
+               <se:authorize access="hasRole('ROLE_ADMIN')">
+               <li class="dropdown active">
+					<a href="/project_final/stat/weather_main.do" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">
+						<i class="fa fa-tasks"></i><br>Pro 2.0 <span class="caret"></span>
+							</a>
+					<ul class="dropdown-menu dropdown-menu-left" role="menu">
+						<li class="active"><a href="/project_final/stat/weather_main.do">날씨별 통계</a></li>
+						<li><a href="/project_final/stat/month_main.do">월별 통계</a></li>
+					</ul>
+				</li>
+				</se:authorize>
+				
+				<se:authorize access="isAuthenticated()">
+                <li>
+                 <a href="/project_final/mypage/mypage.do"><i class="fa fa-user"></i><br>MyPage</a>
+                </li>
+                </se:authorize> 
+                
+                <li>
+                <a href="/project_final/review/Reviewlist.do"><i class="fa fa-envelope"></i><br>Review</a>
+                </li>
+                
+                <se:authorize access="hasRole('ROLE_ADMIN')">  
+                <li>
+				<a href="/project_final/admin/main.do"><i class="fa fa-user"></i><br>Admin</a>
+				</li>
+                </se:authorize>
+                
+                <se:authorize access="hasRole('ROLE_ADMIN')"> 
+				<li>
+				<a href="/project_final/list.do" onclick="list"><i class="fa fa-user"></i><br>회원관리</a>
+				</li>
+				</se:authorize> 
+				
+				<li>
+				<se:authorize access="isAnonymous()">	
+				<a href="#" onclick="login" data-toggle="modal" data-target="#myModal"><i class="fa fa-unlock"></i><br>Log-in</a>
+				</se:authorize>  
+				
+				<se:authorize access="isAuthenticated()"> 
+				<a href="/project_final/logout.do" onclick="logout"><i class="fa fa-lock"></i><br>LogOut</a>
+				</se:authorize>  
+				
+				<se:authorize access="isAuthenticated()">
+				 <li><a href="#"><i class="glyphicon glyphicon-user"></i><br><se:authentication property="principal.user_name"/></a>
+                 </li>
+				</se:authorize>
+                  
+                  
                   <!-- Modal -->
+                 
+                  <form role="form" action="/project_final/j_spring_security_check" method="POST">
+   
                   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                        <div class="modal-dialog modal-lg" role="document">
                       <div class="modal-content">
@@ -140,4 +167,5 @@
 			</ul>
 		</div>
       </nav>
-   </body>
+</body>
+</html>

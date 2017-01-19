@@ -19,8 +19,8 @@ public class UserServiceImpl implements UserService {
 	
 	
 	@Override
-	public void insert(UserVO user) {
-		dao.insert(user);
+	public int insert(UserVO user) {
+		return dao.insert(user);
 	}
 
 	@Override

@@ -8,6 +8,7 @@
 		<typeAlias type="kitri.performinfo.boxweekly.dto.BoxWeeklyDTO" alias="box"/>
 		<typeAlias type="kitri.pro.area.dto.AreaVO" alias="area"/>
 		<typeAlias type="kitri.pro.weather.dto.WeatherVO" alias="weather"/>
+		<typeAlias type="kitri.pro.stat.weather.dto.StatVO" alias="stat"/>
 		<typeAlias type="kitri.performinfo.performance.dto.PerformanceDTO" alias="perform"/>
 		<typeAlias type="kitri.performinfo.performance.dto.PerformanceSogaeimgDTO" alias="performsogae"/>
 		<typeAlias type="kitri.performinfo.prfplace.dto.PrfplaceDTO" alias="place"/>
