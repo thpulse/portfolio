@@ -8,7 +8,7 @@ import kitri.user.vo.loginVO;
 public interface UserService {
 	
 	loginVO login(String id, String pass);//로그인	
-	void insert(UserVO user);//회원가입
+	int insert(UserVO user);//회원가입
 	List<UserVO> userList();//user리스트
 	List<UserVO> delete(String user_id);//회원삭제
 }

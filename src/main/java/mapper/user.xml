@@ -13,11 +13,12 @@
      								,#{user_email}
      								,#{user_gender}
      								,#{user_gerne}
-     								,1)
+     								,1
+     								,'ROLE_USER')
      					
     </insert>
     
-    <select id="login" resultType="login" parameterType="Map">
+    <select id="login" resultType="user" parameterType="Map">
     	select * from userinfo where user_id=#{id} and user_pass=#{pass}
     </select>
     
@@ -28,6 +29,22 @@
     <update id="delete" parameterType="String">
     	update userinfo set del_flg =0 where user_id = #{user_id}
     </update>
+    
+    <select id="securityLogin" resultType="map">
+    	select user_id as username,
+    		   user_pass as password,
+    		   user_pass2,
+    		   user_name,
+    		   user_ssn,
+    		   user_tel,
+    		   user_email,
+    		   user_gender,
+    		   user_gerne,
+    		   del_flg,
+    		   role as authority
+    		   from userinfo where user_id = #{username}
+    
+    </select>
     
 
 </mapper>

@@ -24,28 +24,27 @@
     <thead>
       <tr>
         <th>아이디</th>
-        <th>비밀번호</th>
         <th>이름</th>
         <th>이메일</th>
         <th>성별</th>
         <th>전화번호</th>
         <th>선호장르</th>
         <th>회원삭제</th>
+        <th>권한</th>
       </tr>
     </thead>
     		<tbody>
     		<c:forEach var="item" items="${userlist}">
 	     	<tr>
 			       	<td>${item.user_id }</td>
-					<td>${item.user_pass }</td>
 					<td>${item.user_name }</td>
 					<td>${item.user_email }</td>
 					<td>${item.user_gender }</td>
 					<td>${item.user_tel }</td>
 					<td>${item.user_gerne }</td>
 					<td><a href="/project_final/delete.do?id=${item.user_id }">회원삭제</a>
-			       	</td>
-					</tr>
+			       	<td></td>
+			 		</tr>
 	      			 </c:forEach>
 	      
     </tbody>
