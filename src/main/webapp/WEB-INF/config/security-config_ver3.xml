@@ -21,8 +21,6 @@
 		<security:intercept-url pattern="/index.do" access="permitAll"/>
 		<security:intercept-url pattern="/insert.do" access="permitAll"/>
 
-		<security:intercept-url pattern="/**" access="permitAll"/>
-
 		<security:intercept-url pattern="/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"
 		 										requires-channel="https"/>
 		
