@@ -30,8 +30,8 @@ public class PerformanceDAOImpl implements PerformanceDAO {
 	public void Add_Performance() {
 		List<PerformanceSogaeimgDTO> sogaelist = new ArrayList<PerformanceSogaeimgDTO>();
 		try {
-			//for(int y=0; y<4; y++){ //4년치 데이터 넣을때 필요
-				//int stmon = -36+y*12;
+			//for(int y=0; y<3; y++){ //4년치 데이터 넣을때 필요
+				//int stmon = -24+y*12;
 				JSONParser parser = new JSONParser();
 				getService service = new getService();
 				//공연목록을 조회, 공연상세정보 페이지의 url에 필요한 공연id가져오기 
@@ -50,7 +50,7 @@ public class PerformanceDAOImpl implements PerformanceDAO {
 				cal.add(cal.MONTH, 1);
 				String endM = form.format(cal.getTime());
 				//======================================================================날짜계산
-				URL url = new URL("http://www.kopis.or.kr/openApi/restful/pblprfr?service=8a86476387964df68be9acc29724006f&stdate="+startM+"&eddate="+endM+"&cpage=1&rows=500");
+				URL url = new URL("http://www.kopis.or.kr/openApi/restful/pblprfr?service=8a86476387964df68be9acc29724006f&stdate="+startM+"&eddate="+endM+"&cpage=1&rows=10000");
 				org.json.JSONObject json = XML.toJSONObject(service.getUrl(url.toString()));
 				String it = json.toString();
 				JSONObject rootObj = (JSONObject) parser.parse(it);
@@ -96,7 +96,7 @@ public class PerformanceDAOImpl implements PerformanceDAO {
 																	(String)dbObj.get("prfpdfrom"),(String)dbObj.get("prfpdto"),
 																	(String)dbObj.get("mt10id"),(String)dbObj.get("prfcast"),
 																	(String)dbObj.get("prfcrew"),(String)dbObj.get("prfruntime"),
-																	(String)dbObj.get("prfage"),
+																	dbObj.get("prfage").toString(),
 																	(String)dbObj.get("pcseguidance"),(String)dbObj.get("poster"),
 																	story,(String)dbObj.get("genrenm"),
 																	(String)dbObj.get("prfstate"),(String)dbObj.get("openrun"),
@@ -114,9 +114,9 @@ public class PerformanceDAOImpl implements PerformanceDAO {
 								//System.out.println(sogaelist);
 							}
 						}
-						//System.out.println(prfinfo);
+						System.out.println(prfinfo);
 					}catch(DuplicateKeyException e){
-						//System.out.println("이미 DB에 저장된 정보입니다.");
+						System.out.println("이미 DB에 저장된 정보입니다.");
 					}
 				}
 			//}

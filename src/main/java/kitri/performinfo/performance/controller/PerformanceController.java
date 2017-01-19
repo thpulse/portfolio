@@ -5,8 +5,11 @@ import java.util.List;
 import kitri.performinfo.performance.dto.PerformanceDTO;
 import kitri.performinfo.performance.dto.PerformanceSogaeimgDTO;
 import kitri.performinfo.performance.service.PerformanceService;
+import oracle.jdbc.proxy.annotation.Post;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,7 +37,7 @@ public class PerformanceController {
 	}
 	
 	@RequestMapping("/perform/prfinfo/select.do")
-	public ModelAndView Total_Performance(PerformanceDTO prf){
+	public ModelAndView Total_Performance(PerformanceDTO prf, Pageable pageable){
 		List<PerformanceDTO> prflist = service.Total_Performance(prf);
 		return new ModelAndView("perform_prf","prflist",prflist);
 	}
