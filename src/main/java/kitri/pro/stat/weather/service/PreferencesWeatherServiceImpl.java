@@ -19,8 +19,9 @@ public class PreferencesWeatherServiceImpl implements PreferencesWeatherService 
 	PreferencesWeatherDAO dao;
 
 	@Override
-	public List<PerformanceDTO> PerformanceList() {
-		return dao.PerformanceList();
+	public int insertStat() {
+		return dao.insertStat();
+		
 	}
 
 

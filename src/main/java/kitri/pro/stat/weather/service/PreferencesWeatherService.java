@@ -7,5 +7,5 @@ import kitri.pro.area.dto.AreaVO;
 import kitri.pro.weather.dto.WeatherVO;
 
 public interface PreferencesWeatherService {
-	List<PerformanceDTO> PerformanceList();
+	int insertStat();
 }
