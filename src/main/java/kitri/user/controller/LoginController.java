@@ -19,10 +19,15 @@ public class LoginController {
 	
 	@Autowired
 	UserService service;
+	@RequestMapping(value ="/userlogin", method = RequestMethod.GET)
+	   public String login(){
+	      System.out.println("+++login 화면요청+++");
+	      System.out.println("컨트롤러여기까지?");
+	      return "userlogin";
+	  }
 	
-	@RequestMapping(value="/login.do", method=RequestMethod.POST)
+	/*@RequestMapping(value="/login.do", method=RequestMethod.POST)
 	public ModelAndView runLogin(HttpServletRequest req, loginVO loginUser){
-		System.out.println("컨"+loginUser);
 		loginVO checkUser = service.login(loginUser.getUser_id(),
 													loginUser.getUser_pass());
 		String url ="";
@@ -34,7 +39,7 @@ public class LoginController {
 			url="/insert.do";
 		}
 		return new ModelAndView("redirect:"+url);
-	}
+	}*/
 	
 	@RequestMapping(value="/logout.do",method=RequestMethod.GET)
 	public ModelAndView runLogout(HttpServletRequest req){

@@ -23,7 +23,7 @@ public class DeleteController {
 	public ModelAndView delete(String id){
 		ModelAndView mav = new ModelAndView();
 		List<UserVO> boardlist = service.delete(id);
-		return new ModelAndView("list_member");
+		return new ModelAndView("redirect:/list.do");
 	}
 	
 

@@ -87,6 +87,10 @@
 	<definition name="list_member" extends="mainTemplate">
 		<put-attribute name="content" value="/WEB-INF/user/include/userlist.jsp"/>	
 	</definition>
+	
+	<definition name="userlogin" extends="mainTemplate">
+		<!-- <put-attribute name="content" value="/WEB-INF/user/include/loginPage.jsp"/> -->
+	</definition>
 
 	<!-- 수정 -->
 	<!-- 관리자페이지 메인 -->
