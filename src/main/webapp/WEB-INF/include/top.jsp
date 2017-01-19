@@ -59,11 +59,12 @@
                </li>
                </se:authorize>
               
-               <se:authorize access="isAnonymous()">
+               <se:authorize access="isAuthenticated()">
                <li>
                    <a href="/project_final/perform/prfinfo/select.do"><i class="fa fa-camera"></i><br>Perform_Info</a>
                 </li>
                </se:authorize>
+               
                <li>
                    <a href="/project_final/reservation/main.do"><i class="fa fa-comments"></i><br>Reservation</a>
                 </li>
