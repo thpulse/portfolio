@@ -31,8 +31,7 @@ public class WeatherLogicImpl2 implements WeatherLogic2 {
 	public void weatherInsert(List<AreaVO> arealist, String s_year,
 			String s_month,String s_date, String e_year, String e_month, String e_date) {
 		int size = arealist.size();
-		int[] months = new int[] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30,
-				31 };
+		int[] months = new int[] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 		String days;
 		String max_temp;
 		String min_temp;
