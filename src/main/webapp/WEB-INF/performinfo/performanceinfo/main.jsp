@@ -11,21 +11,19 @@
 
 	<!-- Portfolio -->
 	<div class="portfolio-container">
-		<div class="container">
+		<div class="container-fluid">
 			
 			<!-- 장르선택 -->
-			<div class="row">
-				<div class="col-sm-10 portfolio-filters wow fadeInLeft">
-					<a href="/project_final/perform/prfinfo/select.do">All</a> / 
-					<a href='/project_final/perform/prfinfo/select.do?genre=<%=URLEncoder.encode("연극","euc-kr") %>'>연극</a> / 
-					<a href='/project_final/perform/prfinfo/select.do?genre=<%=URLEncoder.encode("뮤지컬","euc-kr") %>'>뮤지컬</a> /
-					<a href='/project_final/perform/prfinfo/select.do?genre=<%=URLEncoder.encode("클래식","euc-kr") %>'>클래식</a> /
-					<a href='/project_final/perform/prfinfo/select.do?genre=<%=URLEncoder.encode("오페라","euc-kr") %>'>오페라</a> /
-					<a href='/project_final/perform/prfinfo/select.do?genre=<%=URLEncoder.encode("무용","euc-kr") %>'>무용</a> /
-					<a href='/project_final/perform/prfinfo/select.do?genre=<%=URLEncoder.encode("발레","euc-kr") %>'>발레</a> /
-					<a href='/project_final/perform/prfinfo/select.do?genre=<%=URLEncoder.encode("국악","euc-kr") %>'>국악</a> /
-					<a href='/project_final/perform/prfinfo/select.do?genre=<%=URLEncoder.encode("복합","euc-kr") %>'>복합</a>
-				</div>
+			<div class="col-sm-10 portfolio-filters wow fadeInLeft" style="padding:0px;">
+				<a href="/project_final/perform/prfinfo/select.do">All</a> / 
+				<a href='/project_final/perform/prfinfo/select.do?genre=<%=URLEncoder.encode("연극","euc-kr") %>'>연극</a> / 
+				<a href='/project_final/perform/prfinfo/select.do?genre=<%=URLEncoder.encode("뮤지컬","euc-kr") %>'>뮤지컬</a> /
+				<a href='/project_final/perform/prfinfo/select.do?genre=<%=URLEncoder.encode("클래식","euc-kr") %>'>클래식</a> /
+				<a href='/project_final/perform/prfinfo/select.do?genre=<%=URLEncoder.encode("오페라","euc-kr") %>'>오페라</a> /
+				<a href='/project_final/perform/prfinfo/select.do?genre=<%=URLEncoder.encode("무용","euc-kr") %>'>무용</a> /
+				<a href='/project_final/perform/prfinfo/select.do?genre=<%=URLEncoder.encode("발레","euc-kr") %>'>발레</a> /
+				<a href='/project_final/perform/prfinfo/select.do?genre=<%=URLEncoder.encode("국악","euc-kr") %>'>국악</a> /
+				<a href='/project_final/perform/prfinfo/select.do?genre=<%=URLEncoder.encode("복합","euc-kr") %>'>복합</a>
 			</div><!-- #장르선택 -->
 			
 			<!-- 공연정보 -->

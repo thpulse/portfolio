@@ -9,14 +9,12 @@
 </head>
 <body>
 <div class="portfolio-container">
-	<div class="container">
+	<div class="container-fluid">
 		
 		<!-- 상세정보 top -->
-		<div class="row">
-			<div class="col-sm-12 portfolio-filters wow fadeInLeft">
-				<a href="/project_final/perform/prfplc/index.do">공연장보기</a> /
-				<a>${plc.plcnm}</a>
-			</div>
+		<div class="col-sm-12 portfolio-filters wow fadeInLeft" style="padding:0px;">
+			<a href="/project_final/perform/prfplc/index.do">공연장보기</a> /
+			<a>${plc.plcnm}</a>
 		</div>
 		
 		<br/>
@@ -28,25 +26,25 @@
 			<table class="table">
 				<!-- thead -->
 				<tr>
-					<td style="width:300px; color:white; background-color: black;">공연시설(공연장)명</td>
+					<td style="width:300px; color:white; background-color: #aaaaaa;">공연시설(공연장)명</td>
 					<td style="width:700px">${plc.plcnm}</td>
-					<td style="width:300px; color:white; background-color: black;">시설특성</td>
+					<td style="width:300px; color:white; background-color: #aaaaaa;">시설특성</td>
 					<td style="width:700px">${plc.plcchar}</td>
 				</tr>
 				<tr>
-					<td style="width:300px; color:white; background-color: black;">공연장수</td>
+					<td style="width:300px; color:white; background-color: #aaaaaa;">공연장수</td>
 					<td style="width:700px">${plc.plcnum}</td>
-					<td style="width:300px; color:white; background-color: black;">객석수</td>
+					<td style="width:300px; color:white; background-color: #aaaaaa;">객석수</td>
 					<td style="width:700px">${plc.seatscale}</td>
 				</tr>
 				<tr>
-					<td style="width:300px; color:white; background-color: black;">전화번호</td>
+					<td style="width:300px; color:white; background-color: #aaaaaa;">전화번호</td>
 					<td style="width:700px">${plc.tel}</td>
-					<td style="width:300px; color:white; background-color: black;">홈페이지</td>
+					<td style="width:300px; color:white; background-color: #aaaaaa;">홈페이지</td>
 					<td style="width:700px">${plc.relateurl}</td>
 				</tr>
 				<tr>
-					<td style="width:300px; color:white; background-color: black;">주소</td>
+					<td style="width:300px; color:white; background-color: #aaaaaa;">주소</td>
 					<td style="width:700px">${plc.address}</td>
 				</tr>
 			</table>		

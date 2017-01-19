@@ -9,8 +9,22 @@ public class DateTest {
 		SimpleDateFormat form = new SimpleDateFormat("yyyyMMdd"); //날짜포멧
 		Calendar cal = Calendar.getInstance();
 		System.out.println(form.format(cal.getTime())); //오늘
-		cal.add(cal.MONTH, 1); //1달뒤로 설정
+		cal.add(cal.DATE, +30);
 		System.out.println(form.format(cal.getTime())); //1달뒤
+		
+/*		for(int y=0; y<5; y++){
+			int stmon = -60+y*12;
+			SimpleDateFormat form = new SimpleDateFormat("yyyyMMdd"); //날짜포멧
+			Calendar cal = Calendar.getInstance();
+			cal.add(cal.MONTH, stmon);
+			cal.add(cal.DATE, -17);
+			String startM = form.format(cal.getTime()); //오늘
+			System.out.println(startM);
+			cal.add(cal.MONTH, +12); //1달뒤로 설정
+			cal.add(cal.DATE, -1);
+			String endM = form.format(cal.getTime()); //1달뒤
+			System.out.println(endM);
+		}*/
 	}
 
 }

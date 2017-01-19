@@ -49,40 +49,12 @@
    <!-- Top menu -->
    <nav class="navbar" role="navigation">
       <div class="container">
-         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
-               <span class="sr-only">Toggle navigation</span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-            </button>
-
-            </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="top-navbar-1">
                <ul class="nav navbar-nav navbar-right">
-                  <!-- ingyu search start 170117 -->
+               
                   <li>
-                     <div class="d1">
-                          <form method='POST' action="/project_final/search/searchResult.do">
-                        <select name="tag">
-                           <option value="prfnm">Perform</option>
-                           <option value="plcnm">ConcertHall</option>
-                        </select>
-                             <input type="text" name="Sword" placeholder="fill it">
-                                <button type="submit"></button>
-                          </form>
-                     </div>
-                  </li>
-                  <!-- ingyu search end 170117-->
-
-                  <li class="dropdown active">
-                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">
-                        <i class="fa fa-home"></i><br>Home <span class="caret"></span>
-                     </a>
-                     <ul class="dropdown-menu dropdown-menu-left" role="menu">
-                        <li class="active"><a href="/project_final/index.do">Home</a></li>            
-                     </ul>
+                     <a href="/project_final/index.do"><i class="fa fa-home"></i><br>Home</a>
                   </li>
                   <li>
                      <a href="/project_final/perform/prfinfo/select.do"><i class="fa fa-camera"></i><br>Perform_Info</a>
@@ -147,5 +119,25 @@
             </ul>
          </div>
          </div>
+      </nav>
+      <nav class="navbar" role="navigation">
+      	<div class="container">
+	      	<ul class="nav navbar-nav navbar-right">
+      			<!-- ingyu search start 170117 -->
+                  <li>
+                     <div class="d1">
+                          <form method='POST' action="/project_final/search/searchResult.do">
+                        <select name="tag">
+                           <option value="prfnm">Perform</option>
+                           <option value="plcnm">ConcertHall</option>
+                        </select>
+                             <input type="text" name="Sword" placeholder="fill it">
+                                <button type="submit"></button>
+                          </form>
+                     </div>
+                  </li>
+                  <!-- ingyu search end 170117-->
+			</ul>
+		</div>
       </nav>
    </body>
