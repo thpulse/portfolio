@@ -38,7 +38,7 @@ public class PrfplaceController {
 	@RequestMapping("/perform/prfplc/read.do")
 	public ModelAndView PrfPlace_Info(PrfplaceDTO plc){
 		PrfplaceDTO plcinfo = service.PrfPlace_Info(plc);
-		System.out.println(plcinfo);
+		//System.out.println(plcinfo);
 		return new ModelAndView("perform_place_info","plc",plcinfo);
 	}
 }
