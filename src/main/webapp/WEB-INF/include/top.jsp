@@ -53,11 +53,9 @@
             <div class="collapse navbar-collapse" id="top-navbar-1">
                <ul class="nav navbar-nav navbar-right">
 
-			   <se:authorize access="isAnonymous()">
                <li>
                   <a href="/project_final/index.do"><i class="fa fa-home"></i><br>Home</a>
                </li>
-               </se:authorize>
               
                <se:authorize access="isAuthenticated()">
                <li>
