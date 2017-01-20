@@ -60,23 +60,26 @@
 					</div>
 					
 					<div class="form-group">
-						<label class="control-label col-sm-2" for="orggrade">별 점</label>
-							<p class="revgrade">
-							    <a class="on" href="#">★</a>					
-							    <a class="on" href="#">★</a>						
-							    <a class="on" href="#">★</a>						
-							    <a class="on" href="#">★</a>				 
-							    <a class="on" href="#">★</a>				
-							</p>
-							<script type="text/javascript">
-								$(document).ready(function(){
-									$(".revgrade a").on("click",function() {
-										$(this).parent().children("a").removeClass("on");
-									    $(this).addClass("on").prevAll("a").addClass("on");
-									    return false;
-									})
-								});
-							</script>
+						<label class="control-label col-sm-2" for="orggrade">별 점</label>	
+							<input type="hidden" id ="revgrade" name ="revgrade" value="5"/>	
+								<p class="revgrade">
+								    <a class="on" href="#" name="1" value="1">★</a>					
+								    <a class="on" href="#" name="2" value="2">★</a>						
+								    <a class="on" href="#" name="3" value="3">★</a>						
+								    <a class="on" href="#" name="4" value="4">★</a>				 
+								    <a class="on" href="#" name="5" value="5">★</a>				
+								</p>
+								<script type="text/javascript">
+									$(document).ready(function(){
+										$(".revgrade a").on("click",function(){
+											var a = $(this).attr("name");
+											$("#revgrade").val(a);
+											$(this).parent().children("a").removeClass("on");											
+										    $(this).addClass("on").prevAll("a").addClass("on");
+										    return false;
+										})
+									});
+								</script>
 					</div>
 					
 					<div class="form-group">
