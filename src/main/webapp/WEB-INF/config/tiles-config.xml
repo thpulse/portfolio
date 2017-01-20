@@ -78,7 +78,18 @@
 	<definition name="search_mongo" template="/WEB-INF/views_taehyung/mongo_search.jsp"/>
 	
 	<!-- review 01.09 By.KangJeongA -->
-	<definition name="review/Reviewinsert" template="/WEB-INF/review/Reviewinsert.jsp"/>
+	<definition name="review_insert" extends="mainTemplate">
+		<put-attribute name="content" 	value="/WEB-INF/review/include/Reviewinsert.jsp"/>		
+	</definition>
+	<definition name="review_list" extends="mainTemplate">
+		<put-attribute name="content" 	value="/WEB-INF/review/include/Reviewlist.jsp"/>		
+	</definition>
+	<definition name="review_read" extends="mainTemplate">
+		<put-attribute name="content" 	value="/WEB-INF/review/include/Reviewread.jsp"/>		
+	</definition>
+	<definition name="review_update" extends="mainTemplate">
+		<put-attribute name="content" 	value="/WEB-INF/review/include/Reviewupdate.jsp"/>		
+	</definition>
   
   	<!-- 승현 -->
 	<definition name="register_member" extends="mainTemplate">
