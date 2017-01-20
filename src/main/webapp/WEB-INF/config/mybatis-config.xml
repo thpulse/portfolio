@@ -16,6 +16,7 @@
 		<typeAlias type="kitri.reservation.vo.reservationVO" alias="reservation"/>
 		<typeAlias type="kitri.user.vo.UserVO" alias="user"/>
 		<typeAlias type="kitri.user.vo.loginVO" alias="login"/>
+		<typeAlias type="kitri.review.VO.ReviewVO" alias ="review"/>
 	</typeAliases>
  
 	<mappers>		
@@ -29,5 +30,6 @@
 		<mapper resource="mapper/prfplaceinfo.xml"/>
 		<mapper resource="mapper/reservation.xml"/>
 		<mapper resource="mapper/user.xml"/>
+		<mapper resource="mapper/review.xml"/>
 	</mappers>
 </configuration>
