@@ -8,14 +8,18 @@
 <script type="text/javascript" 
 	src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
 <style type="text/css">
-	.revgrade {font-size:0; letter-spacing:-4px;}
+	.revgrade {font-size:0; letter-spacing:-4px; }
 	.revgrade a {
 	    font-size:22px;
 	    letter-spacing:0;
 	    display:inline-block;
-	    margin-left:5px;
+	    margin-left:0px;
 	    color:#ccc;
 	    text-decoration:none;
+	    text-align:-10px;
+	   
+	     
+	    
 	}
 	.revgrade a:first-child {margin-left:0;}
 	.revgrade a.on {color:#777;}
@@ -31,31 +35,23 @@
 						<label class="control-label col-sm-2" for="orgid">공연제목</label>
 						<div class="col-sm-3">
 							<input type="text" id="prf_id" name="prf_id"
-								value="도깨비" class="form-control" required>
+								value="" class="form-control" required>
 						</div>
 					</div>
-					
-					<!-- <div class="form-group">
-						<label class="control-label col-sm-2" for="orgno">등록번호</label>
-						<div class="col-sm-3">
-							<input type="number" id="orgno" name="revno" class="form-control" value="1">
-						</div>
-					</div> -->
 					
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="orgid">아이디</label>
 						<div class="col-sm-3">
 							<input type="text" id="mem_id" name="mem_id"
-								value="공유도깨비" class="form-control" required>
+								value="" class="form-control" required>
 						</div>
 					</div>
 					
-					<div class="form-group">
-						<!-- 내용 -->
+					<div class="form-group">						
 						<label class="control-label col-sm-4" for="orgtext">내용</label>
 						<div class="col-sm-3">
 						<input type="text" rows="1" cols="140" id="revcomment" name="revcomment" 
-							value="공유도깨비 도깨비신부랑 오래사세요" class="form-control">
+							value="" class="form-control">
 						</div>
 					</div>
 					
@@ -90,16 +86,7 @@
 						</div>
 					</div>
 					
-					<!-- <div class="form-group">
-						<label class="control-label col-sm-2" for="orgdate"></label>
-						<div class="col-sm-3"> 
-							<input type="text" id="orgdate" name="revdate"
-								value="" class="form-control" required>
-						</div>
-					</div> -->
-					
 					<div class="form-group">
-						<!-- Button -->
 						<div class="col-sm-3 col-sm-offset-2">
 							<input type="submit" value="등록하기" class="btn btn-success"/>
 						</div>
