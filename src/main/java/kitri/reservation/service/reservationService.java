@@ -25,5 +25,7 @@ public interface reservationService {
 	List<String> reservation_chk_byTime_detail(reservationVO vo);
 	
 	//공연예약 몇석인지
-	int preChk_byTime_detail(reservationVO vo);
+	List<String> preChk_byTime_detail(reservationVO vo);
+	//공연좌석 테이블뷰에서 체크, id와
+	List<String> reservation_chk_byDayTime(reservationVO vo);
 }

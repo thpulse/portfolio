@@ -57,8 +57,13 @@ public class reservationServiceImpl implements reservationService {
 	}
 
 	@Override
-	public int preChk_byTime_detail(reservationVO vo) {
-		return preChk_byTime_detail(vo);
+	public List<String> preChk_byTime_detail(reservationVO vo) {
+		return dao.preChk_byTime_detail(vo);
+	}
+
+	@Override
+	public List<String> reservation_chk_byDayTime(reservationVO vo) {
+		return dao.reservation_chk_byDayTime(vo);
 	}
 	
 	

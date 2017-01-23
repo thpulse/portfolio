@@ -68,9 +68,14 @@ public class reservationDAOImpl implements reservationDAO{
 	}
 
 	@Override
-	public int preChk_byTime_detail(reservationVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public List<String> preChk_byTime_detail(reservationVO vo) {
+		return sqlSession.selectList("kitri.reservation.preChk_byTime_detail",vo);
+		
+	}
+
+	@Override
+	public List<String> reservation_chk_byDayTime(reservationVO vo) {
+		return sqlSession.selectList("kitri.reservation.reservation_chk_byDayTime",vo);
 	}	
 	
 

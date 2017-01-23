@@ -125,7 +125,7 @@
                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
                         Id : <input type="text" name="user_id" class="form__input" placeholder="Username" required><br><br>
-                         Password : <input type="password" name="user_pass" class="form__input" placeholder="Password" required>
+                        Password : <input type="password" name="user_pass" class="form__input" placeholder="Password" required>
                         </div>
 
                           <div class="form__field">
