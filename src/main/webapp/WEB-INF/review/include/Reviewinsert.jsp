@@ -11,15 +11,12 @@
 	.revgrade {font-size:0; letter-spacing:-4px; }
 	.revgrade a {
 	    font-size:22px;
-	    letter-spacing:0;
+	    letter-spacing:0px;
 	    display:inline-block;
 	    margin-left:0px;
 	    color:#ccc;
 	    text-decoration:none;
-	    text-align:-10px;
-	   
-	     
-	    
+	    text-align:left;	
 	}
 	.revgrade a:first-child {margin-left:0;}
 	.revgrade a.on {color:#777;}

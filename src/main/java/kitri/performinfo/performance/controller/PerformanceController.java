@@ -5,6 +5,8 @@ import java.util.List;
 import kitri.performinfo.performance.dto.PerformanceDTO;
 import kitri.performinfo.performance.dto.PerformanceSogaeimgDTO;
 import kitri.performinfo.performance.service.PerformanceService;
+import kitri.review.Service.ReviewService;
+import kitri.review.VO.ReviewVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class PerformanceController {
 	@Autowired
 	PerformanceService service;
+	@Autowired
+	ReviewService service2;
 	
 	@RequestMapping("/perform/admin/index.do")
 	public String Show_AdminView(){
@@ -41,10 +45,12 @@ public class PerformanceController {
 	public ModelAndView Performance_Info(PerformanceDTO prf){
 		PerformanceDTO prfRes = service.Performance_Info(prf);
 		List<PerformanceSogaeimgDTO> imglist = service.PerformanceImg_Info(prf);
+		List<ReviewVO> readall = service2.readall();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("prf",prfRes);
 		mav.addObject("sogaelist",imglist);
-		mav.setViewName("perform_prf_info");
+		mav.addObject("reviewlist", readall);
+		mav.setViewName("perform_prf_info");		
 		return mav;
 	}
 }

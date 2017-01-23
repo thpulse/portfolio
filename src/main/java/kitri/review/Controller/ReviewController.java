@@ -26,21 +26,21 @@ public class ReviewController {
 	public ModelAndView insert(ReviewVO user){
 		System.out.println("확인");
 		service.insert(user);
-		return new ModelAndView("redirect:/review/Reviewlist.do");
+		return new ModelAndView("redirect:/perform/prfinfo/read.do");
 	}
 	
 	@RequestMapping("/review/delete.do")
 	public ModelAndView delete(int revno){
 		service.delete(revno);
 		System.out.println("범인은여기다");
-		return new ModelAndView("redirect:/review/Reviewlist.do");
+		return new ModelAndView("redirect:/perform/prfinfo/read.do");
 	}
 	
 	@RequestMapping("/review/update.do")
 	public ModelAndView update(ReviewVO review){
 		service.update(review);
 		System.out.println("오호라여기야아니야");
-		return new ModelAndView("redirect:/review/Reviewlist.do");
+		return new ModelAndView("redirect:/perform/prfinfo/read.do");
 	}
 	
 	@RequestMapping("/review/read.do")

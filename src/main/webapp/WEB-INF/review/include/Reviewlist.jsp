@@ -11,7 +11,10 @@
    <div class="col-sm-3" style="background-color:yellow;"><p>여백</p></div>
       <div class="col-sm-6" style="background-color:lavender;">
          <form role="form" class="form-horizontal" action="/final_test/review/Reviewlist.do" method="post" name="myform">
-            
+            <ul class="nav navbar-nav navbar-left">
+                           <li><a href="/project_final/review/write.do"
+                              style="text-align:left;">글쓰기</a></li>
+            </ul>
                <table class="table">
                            <thead>
                               <tr>
@@ -61,10 +64,7 @@
                               </c:forEach>
                            </tbody>
                         </table>
-                        <ul class="nav navbar-nav navbar-right">
-                           <li><a href="/project_final/review/write.do"
-                              style="text-align: right;">글쓰기</a></li>
-                        </ul>
+                        
                   </form>   
      		 </div>   
       <div class="col-sm-3" style="background-color:yellow;"><p>여백</p></div>
