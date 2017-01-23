@@ -17,6 +17,7 @@
 		<typeAlias type="kitri.user.vo.UserVO" alias="user"/>
 		<typeAlias type="kitri.user.vo.loginVO" alias="login"/>
 		<typeAlias type="kitri.review.VO.ReviewVO" alias ="review"/>
+		<typeAlias type="kitri.reservation.vo.reservationDetailVO" alias="reservation_detail"/>
 	</typeAliases>
  
 	<mappers>		
