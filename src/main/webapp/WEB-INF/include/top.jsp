@@ -56,11 +56,11 @@
                <li>
                   <a href="/project_final/index.do"><i class="fa fa-home"></i><br>Home</a>
                </li>
-              
+
                <li>
-                   <a href="/project_final/perform/prfinfo/select.do"><i class="fa fa-camera"></i><br>Perform_Info</a>
+                   <a href="/project_final/perform/prfinfo/select2.do/0/all"><i class="fa fa-camera"></i><br>Perform_Info</a>
                 </li>
-               
+
                <li>
                    <a href="/project_final/reservation/main.do"><i class="fa fa-comments"></i><br>Reservation</a>
                 </li>
@@ -71,8 +71,8 @@
 						<i class="fa fa-tasks"></i><br>Pro 2.0 <span class="caret"></span>
 							</a>
 					<ul class="dropdown-menu dropdown-menu-left" role="menu">
-						<li class="active"><a href="/project_final/stat/weather_main.do">³―ΎΎΊ° Ελ°θ</a></li>
-						<li><a href="/project_final/stat/month_main.do">ΏωΊ° Ελ°θ</a></li>
+						<li class="active"><a href="/project_final/stat/weather_main.do">λ‚ μ”¨λ³„ ν†µκ³„</a></li>
+						<li><a href="/project_final/stat/month_main.do">μ›”λ³„ ν†µκ³„</a></li>
 					</ul>
 				</li>
 				</se:authorize>
@@ -95,7 +95,7 @@
                 
                 <se:authorize access="hasRole('ROLE_ADMIN')"> 
 				<li>
-				<a href="/project_final/list.do" onclick="list"><i class="fa fa-user"></i><br>ΘΈΏψ°όΈ®</a>
+				<a href="/project_final/list.do" onclick="list"><i class="fa fa-user"></i><br>νμ›κ΄€λ¦¬</a>
 				</li>
 				</se:authorize> 
 				
@@ -148,14 +148,14 @@
 	      	<ul class="nav navbar-nav navbar-right">
       			<!-- ingyu search start 170117 -->
                   <li>
-                     <div class="d1">
+                     <div>
                           <form method='POST' action="/project_final/search/searchResult.do">
                         <select name="tag">
                            <option value="prfnm">Perform</option>
-                           <option value="plcnm">ConcertHall</option>
+                           <option value="prfcast">cast</option>
                         </select>
-                             <input type="text" name="Sword" placeholder="fill it">
-                                <button type="submit"></button>
+                             <input type="text" class="tb1" name="Sword" placeholder="fill it">
+                                <button type="submit" class="btn btn-link">ν™•μΈ</button>
                           </form>
                      </div>
                   </li>

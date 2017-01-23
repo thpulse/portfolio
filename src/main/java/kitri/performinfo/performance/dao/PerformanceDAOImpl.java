@@ -10,6 +10,7 @@ import java.util.List;
 import kitri.performinfo.boxweekly.dao.getService;
 import kitri.performinfo.performance.dto.PerformanceDTO;
 import kitri.performinfo.performance.dto.PerformanceSogaeimgDTO;
+import kitri.performinfo.prfplace.dto.PrfplaceDTO;
 
 import org.apache.ibatis.session.SqlSession;
 import org.json.XML;
@@ -30,8 +31,8 @@ public class PerformanceDAOImpl implements PerformanceDAO {
 	public void Add_Performance() {
 		List<PerformanceSogaeimgDTO> sogaelist = new ArrayList<PerformanceSogaeimgDTO>();
 		try {
-			//for(int y=0; y<4; y++){ //4년치 데이터 넣을때 필요
-				//int stmon = -36+y*12;
+			//for(int y=0; y<3; y++){ //4년치 데이터 넣을때 필요
+				//int stmon = -24+y*12;
 				JSONParser parser = new JSONParser();
 				getService service = new getService();
 				//공연목록을 조회, 공연상세정보 페이지의 url에 필요한 공연id가져오기 
@@ -47,10 +48,10 @@ public class PerformanceDAOImpl implements PerformanceDAO {
 				String endM = form.format(cal.getTime());
 				System.out.println(endM);*/
 				String startM = form.format(cal.getTime());
-				cal.add(cal.MONTH, 1);
+				cal.add(cal.YEAR, 1);
 				String endM = form.format(cal.getTime());
 				//======================================================================날짜계산
-				URL url = new URL("http://www.kopis.or.kr/openApi/restful/pblprfr?service=8a86476387964df68be9acc29724006f&stdate="+startM+"&eddate="+endM+"&cpage=1&rows=500");
+				URL url = new URL("http://www.kopis.or.kr/openApi/restful/pblprfr?service=8a86476387964df68be9acc29724006f&stdate="+startM+"&eddate="+endM+"&cpage=1&rows=10000");
 				org.json.JSONObject json = XML.toJSONObject(service.getUrl(url.toString()));
 				String it = json.toString();
 				JSONObject rootObj = (JSONObject) parser.parse(it);
@@ -89,14 +90,14 @@ public class PerformanceDAOImpl implements PerformanceDAO {
 					try{
 						String story = (String) dbObj.get("sty");
 						if (story.length() > 200) {
-							story = story.substring(0, 200)+"중략";
+							story = story.substring(0, 200)+"....중략";
 						}
 						
 						PerformanceDTO prfinfo = new PerformanceDTO((String)dbObj.get("mt20id"),(String)dbObj.get("prfnm"),
 																	(String)dbObj.get("prfpdfrom"),(String)dbObj.get("prfpdto"),
 																	(String)dbObj.get("mt10id"),(String)dbObj.get("prfcast"),
 																	(String)dbObj.get("prfcrew"),(String)dbObj.get("prfruntime"),
-																	(String)dbObj.get("prfage"),
+																	dbObj.get("prfage").toString(),
 																	(String)dbObj.get("pcseguidance"),(String)dbObj.get("poster"),
 																	story,(String)dbObj.get("genrenm"),
 																	(String)dbObj.get("prfstate"),(String)dbObj.get("openrun"),
@@ -114,9 +115,9 @@ public class PerformanceDAOImpl implements PerformanceDAO {
 								//System.out.println(sogaelist);
 							}
 						}
-						//System.out.println(prfinfo);
+						System.out.println(prfinfo);
 					}catch(DuplicateKeyException e){
-						//System.out.println("이미 DB에 저장된 정보입니다.");
+						System.out.println("이미 DB에 저장된 정보입니다.");
 					}
 				}
 			//}
@@ -143,6 +144,12 @@ public class PerformanceDAOImpl implements PerformanceDAO {
 	@Override
 	public List<PerformanceSogaeimgDTO> PerformaceImg_Info(PerformanceDTO prf) {
 		return sqlSession.selectList("kitri.performanceinfo.PerformanceImg_Info",prf);
+	}
+	
+	//공연장 상세정보 pg에서 최근공연
+	@Override
+	public List<PerformanceDTO> LatestPerform_Info(PrfplaceDTO plc) {
+		return sqlSession.selectList("kitri.performanceinfo.LatestPerform_Info", plc);
 	}
 
 }

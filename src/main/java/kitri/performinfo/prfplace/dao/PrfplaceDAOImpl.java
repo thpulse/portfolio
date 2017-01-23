@@ -14,6 +14,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Repository;
 
 @Repository("prfplacedao")
@@ -45,7 +46,7 @@ public class PrfplaceDAOImpl implements PrfplaceDAO {
 				URL plcurl = new URL("http://www.kopis.or.kr/openApi/restful/prfplc/"+plcid+"?service=8a86476387964df68be9acc29724006f");
 				org.json.JSONObject plcjson = XML.toJSONObject(service.getUrl(plcurl.toString()));
 				String plcit = plcjson.toString();
-				System.out.println(plcit);
+				//System.out.println(plcit);
 				JSONObject plcrootObj = (JSONObject) parser.parse(plcit);
 				JSONObject plcdbsObj = (JSONObject) plcrootObj.get("dbs");
 				JSONObject plcdbObj = (JSONObject) plcdbsObj.get("db");
@@ -60,8 +61,12 @@ public class PrfplaceDAOImpl implements PrfplaceDAO {
 				String lo = plcdbObj.get("lo").toString();
 				PrfplaceDTO plc = new PrfplaceDTO(plcid,sidonm,gugunnm,plcnm,plcnum,plcchar,
 													seatscale,tel,relateurl,address,la,lo);
-				//System.out.println(plc);
-				sqlSession.insert("kitri.prfplaceinfo.Add_prfplace", plc);
+				try{
+					sqlSession.insert("kitri.prfplaceinfo.Add_prfplace", plc);
+					System.out.println(plc);
+				}catch(DuplicateKeyException e){
+					System.out.println("이미 DB에 저장된 정보입니다.");
+				}
 			}
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
