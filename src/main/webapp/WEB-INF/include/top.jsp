@@ -53,17 +53,12 @@
             <div class="collapse navbar-collapse" id="top-navbar-1">
                <ul class="nav navbar-nav navbar-right">
 
-			   <se:authorize access="isAnonymous()">
                <li>
                   <a href="/project_final/index.do"><i class="fa fa-home"></i><br>Home</a>
                </li>
-               </se:authorize>
-
-               <li>
+				<li>
                    <a href="/project_final/perform/prfinfo/select2.do/0/all"><i class="fa fa-camera"></i><br>Perform_Info</a>
-                </li>
-
-               <li>
+                </li><li>
                    <a href="/project_final/reservation/main.do"><i class="fa fa-comments"></i><br>Reservation</a>
                 </li>
                

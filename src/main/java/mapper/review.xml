@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kitri.review">
+	<insert id="write" parameterType="review">
+		insert into review 
+		values(revno_seq.nextval,#{revgrade},#{revcomment},sysdate,#{mem_id},#{revgb},#{prf_id})
+	</insert>
+	<select id="list" resultType="review">
+		select * from review
+	</select>
+	<delete id="delete" parameterType="review">
+		delete from review where revno= #{revno}
+	</delete>
+	<select id="read" resultType="review" parameterType="review">
+	select * from review where revno = #{revno}
+	</select>
+	<update id="update" parameterType="review">
+		update review set revcomment = #{revcomment}, revgrade = #{revgrade},  
+		revgb = #{revgb}, revdate = #{revdate} where revno = #{revno}
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
