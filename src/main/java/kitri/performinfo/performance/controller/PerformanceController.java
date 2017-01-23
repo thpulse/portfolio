@@ -7,6 +7,7 @@ import kitri.performinfo.performance.dto.PerformanceSogaeimgDTO;
 import kitri.performinfo.performance.service.PerformanceService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,10 +26,11 @@ public class PerformanceController {
 		return "perform_main";
 	}
 	
+	//스케줄러 생성 (매일 낮 12시 15분 공연정보 업데이트. 중복정보는 받아오지 않음)
 	@RequestMapping("/perform/prfinfo/insert.do")
-	public String Add_Performance(){
+	@Scheduled(cron="0 15 12 * * *")
+	public void Add_Performance(){
 		service.Add_Performance();
-		return "admin";
 	}
 	
 	@RequestMapping("/perform/prfinfo/select.do")

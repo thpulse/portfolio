@@ -60,7 +60,7 @@ public class PrfplaceDAOImpl implements PrfplaceDAO {
 				String lo = plcdbObj.get("lo").toString();
 				PrfplaceDTO plc = new PrfplaceDTO(plcid,sidonm,gugunnm,plcnm,plcnum,plcchar,
 													seatscale,tel,relateurl,address,la,lo);
-				System.out.println(plc);
+				//System.out.println(plc);
 				sqlSession.insert("kitri.prfplaceinfo.Add_prfplace", plc);
 			}
 		} catch (MalformedURLException e) {

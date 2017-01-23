@@ -21,5 +21,8 @@ public class WeatherDAOImpl implements WeatherDAO {
 		return sqlSession.selectList("kitri.pro.weather.arealist");
 	}
 
-
+	@Override
+	public WeatherVO last_select() {
+		return sqlSession.selectOne("kitri.pro.weather.lastweather");
+	}
 }

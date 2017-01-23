@@ -7,5 +7,5 @@ import kitri.pro.weather.dto.WeatherVO;
 
 public interface WeatherService {
 	List<AreaVO> areaList();
-
+	WeatherVO last_select();
 }

@@ -36,9 +36,9 @@
     <body>
         
         <!-- Top menu -->
-		
-			<tiles:insertAttribute name="top"/>					
-
+        
+			<tiles:insertAttribute name="top"/>
+			
         <!-- Slider -->
         
             <tiles:insertAttribute name="content"/>

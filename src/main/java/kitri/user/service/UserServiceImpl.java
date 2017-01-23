@@ -19,8 +19,8 @@ public class UserServiceImpl implements UserService {
 	
 	
 	@Override
-	public void insert(UserVO user) {
-		dao.insert(user);
+	public int insert(UserVO user) {
+		return dao.insert(user);
 	}
 
 	@Override
@@ -32,5 +32,15 @@ public class UserServiceImpl implements UserService {
 	public List<UserVO> userList() {
 		return dao.userList();
 	}
+
+	@Override
+	public List<UserVO> delete(String user_id) {
+		System.out.println("µé¾î¿È?"+user_id);
+		return dao.delete(user_id);
+	}
+
+	
+
+	
 
 }

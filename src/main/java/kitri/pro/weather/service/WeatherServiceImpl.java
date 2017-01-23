@@ -21,5 +21,10 @@ public class WeatherServiceImpl implements WeatherService {
 		return dao.areaList();
 	}
 
+	@Override
+	public WeatherVO last_select() {
+		return dao.last_select();
+	}
+
 
 }

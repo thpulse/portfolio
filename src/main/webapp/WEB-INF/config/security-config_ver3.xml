@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+	<!-- <security:http pattern="/**/*.js" security="none"/>
+	<security:http pattern="/**/*.jpeg" security="none"/>
+	<security:http pattern="/**/*.gif" security="none"/>
+	<security:http pattern="/**/*.css" security="none"/>
+	<security:http pattern="/**/*.png" security="none"/>
+	<security:http pattern="/**/*.jpg" security="none"/>  -->
+	
+	<security:http auto-config="true" use-expressions="true">
+	
+		<security:intercept-url pattern="/assets/**" access="permitAll"/>
+		<security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
+		<security:intercept-url pattern="/userlogin" access="permitAll"/>
+		<security:intercept-url pattern="/index.do" access="permitAll"/>
+		<security:intercept-url pattern="/insert.do" access="permitAll"/>
+
+		<security:intercept-url pattern="/**" access="permitAll"
+		 										requires-channel="https"/>
+		
+		<security:form-login
+			username-parameter="user_id"
+			password-parameter="user_pass"
+			login-page= "/userlogin"
+			default-target-url="/index.do"
+			authentication-failure-url="/userlogin?fail=true"
+		/>
+		<security:logout delete-cookies="true"
+			logout-success-url="/userlogin"
+			logout-url="/logout.do"
+			invalidate-session="true"
+		
+		/>
+		<security:port-mappings>
+			<security:port-mapping http="8088" https="8443"/>
+		</security:port-mappings>
+		<!-- 세션 컨트롤 (중복로그인안되게하는것) expired-url==>처음접속한 사람이 끊긴다.-->
+		<security:session-management invalid-session-url="/userlogin">
+			<security:concurrency-control max-sessions="1"
+				expired-url="/userlogin" error-if-maximum-exceeded="true"/>		
+		</security:session-management>
+		
+	</security:http>
+
+	<security:authentication-manager>
+		<security:authentication-provider ref="customProvider">
+		</security:authentication-provider>
+	</security:authentication-manager>
+	
+	<bean id="customProvider" 
+		class="kitri.user.controller.CustomAuthenticationProvider">
+		<constructor-arg ref="loginService"/>
+		<constructor-arg ref="passwordEncoder"/>
+	</bean>
+	
+	<bean id="loginService" 
+				class="kitri.user.controller.SecurityLoginService"/>
+				
+	<bean id="passwordEncoder"
+		class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
+		<constructor-arg name="strength" value="256"/>
+	</bean>
+	
+	<import resource="spring-config.xml"/>
+	
+</beans>

@@ -9,25 +9,23 @@
 </head>
 <body>
 <div class="portfolio-container">
-	<div class="container">
+	<div class="container-fluid">
 		
 		<!-- 상세정보 top -->
-		<div class="row">
-			<div class="col-sm-12 portfolio-filters wow fadeInLeft">
-				<a href="/project_final/perform/prfinfo/select.do">공연보기</a> /
-				<a>${prf.prfnm}</a>
-			</div>
+		<div class="col-sm-12 portfolio-filters wow fadeInLeft" style="padding:0px;">
+			<a href="/project_final/perform/prfinfo/select.do">공연보기</a> /
+			<a>${prf.prfnm}</a>
 		</div>
 		
 		<br/>
 		<br/>
 		<br/>
 		<!-- 상세정보 포스터 -->
-		<div class="col-sm-6">
+		<div class="col-sm-5">
 			<img style="height: 400px" src="${prf.poster}">
 		</div>		
 		<!-- 상세정보 -->
-		<div class="col-sm-4" style="background-color: #f4f4f4;">
+		<div class="col-sm-5" style="background-color: #f4f4f4;">
 			<ul class="list-group" style="background-color: #f4f4f4;">
 				<li class="list-group-item" style="background-color: #f4f4f4;"><h4 style="padding:0px; margin:10px">${prf.prfnm}</h4></li>
 				<li class="list-group-item" style="background-color: #f4f4f4;">공연기간: ${prf.prfpdfrom}~${prf.prfpdto}</li>
