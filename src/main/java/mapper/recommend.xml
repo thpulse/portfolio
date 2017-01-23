@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kitri.recommend">
+	<select id="reserv_cnt" parameterType="reservation" resultType="int">
+		select count(d.reserv_num) from reservation_detail d, reservation r where d.reserv_num = r.reserv_num and d.reserv_num=#{reserv_num} and r.del_flg='1'
+	</select>
+		
+	<insert id="insert_reservation" parameterType="reservation">
+		insert into reservation values (#{reserv_num},#{reserv_date},#{user_id},#{prf_id},#{prf_day},#{prf_day_yo},#{prf_starttime},#{del_flg})		
+	</insert>
+	
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+

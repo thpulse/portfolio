@@ -48,6 +48,10 @@
 	<definition name="reservation_seat" extends="reservationTemplate">
 		<put-attribute name="content" 	value="/WEB-INF/reservation/include/seat.jsp"/>
 	</definition>
+	<!-- 추천 테스트페이지 -->
+	<definition name="recommend_test" extends="mainTemplate">
+		<put-attribute name="content" 	value="/WEB-INF/recommend/include/recommend_list.jsp"/>
+	</definition>
 	
 	<!-- 지훈 adminTemplate-->
 	<definition name="adminTemplate" template="/WEB-INF/layout/adminLayout.jsp">

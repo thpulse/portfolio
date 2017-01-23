@@ -32,5 +32,6 @@
 		<mapper resource="mapper/reservation.xml"/>
 		<mapper resource="mapper/user.xml"/>
 		<mapper resource="mapper/review.xml"/>
+		<mapper resource="mapper/recommend.xml"/>
 	</mappers>
 </configuration>
