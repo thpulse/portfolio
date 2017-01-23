@@ -35,4 +35,13 @@
 	<select id="Identify_id" resultType="Int" parameterType="String">
 		select prfid from performance_sogaeimg where prfid=#{prfid}
 	</select>
+	<select id="LatestPerform_Info" resultType="perform" parameterType="place">
+		<![CDATA[
+		select * from performance
+		where to_date(prfpdto) between sysdate and sysdate+30
+			and plcid=#{plcid}
+			and rownum<=8
+			order by prfpdto asc
+		]]>
+	</select>
 </mapper>

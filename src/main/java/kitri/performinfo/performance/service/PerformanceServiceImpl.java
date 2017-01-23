@@ -5,6 +5,7 @@ import java.util.List;
 import kitri.performinfo.performance.dao.PerformanceDAO;
 import kitri.performinfo.performance.dto.PerformanceDTO;
 import kitri.performinfo.performance.dto.PerformanceSogaeimgDTO;
+import kitri.performinfo.prfplace.dto.PrfplaceDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,12 @@ public class PerformanceServiceImpl implements PerformanceService {
 	@Override
 	public List<PerformanceSogaeimgDTO> PerformanceImg_Info(PerformanceDTO prf) {
 		return dao.PerformaceImg_Info(prf);
+	}
+
+	//공연장 상세정보 pg에서 최근공연
+	@Override
+	public List<PerformanceDTO> LatestPerform_Info(PrfplaceDTO plc) {
+		return dao.LatestPerform_Info(plc);
 	}
 
 }

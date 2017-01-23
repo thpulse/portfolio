@@ -58,13 +58,11 @@
                   <a href="/project_final/index.do"><i class="fa fa-home"></i><br>Home</a>
                </li>
                </se:authorize>
-              
-               <se:authorize access="isAuthenticated()">
+
                <li>
-                   <a href="/project_final/perform/prfinfo/select.do"><i class="fa fa-camera"></i><br>Perform_Info</a>
+                   <a href="/project_final/perform/prfinfo/select2.do/0/all"><i class="fa fa-camera"></i><br>Perform_Info</a>
                 </li>
-               </se:authorize>
-               
+
                <li>
                    <a href="/project_final/reservation/main.do"><i class="fa fa-comments"></i><br>Reservation</a>
                 </li>
@@ -152,14 +150,14 @@
 	      	<ul class="nav navbar-nav navbar-right">
       			<!-- ingyu search start 170117 -->
                   <li>
-                     <div class="d1">
+                     <div>
                           <form method='POST' action="/project_final/search/searchResult.do">
                         <select name="tag">
                            <option value="prfnm">Perform</option>
-                           <option value="plcnm">ConcertHall</option>
+                           <option value="prfcast">cast</option>
                         </select>
-                             <input type="text" name="Sword" placeholder="fill it">
-                                <button type="submit"></button>
+                             <input type="text" class="tb1" name="Sword" placeholder="fill it">
+                                <button type="submit" class="btn btn-link">»Æ¿Œ</button>
                           </form>
                      </div>
                   </li>
