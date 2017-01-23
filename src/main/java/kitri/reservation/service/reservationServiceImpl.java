@@ -9,6 +9,8 @@ import kitri.performinfo.performance.dao.PerformanceDAO;
 import kitri.performinfo.performance.dto.PerformanceDTO;
 import kitri.performinfo.prfplace.dto.PrfplaceDTO;
 import kitri.reservation.dao.reservationDAO;
+import kitri.reservation.vo.reservationDetailVO;
+import kitri.reservation.vo.reservationVO;
 @Service("reservationservice")
 public class reservationServiceImpl implements reservationService {
 	@Autowired
@@ -33,4 +35,37 @@ public class reservationServiceImpl implements reservationService {
 	public PerformanceDTO perform_detail(String prfid) {
 		return dao.perform_detail(prfid);
 	}
+
+	@Override
+	public int insert_reservation(reservationVO vo) {
+		return dao.insert_reservation(vo);
+	}
+
+	@Override
+	public int insert_reservationDeatil(reservationDetailVO vo) {
+		return dao.insert_reservationDeatil(vo);
+	}
+
+	@Override
+	public List<String> reservation_chk_byTime(reservationVO vo) {
+		return dao.reservation_chk_byTime(vo);
+	}
+
+	@Override
+	public List<String> reservation_chk_byTime_detail(reservationVO vo) {
+		return dao.reservation_chk_byTime_detail(vo);
+	}
+
+	@Override
+	public List<String> preChk_byTime_detail(reservationVO vo) {
+		return dao.preChk_byTime_detail(vo);
+	}
+
+	@Override
+	public List<String> reservation_chk_byDayTime(reservationVO vo) {
+		return dao.reservation_chk_byDayTime(vo);
+	}
+	
+	
+	
 }

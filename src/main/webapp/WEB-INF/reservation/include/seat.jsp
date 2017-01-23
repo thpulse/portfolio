@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
     <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+    <%@ taglib prefix="se" uri="http://www.springframework.org/security/tags"%>
 
 <html>
 <head>
@@ -9,6 +12,28 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
+	var cnt_R = 0;
+	var cnt_S = 0;
+	var cnt_A = 0;
+	var cnt_total = 0;
+	//좌석
+	var row = 0;
+	var col = 0;
+	//좌석갯수체크
+	var len_R=0;
+	var len_S=0;
+	var len_A=0;
+	var len_total=0;
+	//chk된 좌석Arr
+	var arrChk= new Array();
+	var arrChk_R= new Array();	
+	var arrChk_S= new Array();	
+	var arrChk_A= new Array();	
+	//결과창 출력
+	var R_list;
+	var S_list;
+	var A_list;
+	
 	$(document).ready(function(){
 		//변수선언
 		var cnt_R = 0;
@@ -110,9 +135,95 @@
 						$(this).attr("checked", false);	
 					} 
 				});					
+			}else if(cnt_S < len_S){
+				$("input[name=S]:checked").each(function(){
+					var uncheckedVal_S = arrChk_S[arrChk_S.length-1];	
+					if($(this).val()==uncheckedVal_S){
+						$(this).attr("checked", false);	
+					} 
+				});		
+				
+			}else if(cnt_A < len_A){
+				$("input[name=A]:checked").each(function(){
+					var uncheckedVal_A = arrChk_A[arrChk_A.length-1];	
+					if($(this).val()==uncheckedVal_A){
+						$(this).attr("checked", false);	
+					} 
+				});	
 			}
 		})
+		
+		//예약된 좌석 선별
+		$.get("/project_final/reservation/seat_chk.do",
+					{ 	
+						"prf_day" : "${reserv_date}",
+						"prf_starttime" : "${reserv_time}",
+						"reserv_time_yo": "${reserv_time_yo}"
+					},
+					booked_chk, "json");
+		//예약된 좌석 disabled처리	
+		function booked_chk(obj){
+			var obj_arr = obj.timeTable;
+			var obj_arr_length = obj.timeTable.length;
+			for(i=0; i < obj_arr_length;i++){
+				var seat_num = obj_arr[i];
+				$(":checkbox").each(function(){
+					if($(this).val()==seat_num){
+						$(this).attr("disabled","disabled");	
+					} 
+				});
+				
+			}
+		}	
+		
 	})
+	//체크되어있는 박스 선별
+	function do_reserv(){
+		var arrChk= new Array();
+		$('input:checkbox[name="R"]').each(function() {
+		     // this.checked = true; //checked 처리
+		      if(this.checked){//checked 처리된 항목의 값
+		    	  arrChk.push($(this).val()); 
+		      }
+		 });
+		$('input:checkbox[name="S"]').each(function() {
+		      //this.checked = true; //checked 처리
+		      if(this.checked){//checked 처리된 항목의 값
+		    	  arrChk.push($(this).val()); 
+		      }
+		 });
+		$('input:checkbox[name="A"]').each(function() {
+		      //this.checked = true; //checked 처리
+		      if(this.checked){//checked 처리된 항목의 값
+		    	  arrChk.push($(this).val()); 
+		      }
+		 });
+		alert(arrChk);
+		var formData ={
+				user_id : "<se:authentication property="principal.username"/>",
+				seat : arrChk.toString(),
+				prfid:	"${prfid_val}",
+				reserv_date : "${reserv_date}",
+				reserv_time : "${reserv_time}",
+				reserv_time_yo : "${reserv_time_yo}"
+				
+		};
+		
+		$.ajax({
+		    url : "/project_final/reservation/booking.do",
+		    type: "POST",
+		    data : formData,
+		    success: function(data, textStatus, jqXHR)
+		    {
+		        //data - response from server
+		    },
+		    error: function (jqXHR, textStatus, errorThrown)
+		    {
+		 
+		    }
+		});
+		
+	}
 
 </script>
 </head>
@@ -120,8 +231,8 @@
 		<div class="container-fluid">
 		  <h1>Hello World!</h1>
 			  <div class="row">	
-			  		<div class="col-sm-3" style="background-color:yellow;"><p>여백</p></div>
-				    	<div class="col-sm-4" style="background-color:lavender;">
+			  		<div class="col-sm-2" style="background-color:yellow;"><p>여백</p></div>
+				    	<div class="col-sm-5" style="background-color:lavender;">
 				    		<p>인원/좌석선택</p>
 				    			
 				    				<p>좌석갯수</p>
@@ -154,7 +265,6 @@
 						    		</select>
 				    						    		
 				    			<br/>				    			
-				    			<p>행,렬로 묶어서 2차원배열을 통해서 좌석계산</p>
 				    			<br/>
 					    		<div class="chkbox">
 					    			  <p>R석</p>
@@ -278,15 +388,57 @@
 								      <input type="checkbox" name="A" id="A_2_10" value="A_2_10">
 								</div>																					    		
 				    	</div>				    	
-				    	<div class="col-sm-2" style="background-color:lavender;">
-				    		<p><img src="http://www.kopis.or.kr/upload/pfmPoster/PF_PF134905_170110_100502.gif"/></p>
-				    		총금액 : <div id="total_cash" >20000원</div>
+				    	<div class="col-sm-3" style="background-color:lavender;">
+				    		<p><img src="${poster}"/></p>
 				    		
-				    		R석 : <div id="seatNum_R"></div>
-				    		S석 : <div id="seatNum_S"></div>
-				    		A석 : <div id="seatNum_A"></div>				    		
-				    	</div>			    	
-			    	<div class="col-sm-3" style="background-color:yellow;"><p>여백</p></div>
+				    		<!-- 총금액 : <div id="total_cash" >20000원</div> -->
+				    		<table class="table">
+				    		<tr>
+				    			<td>공연명</td>
+				    			<td>${prfnm}</td>
+				    		</tr>
+				    		<tr>
+				    			<td>공연장소</td>
+				    			<td>${plcnm}</td>
+				    		</tr>
+				    		<tr>
+				    			<td>예약날짜</td>
+				    			<td>${reserv_date} / ${reserv_time}</td>
+				    		</tr>
+				    		</table>
+				    	<table class="table">
+						 <!-- request 영역의 map으로 forEach문 실행한다. -->
+						 <c:forEach var="list" items="${priceMap}" varStatus="num">
+						 <tr>						
+						<!--map.key는 key값을 출력한다...  --> 
+						 <td id="${list.key}">${list.key}석</td>
+						<!--map.value로 이중 forEach문을 실행한다..  --> 
+						  <c:forEach var="item" items="${list.value}">
+						 <td id="${item}">${item} 원</td>
+						  </c:forEach>
+						 </tr>  
+						 </c:forEach>
+						 </table>
+						 선택한 좌석
+						 <table class="table">
+						 <tr>
+						 	<td>R석</td>
+						 	<td id="seatNum_R"></td>		 	
+						 </tr> 
+						 <tr>
+						 	<td>S석</td>
+						 	<td id="seatNum_S"></td>		 	
+						 </tr> 
+						 <tr>
+						 	<td>A석</td>
+						 	<td id="seatNum_A"></td>		 	
+						 </tr> 
+						 </table>
+						 					
+				    	<button type="button" class="btn btn-success" onclick="javascript:do_reserv()">예약하기</button>					    		
+				    	</div>
+				    	 	    	
+			    	<div class="col-sm-2" style="background-color:yellow;"><p>여백</p></div>
 			  </div>
 		</div>
 </body>
