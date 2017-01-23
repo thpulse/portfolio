@@ -17,6 +17,27 @@
 	<select id="perform_detail" parameterType="String" resultType="perform">
 		select * from performance where prfid = #{prfid}		
 	</select>
+	
+	<insert id="insert_reservation" parameterType="reservation">
+		insert into reservation values (#{reserv_num},#{reserv_date},#{user_id},#{prf_id},#{prf_day},#{prf_day_yo},#{prf_starttime},#{del_flg})		
+	</insert>
+	<insert id="insert_reservation_detail" parameterType="reservation_detail">
+		insert into reservation_detail values (#{reserv_num},#{grade},#{seat},#{price})
+	</insert>
+	
+	<select id="reservation_chk_byTime" parameterType="reservation" resultType="String">
+		select reserv_num from reservation where prf_day=#{prf_day} and prf_starttime=#{prf_starttime} and prf_day_yo = #{prf_day_yo}
+	</select>
+	
+	<select id="reservation_chk_byTime_detail" parameterType="reservation" resultType="String">
+		select seat from reservation_detail where reserv_num=#{reserv_num}
+	</select>
+	
+	<select id="preChk_byTime_detail" parameterType="reservation" resultType="int">
+		select count(seat) from reservation_detail where reserv_num=#{reserv_num}
+	</select>
+	
+	
 </mapper>
 
 
