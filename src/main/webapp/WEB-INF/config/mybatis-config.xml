@@ -3,6 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>		
+		<typeAlias type="kitri.search.vo.SearchResultVO" alias="search2"/>
 		<typeAlias type="kitri.stats.vo.StatsVO" alias="stats"/>
 		<typeAlias type="kitri.mypageRcheck.vo.RcheckVO" alias="Rcheck"/>
 		<typeAlias type="kitri.performinfo.boxweekly.dto.BoxWeeklyDTO" alias="box"/>

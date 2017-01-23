@@ -25,10 +25,15 @@
 	
 	
 	<definition name="mypage" extends="mypageTemplate"/>
-	
+	<definition name="stats/list" extends="mypageTemplate">
+		<put-attribute name="content" value="/WEB-INF/mypage/statsResult.jsp" />
+	</definition>
 	
 	<definition name="mypageRcheck/list" extends="mypageTemplate">
 		<put-attribute name="content" value="/WEB-INF/mypage/mypage_Rcheck.jsp" />
+	</definition>
+	<definition name="twitter/list" extends="mypageTemplate">
+		<put-attribute name="content" value="/WEB-INF/mypage/twitterTest.jsp" />
 	</definition>
 	
 	<!-- JeonInGyu mypageTemplate update Start -->

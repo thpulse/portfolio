@@ -3,48 +3,16 @@
 <%@ page import="kitri.user.vo.*" %>
     <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
    <%@ taglib prefix="se" uri="http://www.springframework.org/security/tags"%>
-<style>  
-   * {box-sizing: border-box;}  
-      body{margin: 0;}  
-      div {padding: 15px 0}
-      form {  
-        position: relative;  
-      }  
-     
-   .d1 input {  
-        width: 33%;  
-        height: 42px;  
-        padding-left: 10px;  
-        border: 2px solid #99004C;  
-        border-radius: 5px;  
-        outline: none;  
-        background: #F9F0DA;  
-        color: #9E9C9C;  
-   }  
-   
-   .d1 button {  
-        position: absolute;   
-        top: 0;  
-        right: 0px;  
-        width: 42px;  
-          height: 42px;  
-        border: none;  
-        background: #99004C;  
-        border-radius: 0 5px 5px 0;  
-        cursor: pointer;  
-   }
-   
-   .d1 button:before {  
-        content: "\f002";  
-        font-family: FontAwesome;  
-        font-size: 16px;  
-          color: #F9F0DA;  
-   }
-</style>  
-        
- 	<%--  <%loginVO user = (loginVO) session.getAttribute("loginUser"); %> --%>
-    <%-- <%UserVO user2 = (UserVO) session.getAttribute("loginUser"); %> --%>
-
+<style type="text/css">
+/* search */
+input[.tb1] {
+    border: 3px solid #761A1A;
+    border-radius: 8px;
+    width: 80px;
+    height: 30px;
+}
+ 
+</style>
 <body>
    <!-- Top menu -->
    <nav class="navbar" role="navigation">
