@@ -32,6 +32,7 @@ import kitri.performinfo.prfplace.dto.PrfplaceDTO;
 import kitri.reservation.service.reservationService;
 import kitri.reservation.vo.reservationDetailVO;
 import kitri.reservation.vo.reservationVO;
+import oracle.net.aso.r;
 
 @Controller
 public class reservationController {
@@ -84,6 +85,7 @@ public class reservationController {
 		SimpleDateFormat  formatter04 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		String todayDate=  formatter04.format(new Date());
 		//id세션에서 끌어와야함
+		System.out.println("id: " + user_id + seat + prfid+reserv_date+reserv_time+reserv_time_yo);
 		if(seat !=null){						
 			reservationVO vo = new reservationVO();
 			reservationDetailVO voDetail = new reservationDetailVO();
@@ -115,8 +117,7 @@ public class reservationController {
 					}else{
 						vo_multiDetail.setPrice(priceMap.get("전"));
 					}				
-					reservService.insert_reservationDeatil(vo_multiDetail);
-					
+					reservService.insert_reservationDeatil(vo_multiDetail);					
 				}
 			}else {
 				//예약번호 만드는 조건 (예약한 날짜_시작시간_자리번호)			
@@ -162,8 +163,6 @@ public class reservationController {
 	@RequestMapping(value = "/reservation/seat_chk.do",method=RequestMethod.GET,
 			produces="application/json;charset=utf-8")
 	public @ResponseBody String seat_chk_ajax(String prf_day, String prf_starttime, String reserv_time_yo){
-		
-		System.out.println(prf_day+"_"+prf_starttime+"_"+reserv_time_yo);
 		reservationVO vo = new reservationVO();
 		vo.setPrf_day(prf_day);
 		vo.setPrf_starttime(prf_starttime);
@@ -177,27 +176,21 @@ public class reservationController {
 			List<String> reservation_list = reservService.reservation_chk_byTime(vo);
 			//예약된 좌석번호 받을 list
 			List<String> time_list = new ArrayList<String>();
-			System.out.println(reservation_list);
 			
 			for(int i=0; i < reservation_list.size();i++){
 				String time_val = reservation_list.get(i);
 				reservationVO unique_num_reserv = new reservationVO();
 				//받은 예약번호 토대로 예약된 좌석리스트 호출
 				unique_num_reserv.setReserv_num(time_val);
-				time_list = reservService.reservation_chk_byTime_detail(unique_num_reserv);
+				time_list = reservService.preChk_byTime_detail(unique_num_reserv);
 				for(int j=0; j< time_list.size();j++){
-					System.out.println(time_list.get(i));
-					timeTable_list.add(time_list.get(i));
+					timeTable_list.add(time_list.get(j));
 				}
 			}
 			chk_json.put("timeTable", timeTable_list);
-		}		
+		}				
 		return chk_json.toJSONString();
 	}
-	
-	
-	
-	
 	@RequestMapping(value="/reservation/find_hall_sido.do",
 					method=RequestMethod.GET,
 					produces="application/json;charset=utf-8")
@@ -305,6 +298,14 @@ public class reservationController {
 			method=RequestMethod.GET,
 			produces="application/json;charset=utf-8")
 	public @ResponseBody String find_prf_detail(@RequestParam String prf_id){
+		/*String date = year_val + month_val + day_val;
+		reservationVO vo = new reservationVO();
+		vo.setPrf_day(date);
+		//2017011로 해당하는 날짜의 reserv_num을 획득
+		List<String> volist  = reservService.reservation_chk_byDayTime(vo);
+		//reserv_num을 통해 reservation_detail에서의 해당 시간의 reservationVO를 저장함
+		//얻은 reserv_num을 꺼내서 조회한다.
+		*/		
 		PerformanceDTO dto = reservService.perform_detail(prf_id);	
 		JSONObject prf_json = new JSONObject();
 		JSONObject timeTable = new JSONObject();
@@ -322,8 +323,7 @@ public class reservationController {
 			timeTable_arr.add(dtolist.get(i));
 		}
 		timeTable.put("timeTable_arr", timeTable_arr);
-		prf_json.put("timeTable", timeTable);
-		
+		prf_json.put("timeTable", timeTable);		
 		return prf_json.toJSONString();
 	}
 	public List<List<String>> filter_timeTable(String pass_str){

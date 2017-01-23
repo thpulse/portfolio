@@ -56,9 +56,10 @@
                <li>
                   <a href="/project_final/index.do"><i class="fa fa-home"></i><br>Home</a>
                </li>
-				<li>
+               <li>
                    <a href="/project_final/perform/prfinfo/select2.do/0/all"><i class="fa fa-camera"></i><br>Perform_Info</a>
-                </li><li>
+                </li>
+                <li>
                    <a href="/project_final/reservation/main.do"><i class="fa fa-comments"></i><br>Reservation</a>
                 </li>
                
@@ -68,8 +69,8 @@
 						<i class="fa fa-tasks"></i><br>Pro 2.0 <span class="caret"></span>
 							</a>
 					<ul class="dropdown-menu dropdown-menu-left" role="menu">
-						<li class="active"><a href="/project_final/stat/weather_main.do">날씨별 통계</a></li>
-						<li><a href="/project_final/stat/month_main.do">월별 통계</a></li>
+						<li class="active"><a href="/project_final/stat/weather_main.do">Weather</a></li>
+						<li><a href="/project_final/stat/month_main.do">Month</a></li>
 					</ul>
 				</li>
 				</se:authorize>
@@ -92,7 +93,7 @@
                 
                 <se:authorize access="hasRole('ROLE_ADMIN')"> 
 				<li>
-				<a href="/project_final/list.do" onclick="list"><i class="fa fa-user"></i><br>회원관리</a>
+				<a href="/project_final/list.do" onclick="list"><i class="fa fa-user"></i><br>Member</a>
 				</li>
 				</se:authorize> 
 				
@@ -122,7 +123,7 @@
                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
                         Id : <input type="text" name="user_id" class="form__input" placeholder="Username" required><br><br>
-                         Password : <input type="password" name="user_pass" class="form__input" placeholder="Password" required>
+                        Password : <input type="password" name="user_pass" class="form__input" placeholder="Password" required>
                         </div>
 
                           <div class="form__field">
@@ -152,7 +153,7 @@
                            <option value="prfcast">cast</option>
                         </select>
                              <input type="text" class="tb1" name="Sword" placeholder="fill it">
-                                <button type="submit" class="btn btn-link">확인</button>
+                                <button type="submit" class="btn btn-link">Search</button>
                           </form>
                      </div>
                   </li>

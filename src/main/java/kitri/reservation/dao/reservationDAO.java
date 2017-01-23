@@ -25,5 +25,6 @@ public interface reservationDAO {
 		List<String> reservation_chk_byTime_detail(reservationVO vo);
 		
 		//
-		int preChk_byTime_detail(reservationVO vo);
+		List<String> preChk_byTime_detail(reservationVO vo);
+		List<String> reservation_chk_byDayTime(reservationVO vo);
 }

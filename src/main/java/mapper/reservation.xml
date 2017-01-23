@@ -26,15 +26,19 @@
 	</insert>
 	
 	<select id="reservation_chk_byTime" parameterType="reservation" resultType="String">
-		select reserv_num from reservation where prf_day=#{prf_day} and prf_starttime=#{prf_starttime} and prf_day_yo = #{prf_day_yo}
+		select reserv_num from reservation where prf_day=#{prf_day} and prf_starttime=#{prf_starttime} and prf_day_yo = #{prf_day_yo} and del_flg ='1'
 	</select>
 	
-	<select id="reservation_chk_byTime_detail" parameterType="reservation" resultType="String">
-		select seat from reservation_detail where reserv_num=#{reserv_num}
+	<select id="reservation_chk_byDayTime" parameterType="reservation" resultType="String">
+		select d.reserv_num from reservation r, reservation_detail d where r.reserv_num = d.reserv_num and r.prf_day=#{prf_day} and r.del_flg ='1'
 	</select>
 	
-	<select id="preChk_byTime_detail" parameterType="reservation" resultType="int">
-		select count(seat) from reservation_detail where reserv_num=#{reserv_num}
+	<select id="reservation_chk_byTime_detail" parameterType="reservation" resultType="reservation">
+		select d.reserv_num from reservation_detail d, reservation r where d.reserv_num = r.reserv_num and d.reserv_num=#{reserv_num} and r.del_flg='1'
+	</select>
+	
+	<select id="preChk_byTime_detail" parameterType="reservation" resultType="String">
+		select d.seat from reservation_detail d, reservation r where d.reserv_num = r.reserv_num and r.reserv_num=#{reserv_num} and r.del_flg='1'
 	</select>
 	
 	

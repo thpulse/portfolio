@@ -3,6 +3,7 @@
     <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+    <%@ taglib prefix="se" uri="http://www.springframework.org/security/tags"%>
 
 <html>
 <head>
@@ -173,9 +174,7 @@
 				});
 				
 			}
-		}
-		
-		
+		}	
 		
 	})
 	//체크되어있는 박스 선별
@@ -201,7 +200,7 @@
 		 });
 		alert(arrChk);
 		var formData ={
-				user_id : "thpulse",
+				user_id : "<se:authentication property="principal.username"/>",
 				seat : arrChk.toString(),
 				prfid:	"${prfid_val}",
 				reserv_date : "${reserv_date}",
@@ -232,8 +231,8 @@
 		<div class="container-fluid">
 		  <h1>Hello World!</h1>
 			  <div class="row">	
-			  		<div class="col-sm-3" style="background-color:yellow;"><p>여백</p></div>
-				    	<div class="col-sm-4" style="background-color:lavender;">
+			  		<div class="col-sm-2" style="background-color:yellow;"><p>여백</p></div>
+				    	<div class="col-sm-5" style="background-color:lavender;">
 				    		<p>인원/좌석선택</p>
 				    			
 				    				<p>좌석갯수</p>
@@ -389,7 +388,7 @@
 								      <input type="checkbox" name="A" id="A_2_10" value="A_2_10">
 								</div>																					    		
 				    	</div>				    	
-				    	<div class="col-sm-2" style="background-color:lavender;">
+				    	<div class="col-sm-3" style="background-color:lavender;">
 				    		<p><img src="${poster}"/></p>
 				    		
 				    		<!-- 총금액 : <div id="total_cash" >20000원</div> -->
@@ -439,7 +438,7 @@
 				    	<button type="button" class="btn btn-success" onclick="javascript:do_reserv()">예약하기</button>					    		
 				    	</div>
 				    	 	    	
-			    	<div class="col-sm-3" style="background-color:yellow;"><p>여백</p></div>
+			    	<div class="col-sm-2" style="background-color:yellow;"><p>여백</p></div>
 			  </div>
 		</div>
 </body>
