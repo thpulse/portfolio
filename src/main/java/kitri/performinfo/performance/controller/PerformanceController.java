@@ -43,9 +43,11 @@ public class PerformanceController {
 	
 	@RequestMapping("/perform/prfinfo/read.do")
 	public ModelAndView Performance_Info(PerformanceDTO prf){
+		System.out.println(prf);
 		PerformanceDTO prfRes = service.Performance_Info(prf);
 		List<PerformanceSogaeimgDTO> imglist = service.PerformanceImg_Info(prf);
-		List<ReviewVO> readall = service2.readall();
+		String pfr_id = prf.getPrfid();
+		List<ReviewVO> readall = service2.readall(pfr_id);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("prf",prfRes);
 		mav.addObject("sogaelist",imglist);

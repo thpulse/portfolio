@@ -55,10 +55,7 @@
 		
 		<!-- 댓글 -->
 		 <table class="table">
-			 <ul class="nav navbar-nav navbar-center">
-			 	<li><a href="/project_final/review/write.do" style="text-align: center;">글쓰기</a></li>
-	         </ul>
-                           <thead>
+		                   <thead>                  
                               <tr>
                                  <th>제목</th>
                                  <th>번호</th>
@@ -69,6 +66,7 @@
 							 </tr>
                            </thead>
                            <tbody>
+                          
                               <c:forEach var="review" items="${reviewlist}">
                                  <tr>
                                     <td>${review.prf_id}</td>
@@ -103,10 +101,15 @@
                              		</c:choose>
                              		<td><a href="/project_final/review/delete.do?revno=${review.revno}">삭제</a></td>
                                  </tr>
+                                 
                               </c:forEach>
+                              
                            </tbody>
+                            
                         </table>
-                        
+                        <ul class="nav navbar-nav navbar-center">
+			 					<li><a href="/project_final/review/write.do?prf_id=${prf.prfid}" style="text-align: center;">글쓰기</a></li>
+	         			   </ul>
 		
 	</div>
 </div>

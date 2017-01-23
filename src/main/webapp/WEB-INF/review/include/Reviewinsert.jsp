@@ -31,22 +31,22 @@
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="orgid">공연제목</label>
 						<div class="col-sm-3">
-							<input type="text" id="prf_id" name="prf_id"
-								value="" class="form-control" required>
+							<input type="hidden" id="prf_id" name="prf_id"
+								value="${prf_id}" class="form-control" required>
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="orgid">아이디</label>
-						<div class="col-sm-3">
+						<div class="col-sm-2">
 							<input type="text" id="mem_id" name="mem_id"
-								value="" class="form-control" required>
+								value="${user_id}" class="form-control" required>
 						</div>
 					</div>
 					
 					<div class="form-group">						
-						<label class="control-label col-sm-4" for="orgtext">내용</label>
-						<div class="col-sm-3">
+						<label class="control-label col-sm-2" for="orgtext">한줄평</label>
+						<div class="col-sm-4">
 						<input type="text" rows="1" cols="140" id="revcomment" name="revcomment" 
 							value="" class="form-control">
 						</div>

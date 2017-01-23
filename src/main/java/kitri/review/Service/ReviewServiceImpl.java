@@ -39,9 +39,9 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 	
 	@Override
-	public List<ReviewVO> readall() {
+	public List<ReviewVO> readall(String pfr_id) {
 		System.out.println("실행해조라");
-		return dao.readall();
+		return dao.readall(pfr_id);
 	}
 	
 	@Override
