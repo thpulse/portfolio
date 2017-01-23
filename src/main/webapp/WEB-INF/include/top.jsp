@@ -71,8 +71,8 @@
 						<i class="fa fa-tasks"></i><br>Pro 2.0 <span class="caret"></span>
 							</a>
 					<ul class="dropdown-menu dropdown-menu-left" role="menu">
-						<li class="active"><a href="/project_final/stat/weather_main.do">ë‚ ì”¨ë³„ í†µê³„</a></li>
-						<li><a href="/project_final/stat/month_main.do">ì›”ë³„ í†µê³„</a></li>
+						<li class="active"><a href="/project_final/stat/weather_main.do">³¯¾¾º°</a></li>
+						<li><a href="/project_final/stat/month_main.do">¿ùº°</a></li>
 					</ul>
 				</li>
 				</se:authorize>
@@ -95,7 +95,7 @@
                 
                 <se:authorize access="hasRole('ROLE_ADMIN')"> 
 				<li>
-				<a href="/project_final/list.do" onclick="list"><i class="fa fa-user"></i><br>íšŒì›ê´€ë¦¬</a>
+				<a href="/project_final/list.do" onclick="list"><i class="fa fa-user"></i><br>È¸¿ø°ü¸®</a>
 				</li>
 				</se:authorize> 
 				
@@ -155,7 +155,7 @@
                            <option value="prfcast">cast</option>
                         </select>
                              <input type="text" class="tb1" name="Sword" placeholder="fill it">
-                                <button type="submit" class="btn btn-link">í™•ì¸</button>
+                                <button type="submit" class="btn btn-link">°Ë»ö</button>
                           </form>
                      </div>
                   </li>

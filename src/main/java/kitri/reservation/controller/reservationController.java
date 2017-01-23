@@ -185,6 +185,7 @@ public class reservationController {
 				time_list = reservService.preChk_byTime_detail(unique_num_reserv);
 				for(int j=0; j< time_list.size();j++){
 					timeTable_list.add(time_list.get(j));
+					
 				}
 			}
 			chk_json.put("timeTable", timeTable_list);
