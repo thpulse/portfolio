@@ -3,7 +3,7 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kitri.perform.stats">
 	<select id="list" resultType="stats" parameterType="stats">
-		SELECT u.user_ssn, u.user_gender, r.prf_reserve_num FROM userinfo u, reservation r WHERE u.user_id = r.mem_id
+		SELECT u.user_ssn, u.user_gender, r.reserv_num FROM userinfo u, reservation r WHERE u.user_id = r.user_id
 	</select>
 </mapper>
 
