@@ -229,7 +229,7 @@
 </head>
 <body>	
 		<div class="container-fluid">
-		  <h1>Hello World!</h1>
+		  <h1>좌석예약페이지!</h1>
 			  <div class="row">	
 			  		<div class="col-sm-2" style="background-color:yellow;"><p>여백</p></div>
 				    	<div class="col-sm-5" style="background-color:lavender;">

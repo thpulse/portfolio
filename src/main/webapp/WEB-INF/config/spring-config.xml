@@ -5,11 +5,14 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:task="http://www.springframework.org/schema/task"
 	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.5.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd">
+
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing 
 		infrastructure -->
@@ -72,13 +75,12 @@
 	</beans:bean>	
 	
 	<!-- ======================어노테이션============================== -->
-  <!-- <context:component-scan base-package="spring"/> -->
+  	<context:component-scan base-package="spring"/>
 	<context:component-scan base-package="kitri" />
 	<!-- =======================스케줄링 어노테이션======================== -->
 <task:annotation-driven/>
 	 
-	<!-- JPA By 수정 -->
-	<!-- ======================JPA설정============================== -->
+		
 	<beans:bean id="transactionManager" 
 					class="org.springframework.orm.jpa.JpaTransactionManager">
 		<beans:property name="entityManagerFactory" ref="entityManagerFactory"/>	
@@ -93,6 +95,17 @@
 		</beans:property>
 	</beans:bean>
 	<jpa:repositories base-package="kitri.performinfo.jpa" 
-			entity-manager-factory-ref="entityManagerFactory"/>
+			entity-manager-factory-ref="entityManagerFactory"/>	 
+		
+	<context:component-scan base-package="kitri.spring.data.mongodb.taehyung_test"/>
+	<mongo:mongo host="127.0.0.1" port="27017">
+	</mongo:mongo>
+	<beans:bean id="mongoTemplate" 
+		class="org.springframework.data.mongodb.core.MongoTemplate">
+		<beans:constructor-arg ref="mongo"/>
+		<beans:constructor-arg name="databaseName" value="recommend"/>
+	</beans:bean>
+	<!--  해당 패키지에서 VO를 따감-->
+	<mongo:repositories base-package="kitri.spring.data.mongodb.taehyung_test"/>	 
 	
 </beans:beans>

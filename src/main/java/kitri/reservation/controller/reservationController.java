@@ -44,6 +44,14 @@ public class reservationController {
 	public String main(){
 		return "reservationMain";
 	}
+	@RequestMapping("/reservation/confirm.do")
+	public ModelAndView confirm(String poster){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("poster", poster);
+		mav.setViewName("reservation_confirm");
+		System.out.println(poster);
+		return mav;
+	}
 	
 	@RequestMapping("/reservation/seat.do")
 	public ModelAndView seat(String time, String day,String year, String month,String day2, String id){

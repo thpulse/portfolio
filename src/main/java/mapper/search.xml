@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!-- JeonInGyu mapper update Start -->
+<!-- JeonInGyu mapper update Start 171020-->
 <mapper namespace="kitri.perform.search">
+	<insert id="write" parameterType="search">
+		insert into search_log values(#{search_word},sysdate)
+	</insert>
+
 	<select id="list" resultType="search" parameterType="map">
 		SELECT * FROM performance
 		<where>
 			<if test="tag=='prfnm' and search!=''">
 				prfnm like '%'||#{search}||'%'
 			</if>
-			<if test="tag=='plcnm' and search!=''">
-				plcnm like '%'||#{search}||'%'
+			<if test="tag=='prfcast' and search!=''">
+				prfcast like '%'||#{search}||'%'
 			</if>
 		</where>
 	</select>
+	<select id="search_result" resultType="search2" parameterType="String">
+		select * from search_result order by to_number(search_count) DESC
+	</select>
+	<!-- JeonInGyu mapper update End 171020-->
 </mapper>
 
 

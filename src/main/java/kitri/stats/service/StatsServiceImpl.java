@@ -15,7 +15,7 @@ public class StatsServiceImpl implements StatsService {
 	
 	@Override
 	public List<StatsVO> stats() {
-		// TODO Auto-generated method stub
+		
 		return dao.stats();
 	}
 

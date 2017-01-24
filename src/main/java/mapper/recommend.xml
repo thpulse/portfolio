@@ -2,14 +2,42 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kitri.recommend">
-	<select id="reserv_cnt" parameterType="reservation" resultType="int">
-		select count(d.reserv_num) from reservation_detail d, reservation r where d.reserv_num = r.reserv_num and d.reserv_num=#{reserv_num} and r.del_flg='1'
+	<select id="reserv_cnt" parameterType="user" resultType="reservation">
+		select reserv_num, user_id, prf_id from reservation where user_id=#{user_id} and del_flg='1'
+	</select>
+	
+	<select id="searchBy_id_reserv" parameterType="reservation" resultType="reservation_detail">
+		select d.reserv_num, r.prf_id from reservation_detail d, reservation r where d.reserv_num = r.reserv_num and r.user_id=#{user_id} and
+																			 r.reserv_num=#{reserv_num} and r.del_flg='1'
 	</select>
 		
-	<insert id="insert_reservation" parameterType="reservation">
-		insert into reservation values (#{reserv_num},#{reserv_date},#{user_id},#{prf_id},#{prf_day},#{prf_day_yo},#{prf_starttime},#{del_flg})		
+	<insert id="insert_recommend_reserv" parameterType="recommendReserve">
+		insert into recommend_byReserv values (#{user_id},#{prf_id},#{count})		
 	</insert>
 	
+	<select id="select_all" resultType="recommendReserve">
+		select * from recommend_byReserv
+	</select>
+	
+	<select id="delete" resultType="recommendReserve">
+		delete recommend_byReserv
+	</select>	
+	
+	<select id="rcmd_result_all" resultType="recommendResult">
+		select * from recommend_data
+	</select>
+	
+	<insert id="rcmd_result_insert">
+		insert into recommend_data values(#{user_id}, #{item_id})
+	</insert>
+	
+	<delete id="rcmd_result_delete">
+		delete recommend_data
+	</delete>
+	
+	<select id="rcmd_findByid" resultType="recommendResult">
+		select * from recommend_data where user_id = #{user_id}
+	</select>
 	
 	
 </mapper>

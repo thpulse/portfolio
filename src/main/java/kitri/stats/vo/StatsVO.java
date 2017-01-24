@@ -45,6 +45,4 @@ public class StatsVO {
 	public void setPrf_reserve_num(String prf_reserve_num) {
 		this.prf_reserve_num = prf_reserve_num;
 	} 
-	
-	
 }

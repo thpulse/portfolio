@@ -20,7 +20,6 @@
 		<security:intercept-url pattern="/userlogin" access="permitAll"/>
 		<security:intercept-url pattern="/index.do" access="permitAll"/>
 		<security:intercept-url pattern="/insert.do" access="permitAll"/>
-
 		<security:intercept-url pattern="/**" access="permitAll"
 		 										requires-channel="https"/>
 		

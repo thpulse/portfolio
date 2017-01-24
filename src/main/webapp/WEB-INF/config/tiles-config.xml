@@ -22,13 +22,17 @@
 		<put-attribute name="content" 	value="/WEB-INF/include/content.jsp"/>
 		<put-attribute name="footer" 	value="/WEB-INF/include/footer.jsp"/>
 	</definition>
-	
-	
+		
 	<definition name="mypage" extends="mypageTemplate"/>
-	
+	<definition name="stats/list" extends="mypageTemplate">
+		<put-attribute name="content" value="/WEB-INF/mypage/statsResult.jsp" />
+	</definition>
 	
 	<definition name="mypageRcheck/list" extends="mypageTemplate">
 		<put-attribute name="content" value="/WEB-INF/mypage/mypage_Rcheck.jsp" />
+	</definition>
+	<definition name="twitter/list" extends="mypageTemplate">
+		<put-attribute name="content" value="/WEB-INF/mypage/twitterTest.jsp" />
 	</definition>
 	
 	<!-- JeonInGyu mypageTemplate update Start -->
@@ -48,8 +52,11 @@
 	<definition name="reservation_seat" extends="reservationTemplate">
 		<put-attribute name="content" 	value="/WEB-INF/reservation/include/seat.jsp"/>
 	</definition>
+	<definition name="reservation_confirm" extends="reservationTemplate">
+		<put-attribute name="content" 	value="/WEB-INF/reservation/include/resultPage.jsp"/>
+	</definition>
 	<!-- 추천 테스트페이지 -->
-	<definition name="recommend_test" extends="mainTemplate">
+	<definition name="recommend_test" extends="mypageTemplate">
 		<put-attribute name="content" 	value="/WEB-INF/recommend/include/recommend_list.jsp"/>
 	</definition>
 	

@@ -3,6 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>		
+		<typeAlias type="kitri.search.vo.SearchResultVO" alias="search2"/>
 		<typeAlias type="kitri.stats.vo.StatsVO" alias="stats"/>
 		<typeAlias type="kitri.mypageRcheck.vo.RcheckVO" alias="Rcheck"/>
 		<typeAlias type="kitri.performinfo.boxweekly.dto.BoxWeeklyDTO" alias="box"/>
@@ -18,6 +19,10 @@
 		<typeAlias type="kitri.user.vo.loginVO" alias="login"/>
 		<typeAlias type="kitri.review.VO.ReviewVO" alias ="review"/>
 		<typeAlias type="kitri.reservation.vo.reservationDetailVO" alias="reservation_detail"/>
+		
+		
+		<typeAlias type="kitri.recommend.controller.recommendReserveVO" alias="recommendReserve"/>
+		<typeAlias type="kitri.recommend.controller.recommendResultVO" alias="recommendResult"/>
 	</typeAliases>
  
 	<mappers>		

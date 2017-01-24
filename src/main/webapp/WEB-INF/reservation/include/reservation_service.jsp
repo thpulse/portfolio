@@ -195,7 +195,39 @@
         
 	        <div class="container">
 	        	
-	        		<div class="col-sm-6">	        			
+	        		<div class="col-sm-6">	 
+		        		<div class = "row">
+			        				<div class="service wow fadeInUp">
+					                <!-- fa fa-eye" -->
+					                    <div class="service-icon"><i class="fa fa-table"></i></div>
+					                    <h3>날짜선택</h3>
+						                 <p>   
+						                 	<select class="selectpicker" id="year_select" data-size="5">
+						                   		<option value="00">년 선택</option>
+						                   		<option value="2017">2017년</option>	
+						                   		<option value="2018">2018년</option>			                    
+						                    </select>
+						                 	<select class="selectpicker" id="month_select" data-size="5" >
+							                    <option value="00">월 선택</option>
+												<option value="01">1월</option>
+												<option value="02">2월</option>
+												<option value="03">3월</option>
+												<option value="04">4월</option>
+												<option value="05">5월</option>
+												<option value="06">6월</option>
+												<option value="07">7월</option>
+												<option value="08">8월</option>
+												<option value="09">9월</option>
+												<option value="10">10월</option>
+												<option value="11">11월</option>
+												<option value="12">12월</option>	
+											</select>	
+						                    <select class="selectpicker" id="day_select" data-size="5">
+						                   		<option value="00">일 선택</option>		                    
+						                    </select>
+						                 </p>
+				               		 </div>
+			        			</div>       			
 	        			<div class = "row">
 		        			<div class="service wow fadeInDown">
 			                    <div class="service-icon"><i class="fa fa-magic"></i></div>
@@ -240,38 +272,7 @@
 	        			
 	        			
 	        		<div class="col-sm-6">
-		        		<div class = "row">
-		        				<div class="service wow fadeInUp">
-				                <!-- fa fa-eye" -->
-				                    <div class="service-icon"><i class="fa fa-table"></i></div>
-				                    <h3>날짜선택</h3>
-					                 <p>   
-					                 	<select class="selectpicker" id="year_select" data-size="5">
-					                   		<option value="00">년 선택</option>
-					                   		<option value="2017">2017년</option>	
-					                   		<option value="2018">2018년</option>			                    
-					                    </select>
-					                 	<select class="selectpicker" id="month_select" data-size="5" >
-						                    <option value="00">월 선택</option>
-											<option value="01">1월</option>
-											<option value="02">2월</option>
-											<option value="03">3월</option>
-											<option value="04">4월</option>
-											<option value="05">5월</option>
-											<option value="06">6월</option>
-											<option value="07">7월</option>
-											<option value="08">8월</option>
-											<option value="09">9월</option>
-											<option value="10">10월</option>
-											<option value="11">11월</option>
-											<option value="12">12월</option>	
-										</select>	
-					                    <select class="selectpicker" id="day_select" data-size="5">
-					                   		<option value="00">일 선택</option>		                    
-					                    </select>
-					                 </p>
-			               		 </div>
-		        			</div>
+		        		
 		        			<div class = "row">
 			        			 <div class="service wow fadeInDown">
 					                    <div class="service-icon"><i class="fa fa-print"></i></div>
