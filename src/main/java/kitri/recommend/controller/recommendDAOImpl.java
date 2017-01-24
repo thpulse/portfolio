@@ -42,17 +42,21 @@ public class recommendDAOImpl {
 	public List<recommendReserveVO> select_all() {
 			return sqlSession.selectList("kitri.recommend.select_all");
 	}
-	//recommend_byReserv 테이블에 저장
+	//예약테이블에 의한 결과 모두 삭제
 	public void delete() {
 			sqlSession.delete("kitri.recommend.delete");
 	}
 	
-	//recommend_byReserv 테이블에 저장
+	
 	public void insertMahout(recommendResultVO vo) {
 			sqlSession.insert("kitri.recommend.rcmd_result_insert", vo);
 	}
 	
 	public void deleteMahout() {
 		sqlSession.delete("kitri.recommend.rcmd_result_delete");
-}
+	}
+	
+	public List<recommendResultVO> selectResultByid(String id){
+		return sqlSession.selectList("kitri.recommend.rcmd_findByid", id);
+	}
 }

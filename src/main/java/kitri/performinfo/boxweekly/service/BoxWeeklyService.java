@@ -7,8 +7,6 @@ import kitri.performinfo.boxweekly.dto.BoxWeeklyDTO;
 
 public interface BoxWeeklyService {
 
-	void Add_BoxWeekly(String genre);
-
-	List<BoxWeeklyDTO> Total_BoxWeekly(BoxWeeklyDTO dto);
+	List<BoxWeeklyDTO> Show_BoxWeekly(String genre);
 
 }

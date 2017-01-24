@@ -6,7 +6,6 @@
 		<typeAlias type="kitri.search.vo.SearchResultVO" alias="search2"/>
 		<typeAlias type="kitri.stats.vo.StatsVO" alias="stats"/>
 		<typeAlias type="kitri.mypageRcheck.vo.RcheckVO" alias="Rcheck"/>
-		<typeAlias type="kitri.performinfo.boxweekly.dto.BoxWeeklyDTO" alias="box"/>
 		<typeAlias type="kitri.pro.area.dto.AreaVO" alias="area"/>
 		<typeAlias type="kitri.pro.weather.dto.WeatherVO" alias="weather"/>
 		<typeAlias type="kitri.pro.stat.weather.dto.StatVO" alias="stat"/>
@@ -29,7 +28,6 @@
 		<mapper resource="mapper/stats.xml"/>
 		<mapper resource="mapper/Rcheck.xml"/>
 		<mapper resource="mapper/search.xml"/>
-		<mapper resource="mapper/boxweekly.xml"/>
 		<mapper resource="mapper/weather.xml"/>
 		<mapper resource="mapper/preferences.xml"/>
 		<mapper resource="mapper/performanceinfo.xml"/>

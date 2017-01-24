@@ -51,10 +51,10 @@
 	</style>
 </head>
 <body>
-	
-	<!-- top -->
-	<tiles:insertAttribute name="top"/>
-	
+	<div class="col-sm-12">
+		<!-- top -->
+		<tiles:insertAttribute name="top"/>
+	</div>
 	<!-- content -->
 	<div class="col-sm-2 sidenav">
 		<tiles:insertAttribute name="side"/>
@@ -63,8 +63,9 @@
 		<tiles:insertAttribute name="content"/>
 	</div>
 	
-	<!-- footer -->
-	<tiles:insertAttribute name="footer"/>
-
+	<div class="col-sm-12">
+		<!-- footer -->
+		<tiles:insertAttribute name="footer"/>
+	</div>
 </body>
 </html>

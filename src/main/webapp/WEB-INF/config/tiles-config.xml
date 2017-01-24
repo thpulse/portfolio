@@ -56,7 +56,7 @@
 		<put-attribute name="content" 	value="/WEB-INF/reservation/include/resultPage.jsp"/>
 	</definition>
 	<!-- 추천 테스트페이지 -->
-	<definition name="recommend_test" extends="mypageTemplate">
+	<definition name="recommend_test" extends="mainTemplate">
 		<put-attribute name="content" 	value="/WEB-INF/recommend/include/recommend_list.jsp"/>
 	</definition>
 	
@@ -93,7 +93,7 @@
 		<put-attribute name="content" 	value="/WEB-INF/review/include/Reviewinsert.jsp"/>		
 	</definition>
 	<definition name="review_list" extends="mainTemplate">
-		<put-attribute name="content" 	value="/WEB-INF/review/include/Reviewlist.jsp"/>		
+		<put-attribute name="content" 	value="/WEB-INF/performinfo/performanceinfo/read.jsp"/>		
 	</definition>
 	<definition name="review_read" extends="mainTemplate">
 		<put-attribute name="content" 	value="/WEB-INF/review/include/Reviewread.jsp"/>		
@@ -101,6 +101,10 @@
 	<definition name="review_update" extends="mainTemplate">
 		<put-attribute name="content" 	value="/WEB-INF/review/include/Reviewupdate.jsp"/>		
 	</definition>
+	<definition name="review_admin" extends="mainTemplate">
+		<put-attribute name="content" 	value="/WEB-INF/review/include/Reviewadmin.jsp"/>		
+	</definition>
+	
   
   	<!-- 승현 -->
 	<definition name="register_member" extends="mainTemplate">
@@ -112,6 +116,15 @@
 	
 	<definition name="userlogin" extends="mainTemplate">
 		<!-- <put-attribute name="content" value="/WEB-INF/user/include/loginPage.jsp"/> -->
+	</definition>
+	
+	
+	<definition name="idsearch" extends="mainTemplate">
+		<put-attribute name="content" value="/WEB-INF/user/include/idsearch.jsp"/>
+	</definition>
+	
+	<definition name="passsearch" extends="mainTemplate">
+		<put-attribute name="content" value="/WEB-INF/user/include/idsearch.jsp"/>
 	</definition>
 
 	<!-- 수정 -->
@@ -143,5 +156,9 @@
 	<!-- 공연장 상세보기 -->
 	<definition name="perform_place_info" extends="perform_main">
 		<put-attribute name="content" value="/WEB-INF/performinfo/placeinfo/read.jsp"/>
+	</definition>
+	<!-- 메인(박스오피스 슬라이드) -->
+	<definition name="index_normal" extends="mainTemplate">
+		<put-attribute name="content" value="/WEB-INF/performinfo/include/content.jsp"/>
 	</definition>
 </tiles-definitions>

@@ -39,8 +39,18 @@ public class UserServiceImpl implements UserService {
 		return dao.delete(user_id);
 	}
 
-	
+	@Override
+	public String idsearch(String user_name, String user_tel) {
+		System.out.println("서비스 들어옴"+user_name+user_tel);
+		return dao.idsearch(user_name, user_tel);
+	}
 
+	@Override
+	public String passsearch(String user_id, String user_ssn) {
+		System.out.println("비번찾으러 서비스"+user_id+user_ssn);
+		return dao.passsearch(user_id, user_ssn);
+	}
+	
 	
 
 }

@@ -2,7 +2,7 @@ package kitri.review.VO;
 
 public class ReviewVO {
 	public int revno;
-	public int revgrade;
+	public String revgrade;
 	public String revcomment;
 	public String revdate;
 	public String mem_id;
@@ -13,8 +13,16 @@ public class ReviewVO {
 		
 	}
 
-	public ReviewVO(int revno, int revgrade, String revcomment, String revdate,
-			String mem_id, int revgb, String prf_id) {
+	@Override
+	public String toString() {
+		return "ReviewVO [revno=" + revno + ", revgrade=" + revgrade
+				+ ", revcomment=" + revcomment + ", revdate=" + revdate
+				+ ", mem_id=" + mem_id + ", revgb=" + revgb + ", prf_id="
+				+ prf_id + "]";
+	}
+
+	public ReviewVO(int revno, String revgrade, String revcomment,
+			String revdate, String mem_id, int revgb, String prf_id) {
 		super();
 		this.revno = revno;
 		this.revgrade = revgrade;
@@ -33,11 +41,11 @@ public class ReviewVO {
 		this.revno = revno;
 	}
 
-	public int getRevgrade() {
+	public String getRevgrade() {
 		return revgrade;
 	}
 
-	public void setRevgrade(int revgrade) {
+	public void setRevgrade(String revgrade) {
 		this.revgrade = revgrade;
 	}
 
@@ -80,15 +88,5 @@ public class ReviewVO {
 	public void setPrf_id(String prf_id) {
 		this.prf_id = prf_id;
 	}
-
-	@Override
-	public String toString() {
-		return "ReviewVO [revno=" + revno + ", revgrade=" + revgrade
-				+ ", revcomment=" + revcomment + ", revdate=" + revdate
-				+ ", mem_id=" + mem_id + ", revgb=" + revgb + ", prf_id="
-				+ prf_id + "]";
-	}
-	
-	
 
 }

@@ -14,13 +14,8 @@ public class BoxWeeklyServiceImpl implements BoxWeeklyService {
 	BoxWeeklyDAO dao;
 	
 	@Override
-	public void Add_BoxWeekly(String genre) {
-		dao.Add_BoxWeekly(genre);
-	}
-
-	@Override
-	public List<BoxWeeklyDTO> Total_BoxWeekly(BoxWeeklyDTO dto) {
-		return dao.Total_BoxWeekly(dto);
+	public List<BoxWeeklyDTO> Show_BoxWeekly(String genre) {
+		return dao.Show_BoxWeekly(genre);
 	}
 
 }

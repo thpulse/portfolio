@@ -46,5 +46,15 @@
     
     </select>
     
+     <select id="idsearch" resultType="String" parameterType="Map">
+    	select user_id from userinfo 
+    			where user_name=#{user_name} and user_tel=#{user_tel}
+    
+    </select>
+	
+	<select id="passsearch" resultType="String" parameterType="Map">
+		select user_pass2 from userinfo
+				where user_id=#{user_id} and user_ssn=#{user_ssn}
+	</select>
 
 </mapper>

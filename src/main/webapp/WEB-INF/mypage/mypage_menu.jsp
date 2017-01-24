@@ -6,12 +6,10 @@
 
 </head>
 <body>
+
 <ul class="vert-one">
-	  <li><a href="/project_final/mypageRcheck/list.do" title="CSS Menus">예약 내역 확인</a></li>
-	  <li><a href="/project_final/stats/statsResult.do" title="CSS Menus">통계 test</a></li>
-	  <li><a href="/project_final/twitter/test.do" title="CSS Menus">트위터 test</a></li>
-	  <li><a href="/project_final/recommend/main.do" title="CSS Menus">추천서비스 테스트중</a></li>
-	  <li><a href="/project_final/mongo/main.do" title="CSS Menus">몽고디비테스트</a></li>	 
+	  <li><a href="/project_final/mypageRcheck/list.do" title="CSS Menus">예약 내역 확인</a></li>	  
 </ul>
+
 </body>
 </html>

@@ -8,6 +8,8 @@ import kitri.performinfo.jpa.PerformanceRepository;
 import kitri.performinfo.performance.dto.PerformanceDTO;
 import kitri.performinfo.performance.dto.PerformanceSogaeimgDTO;
 import kitri.performinfo.performance.service.PerformanceService;
+import kitri.review.Service.ReviewService;
+import kitri.review.VO.ReviewVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -25,9 +27,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class PerformanceController {
 	@Autowired
 	PerformanceService service;
+
+	@Autowired
+	ReviewService service2;
+
 	
 	@Autowired
 	PerformanceRepository repository;
+
 	
 	@RequestMapping("/perform/admin/index.do")
 	public String Show_AdminView(){
@@ -79,6 +86,7 @@ public class PerformanceController {
 	
 	@RequestMapping("/perform/prfinfo/read.do")
 	public ModelAndView Performance_Info(PerformanceDTO prf){
+		System.out.println(prf);
 		PerformanceDTO prfRes = service.Performance_Info(prf);
 		//출연진, 제작진 정보가 null일경우
 		if (prfRes.getPrfcast() == null) {
@@ -87,10 +95,27 @@ public class PerformanceController {
 			prfRes.setPrfcrew("해당 정보가 없습니다.");
 		}
 		List<PerformanceSogaeimgDTO> imglist = service.PerformanceImg_Info(prf);
+		String pfr_id = prf.getPrfid();
+		int count1 = 0;
+		int count2 = 0;
+		
+		List<ReviewVO> readall = service2.readall(pfr_id);
+		
+		for (int i = 0; i < readall.size(); i++) {
+			int revgb = readall.get(i).getRevgb();
+			if(revgb==1){
+				count1+=1;
+			}else if(revgb==0){
+				count2+=1;
+			}
+		}
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("prf",prfRes);
 		mav.addObject("sogaelist",imglist);
-		mav.setViewName("perform_prf_info");
+		mav.addObject("reviewlist", readall);
+		mav.addObject("count1",count1);
+		mav.addObject("count2",count2);
+		mav.setViewName("perform_prf_info");		
 		return mav;
 	}
 }

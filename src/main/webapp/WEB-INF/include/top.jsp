@@ -3,6 +3,7 @@
 <%@ page import="kitri.user.vo.*" %>
     <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
    <%@ taglib prefix="se" uri="http://www.springframework.org/security/tags"%>
+   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/earlyaccess/hanna.css" />
 <style type="text/css">
 /* search */
 input[.tb1] {
@@ -47,24 +48,20 @@ input[.tb1] {
                 <li>
                  <a href="/project_final/mypage/mypage.do"><i class="fa fa-user"></i><br>MyPage</a>
                 </li>
-                </se:authorize> 
-                
-                <li>
-                <a href="/project_final/review/Reviewlist.do"><i class="fa fa-envelope"></i><br>Review</a>
-                </li>
+                </se:authorize>          
                 
                 <se:authorize access="hasRole('ROLE_ADMIN')">  
-                <li>
-				<a href="/project_final/admin/main.do"><i class="fa fa-user"></i><br>Admin</a>
+                <li class="dropdown active">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">
+						<i class="fa fa-tasks"></i><br>Admin<span class="caret"></span>
+							</a>
+					<ul class="dropdown-menu dropdown-menu-left" role="menu">
+						<li><a href="/project_final/review/adminlist.do">review</a></li>
+						<li><a href="/project_final/list.do">Member</a></li>              
+						<li><a href="/project_final/recommend/main.do">RecommendService</a></li> 
+					</ul>
 				</li>
                 </se:authorize>
-                
-                <se:authorize access="hasRole('ROLE_ADMIN')"> 
-				<li>
-					<a href="/project_final/list.do" onclick="list"><i class="fa fa-user"></i><br>Member</a>
-				</li>
-				</se:authorize> 
-				
 				<li>
 				<se:authorize access="isAnonymous()">	
 				<a href="#" onclick="login" data-toggle="modal" data-target="#myModal"><i class="fa fa-unlock"></i><br>Log-in</a>
@@ -78,6 +75,18 @@ input[.tb1] {
 				 <li><a href="#"><i class="glyphicon glyphicon-user"></i><br><se:authentication property="principal.user_name"/></a>
                  </li>
 				</se:authorize>
+				
+				<se:authorize access="isAnonymous()">  
+               	<li class="dropdown active">
+					<a href="/project_final/insert.do" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">
+						<i class="fa fa-tasks"></i><br>USER <span class="caret"></span>
+							</a>
+					<ul class="dropdown-menu dropdown-menu-left" role="menu">
+						<li class="active"><a href="/project_final/insert.do">Sign-UP</a></li>
+						<li class="active"><a href="/project_final/idsearch.do">ID/PW Ã£±â</a></li>
+					</ul>
+				</li>
+                </se:authorize>
                   
                   
                   <!-- Modal -->
@@ -90,13 +99,12 @@ input[.tb1] {
                         <div class="modal-header">
                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
-                        Id : <input type="text" name="user_id" class="form__input" placeholder="Username" required><br><br>
-                        Password : <input type="password" name="user_pass" class="form__input" placeholder="Password" required>
+                        Id : <input type="text" name="user_id" placeholder="Username" required><br><br>
+                        Password : <input type="password" name="user_pass" placeholder="Password" required>
                         </div>
 
                           <div class="form__field">
-                               <p><input type="submit"  class="btn btn-info" value="Log-In">
-                                 <input type="submit" onclick="location.href='/project_final/insert.do'" class="btn btn-info" value="Sign-up"></p>
+							<p><input type="submit"  class="btn btn-info" value="Log-In"></p>
                           </div>
                      </div>
                     </div>
