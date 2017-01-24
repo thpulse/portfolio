@@ -3,6 +3,7 @@
 <%@ page import="kitri.user.vo.*" %>
     <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
    <%@ taglib prefix="se" uri="http://www.springframework.org/security/tags"%>
+   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/earlyaccess/hanna.css" />
 <style type="text/css">
 /* search */
 input[.tb1] {

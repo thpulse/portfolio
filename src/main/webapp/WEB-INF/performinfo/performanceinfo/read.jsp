@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/earlyaccess/hanna.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
@@ -23,20 +24,20 @@
 		<br/>
 		<!-- 상세정보 포스터 -->
 		<div class="col-sm-5">
-			<img style="height: 400px" src="${prf.poster}">
+			<img style="height: 370px" src="${prf.poster}">
 		</div>		
 		<!-- 상세정보 -->
-		<div class="col-sm-5" style="background-color: #f4f4f4;">
-			<ul class="list-group" style="background-color: #f4f4f4;">
-				<li class="list-group-item" style="background-color: #f4f4f4;"><h4 style="padding:0px; margin:10px">${prf.prfnm}</h4></li>
-				<li class="list-group-item" style="background-color: #f4f4f4;">공연기간: ${prf.prfpdfrom}~${prf.prfpdto}</li>
-				<li class="list-group-item" style="background-color: #f4f4f4;">공연시간: ${prf.prfdaytime}</li>
-				<li class="list-group-item" style="background-color: #f4f4f4;">공연장소: ${prf.plcnm}<a href="/project_final/perform/prfplc/read.do?plcid=${prf.plcid}" style="color: #888888">[더보기]</a></li>
-				<li class="list-group-item" style="background-color: #f4f4f4;">출연진: ${prf.prfcast}</li>
-				<li class="list-group-item" style="background-color: #f4f4f4;">제작진: ${prf.prfcrew}</li>
-				<li class="list-group-item" style="background-color: #f4f4f4;">관람시간: ${prf.prfruntime}</li>
-				<li class="list-group-item" style="background-color: #f4f4f4;">관람연령: ${prf.prfage}</li>
-				<li class="list-group-item" style="background-color: #f4f4f4;">티켓가격: ${prf.tckprice}</li>
+		<div class="col-sm-5">
+			<ul class="list-group">
+				<li class="list-group-item"><h4 style="padding:0px; margin:10px">${prf.prfnm}</h4></li>
+				<li class="list-group-item">공연기간: ${prf.prfpdfrom}~${prf.prfpdto}</li>
+				<li class="list-group-item">공연시간: ${prf.prfdaytime}</li>
+				<li class="list-group-item">공연장소: ${prf.plcnm}<a href="/project_final/perform/prfplc/read.do?plcid=${prf.plcid}" style="color: #888888">[더보기]</a></li>
+				<li class="list-group-item">출연진: ${prf.prfcast}</li>
+				<li class="list-group-item">제작진: ${prf.prfcrew}</li>
+				<li class="list-group-item">관람시간: ${prf.prfruntime}</li>
+				<li class="list-group-item">관람연령: ${prf.prfage}</li>
+				<li class="list-group-item">티켓가격: ${prf.tckprice}</li>
 			</ul>
 		</div>
 		<!-- 소개이미지 -->
@@ -52,23 +53,29 @@
 			</c:forEach>
 		</div>
 		
+		<!-- 띄어쓰기 공간 -->
+		<div class="col-sm-10">
+	        <br/>
+	        <br/>
+	        <br/>
+		</div>
+			
 		<!-- 댓글 -->
+		<div class="col-sm-10">
 		 <table class="table">
 		                   <thead>                  
                               <tr>
-                                 <th>제목</th>
-                                 <th>번호</th>
-                                 <th>아이디</th>
-                                 <th>내용</th>
-                                 <th>별점</th>
-                                 <th>추천</th>
+                                 <th style="text-align: center;">번호</th>
+                                 <th style="text-align: center;">아이디</th>
+                                 <th style="text-align: center;">내용</th>
+                                 <th style="text-align: center;">별점</th>
+                                 <th style="text-align: center;">추천</th>
 							 </tr>
                            </thead>
                            <tbody>
                           
                               <c:forEach var="review" items="${reviewlist}">
                                  <tr>
-                                    <td>${review.prf_id}</td>
                                     <td><a href="/project_final/review/read.do?revno=${review.revno}&action=READ">${review.revno}</a></td>
                                     <td>${review.mem_id}</td>
                                     <td>${review.revcomment}</td>                                
@@ -106,10 +113,12 @@
                            </tbody>
                             
                         </table>
-                        <ul class="nav navbar-nav navbar-center">
-			 					<li><a href="/project_final/review/write.do?prf_id=${prf.prfid}" style="text-align: center;">글쓰기</a></li>
-	         			   </ul>
-		
+                        
+                        <ul class="nav navbar-center">
+			 				<li style="text-align: center;"><a href="/project_final/review/write.do?prf_id=${prf.prfid}">글쓰기</a></li>
+						</ul>
+			</div>
+			
 	</div>
 </div>
 </body>

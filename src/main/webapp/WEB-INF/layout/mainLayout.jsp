@@ -36,17 +36,17 @@
     <body>
         
         <!-- Top menu -->
-        
+        <div class="col-sm-12" style="background-image: url('C:/iot/workspace/bigdatawork/final_test/src/main/webapp/assets/img/bg/catch.jpg') !important">
 			<tiles:insertAttribute name="top"/>
-			
+		</div>	
         <!-- Slider -->
-        
+        <div class="col-sm-12">
             <tiles:insertAttribute name="content"/>
-             
+         </div>    
         <!-- Footer -->
-        
+        <div class="col-sm-12">
             <tiles:insertAttribute name="footer"/>
-        
+        </div>
 
         
     </body>

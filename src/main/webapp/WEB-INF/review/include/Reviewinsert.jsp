@@ -57,7 +57,7 @@
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="orggrade">별 점</label>	
 							<input type="hidden" id ="revgrade" name ="revgrade" value="5"/>	
-								<p class="revgrade">
+								<p class="revgrade col-sm-2">
 								    <a class="on" href="#" name="1" value="1">★</a>					
 								    <a class="on" href="#" name="2" value="2">★</a>						
 								    <a class="on" href="#" name="3" value="3">★</a>						
@@ -79,14 +79,14 @@
 					
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="orggb"></label>
-						<div class="col-sm-3"> 
+						<div class="col-sm-2"> 
 							<input type="radio"  name="revgb" id="revgb" value="1"/>좋아요
 							<input type="radio"  name="revgb" id="revgb" value="0"/>싫어요
 						</div>
 					</div>
 					
 					<div class="form-group">
-						<div class="col-sm-3 col-sm-offset-2">
+						<div class="col-sm-2 col-sm-offset-2">
 							<input type="submit" value="등록하기" class="btn btn-success"/>
 						</div>
 					</div>
