@@ -87,13 +87,14 @@ input[.tb1] {
                         <div class="modal-header">
                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
-                        Id : <input type="text" name="user_id" class="form__input" placeholder="Username" required><br><br>
-                        Password : <input type="password" name="user_pass" class="form__input" placeholder="Password" required>
+                        Id : <input type="text" name="user_id" placeholder="Username" required><br><br>
+                        Password : <input type="password" name="user_pass" placeholder="Password" required>
                         </div>
 
                           <div class="form__field">
-                               <p><input type="submit"  class="btn btn-info" value="Log-In">
-                                 <input type="submit" onclick="location.href='/project_final/insert.do'" class="btn btn-info" value="Sign-up"></p>
+                               <p>
+									<input type="submit"  class="btn btn-info" value="Log-In">
+									<input type="submit" onclick="location.href='/project_final/insert.do'" class="btn btn-info" value="Sign-up"></p>
                           </div>
                      </div>
                     </div>
