@@ -54,10 +54,18 @@ input[.tb1] {
                 </li>
                 
                 <se:authorize access="hasRole('ROLE_ADMIN')">  
-                <li>
-				<a href="/project_final/admin/main.do"><i class="fa fa-user"></i><br>Admin</a>
-				</li>
-                </se:authorize>
+                <li class="dropdown active">
+					<a href="/project_final/admin/main.do" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">
+						<i class="fa fa-tasks"></i><br>Admin<span class="caret"></span>
+							</a>
+					<ul class="dropdown-menu dropdown-menu-left" role="menu">
+						<li class="active"><a href="/project_final/admin/main.do">Weather</a></li>
+						<li><a href="/project_final/review/adminlist.do">review</a></li>
+					</li>
+					</ul>
+				</se:authorize>
+						
+				
                 
                 <se:authorize access="hasRole('ROLE_ADMIN')"> 
 				<li>

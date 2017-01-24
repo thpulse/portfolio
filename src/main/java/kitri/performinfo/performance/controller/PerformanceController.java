@@ -96,11 +96,25 @@ public class PerformanceController {
 		}
 		List<PerformanceSogaeimgDTO> imglist = service.PerformanceImg_Info(prf);
 		String pfr_id = prf.getPrfid();
+		int count1 = 0;
+		int count2 = 0;
+		
 		List<ReviewVO> readall = service2.readall(pfr_id);
+		
+		for (int i = 0; i < readall.size(); i++) {
+			int revgb = readall.get(i).getRevgb();
+			if(revgb==1){
+				count1+=1;
+			}else if(revgb==0){
+				count2+=1;
+			}
+		}
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("prf",prfRes);
 		mav.addObject("sogaelist",imglist);
 		mav.addObject("reviewlist", readall);
+		mav.addObject("count1",count1);
+		mav.addObject("count2",count2);
 		mav.setViewName("perform_prf_info");		
 		return mav;
 	}

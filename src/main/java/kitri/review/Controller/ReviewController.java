@@ -9,10 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ReviewController {
+	
 	@Autowired
 	ReviewService service;
 	
@@ -63,13 +65,25 @@ public class ReviewController {
 		return new ModelAndView(view,"review",review);
 	}
 	
-	/*@RequestMapping("/review/Reviewlist.do")
-	public ModelAndView reviewlist(){ 
+	@RequestMapping("/review/adminlist.do")
+	public ModelAndView adminlist(){ 
 		ModelAndView mav = new ModelAndView();
-		List<ReviewVO> readall = service.readall();
-		mav.addObject("reviewlist", readall);
-		mav.setViewName("review_list");
+		List<ReviewVO> readadmin = service.readadmin();
+		mav.addObject("readadmin", readadmin);
+		mav.setViewName("review_admin");
 		System.out.println("이것도되나");
 		return mav;
-	}*/
+	}
+
+	@RequestMapping("/review/search2.do")
+	public ModelAndView search(@RequestParam String search, @RequestParam String tag){		
+		ModelAndView mav = new ModelAndView();
+		List<ReviewVO> readid = service.readid(tag, search);
+		mav.addObject("readadmin", readid);
+		mav.setViewName("review_admin");
+		System.out.println("된다고해");
+		return mav;
+	}
+
+	
 }

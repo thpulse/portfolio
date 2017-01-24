@@ -10,6 +10,7 @@ public interface ReviewService {
 	public void update(ReviewVO review);
 	ReviewVO readno(int revno);
 	List<ReviewVO> readall(String pfr_id);
-	List<ReviewVO> readpfr(String pfr_id);
-	List<ReviewVO> readid(String mem_id);
+	List<ReviewVO> readadmin();
+	List<ReviewVO> readid(String tag, String search);
+	int count();
 }

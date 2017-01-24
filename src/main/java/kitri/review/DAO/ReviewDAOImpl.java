@@ -1,6 +1,8 @@
 package kitri.review.DAO;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,17 +46,21 @@ public class ReviewDAOImpl implements ReviewDAO{
 	
 
 	@Override
-	public List<ReviewVO> readpfr(String pfr_id) {
+	public List<ReviewVO> readadmin() {
+		return sqlSession.selectList("kitri.review.adminlist");
+	}
 	
-		return null;
+	@Override
+	public List<ReviewVO> readid(String tag, String search) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("tag", tag);
+		map.put("search", search);
+		return sqlSession.selectList("kitri.review.search", map);
 	}
 
 	@Override
-	public List<ReviewVO> readid(String mem_id) {
-		
-		return null;
+	public int count() {
+		return sqlSession.selectOne("kitri.review.count");
 	}
-
-	
 
 }

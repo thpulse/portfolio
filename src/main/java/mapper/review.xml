@@ -21,6 +21,20 @@
 		update review set revcomment = #{revcomment}, revgrade = #{revgrade},  
 		revgb = #{revgb}, revdate = #{revdate} where revno = #{revno}
 	</update>
+	<select id="adminlist" resultType="review">
+		select * from review
+	</select>
+	<select id="search" resultType="review" parameterType="Map">
+		select * from review
+		<where>
+			<if test="tag='id' and search!=''">
+				mem_id like '%'||#{search}||'%'
+			</if>
+		</where>
+	</select>
+	<select id="count" resultType="review">
+		select revgb from review 
+	</select>
 </mapper>
 
 
