@@ -12,10 +12,15 @@
 		<hr/>
 		<br/>
 		<ul class="list-group">
-			<li class="list-group-item" style="background-color: #f4f4f4;"><a href="/project_final/perform/prfinfo/select.do" title="CSS Menus">공연보기</a></li>
-			<li class="list-group-item" style="background-color: #f4f4f4;"><a href="#" title="CSS Menus">공연장별 공연보기</a></li>
-			<li class="list-group-item" style="background-color: #f4f4f4;"><a href="/project_final/perform/prfplc/index.do" title="CSS Menus">공연장보기</a></li>
-			<li class="list-group-item" style="background-color: #f4f4f4;"><a href="/project_final/perform/admin/index.do" title="CSS Menus">관리자페이지</a></li>
+			<li class="list-group-item" style="background-color: #f4f4f4;">
+				<a href="/project_final/perform/prfinfo/select2.do/0/all" style="color:black;">공연보기<br/>(Now Playing)</a>
+			</li>
+			<li class="list-group-item" style="background-color: #f4f4f4;">
+				<a href="/project_final/perform/prfplc/select.do/0" style="color:black;">공연장보기</a>
+			</li>
+			<li class="list-group-item" style="background-color: #f4f4f4;">
+				<a href="/project_final/perform/admin/index.do" style="color:black;">관리자페이지</a>
+			</li>
 		</ul>
 	</div>
 </body>

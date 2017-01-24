@@ -1,9 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
     <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+
 <head>
+
+	
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+	
+
+
 <style>
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, 
 pre, form, fieldset, input, textarea, p, blockquote, th, td { 
@@ -226,8 +232,12 @@ a.button {
   });
  });
 </script>
+
+
 </head>
+
 <body>
+
 
 <div class="container-fluid">
            <div class="row">   
@@ -252,8 +262,8 @@ a.button {
   					
   					 <div class="testbox2">
   						 <div class="checkbox">
- 						 	<label>Gerne Choice</label>
- 						 	<br>  							 
+ 						 	<label>Gerne Choice</label><br>
+  							 
   							 <label><input type="checkbox" name="user_gerne" value="play" >Play</label><br>
   							 <label><input type="checkbox" name="user_gerne" value="musical" >Musical</label><br>
   							 <label><input type="checkbox" name="user_gerne" value="classic" >Classic</label><br>
@@ -262,15 +272,22 @@ a.button {
   							 <label><input type="checkbox" name="user_gerne" value="ballet" >Ballet</label><br>
   							 <label><input type="checkbox" name="user_gerne" value="gugak" >Gugak</label><br>
   						</div>
-  			    	</div>  
+  			    	</div>
+ 			
+  
   						 <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
   							<input type="submit" value="Register" class="btn btn-success"/>
   							 <!-- <a href="/project_final/insert.do" class="button">Register</a> -->
- 						 </form> 						
-						</div>                   
+ 						 </form>
+ 						
+						</div>
+                   
            		  </div>
                 <div class="col-sm-3" style="background-color:white;"></div>
            </div>
       </div>
+	
+	
+
 </body>
 </html>

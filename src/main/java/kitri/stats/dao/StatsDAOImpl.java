@@ -15,7 +15,7 @@ public class StatsDAOImpl implements StatsDAO {
 	
 	@Override
 	public List<StatsVO> stats() {
-		// TODO Auto-generated method stub
+		
 		return sqlsession.selectList("kitri.perform.stats.list");
 	}
 

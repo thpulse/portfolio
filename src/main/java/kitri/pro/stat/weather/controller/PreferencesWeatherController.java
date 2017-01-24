@@ -15,9 +15,12 @@ public class PreferencesWeatherController {
 	PreferencesWeatherService service;
 	@RequestMapping("/stat/weather_main.do")
 	public String main(){
-		List<PerformanceDTO> performancelist = service.PerformanceList();
-		System.out.println(performancelist.size());
 		return "stat/weather";
 	}
-	
+	@RequestMapping("/stat/insert.do")
+	public String insert(){
+		int count = service.insertStat();
+		System.out.println(count);
+		return "stat/weather";
+	}
 }

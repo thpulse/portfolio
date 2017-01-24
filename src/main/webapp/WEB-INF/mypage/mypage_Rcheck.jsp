@@ -69,7 +69,7 @@
 </style>
 </head>
 <body>
-<div id="demo-container">
+<!-- <div id="demo-container">
 	<ul id="simple-menu">
 		<li><a href="#" title="Home" class="current">예약 확인</a></li>
 		<li><a href="#" title="Home">예약 취소 확인</a></li>
@@ -78,7 +78,7 @@
 		<li><a href="#" title="Home">About Us</a></li>
 		<li><a href="#" title="Home">Contact Us</a></li>
 	</ul>
-</div>
+</div> -->
 
 <div class="wrapper">
   	<div class="table">

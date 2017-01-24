@@ -9,27 +9,30 @@
 </head>
 <body>
 <div class="portfolio-container">
-	<div class="container">
-		<br/>
-		<br/>
-		<br/>
+	<div class="container-fluid">
 		
-		<p style="text-align:left">총 검색 건수: </p>
-		<!-- 상세정보 테이블 -->
+		<!-- 리스트 테이블 -->
 		<div class="col-sm-12">
-			<table class="table">
+			<table class="table table-hover">
 				<!-- thead -->
-				<tr>
-					<td>공연시설(공연장)명</td>
-					<td>공연장수</td>
-					<td>객석수</td>
-					<td>시설특성</td>
-					<td>지역</td>
-					<td>홈페이지</td>
-				</tr>
+				<thead>
+					<tr>
+					
+						<td style="background-color: #aaaaaa; color:white;">공연시설(공연장)명</td>
+						<td style="background-color: #aaaaaa; color:white;">공연장수</td>
+						<td style="background-color: #aaaaaa; color:white;">객석수</td>
+						<td style="background-color: #aaaaaa; color:white;">시설특성</td>
+						<td style="background-color: #aaaaaa; color:white;">지역</td>
+						<td style="background-color: #aaaaaa; color:white;">홈페이지</td>
+					
+					</tr>
+				</thead>
+				<tbody>
 				<c:forEach var="plc" items="${plclist}">
 					<tr>
-						<td><a style="color:#888888" href="/project_final/perform/prfplc/read.do?plcid=${plc.plcid}">${plc.plcnm}</a></td>
+						<td>
+							<a style="color:#888888" href="/project_final/perform/prfplc/read.do?plcid=${plc.plcid}">${plc.plcnm}</a>
+						</td>
 						<td>${plc.plcnum}</td>
 						<td>${plc.seatscale}</td>
 						<td>${plc.plcchar}</td>
@@ -37,9 +40,54 @@
 						<td><a href="${plc.relateurl}">LINK</a></td>
 					</tr>
 				</c:forEach>
+				</tbody>
 			</table>		
 		</div>
 	</div>
+	
+	<!-- 페이징처리 -->
+	<c:url var="firstUrl" value="/perform/prfplc/select.do/0/${genre}"/>
+	<c:url var="lastUrl" value="/perform/prfplc/select.do/${totalPages-1}/${genre}"/>
+	<c:url var="prevUrl" value="/perform/prfplc/select.do/${currentIndex - 2}/${genre}"/>
+	<c:url var="nextUrl" value="/perform/prfplc/select.do/${currentIndex}/${genre}"/>
+	
+	<div class="container-fluid">
+		<ul class="pagination">
+	        <c:choose>
+	            <c:when test="${currentIndex == 1}">
+	                <li class="disabled"><a href="#">&lt;&lt;</a></li>
+	                <li class="disabled"><a href="#">&lt;</a></li>
+	            </c:when>
+	            <c:otherwise>
+	                <li><a href="${firstUrl}">&lt;&lt;</a></li>
+	                <li><a href="${prevUrl}">&lt;</a></li>
+	            </c:otherwise>
+	        </c:choose>
+	        <c:forEach var="i" begin="${beginIndex}" end="${endIndex}">
+	            <c:url var="pageUrl" value="/perform/prfplc/select.do/${i-1}/${genre}" />
+	            <c:choose>
+	                <c:when test="${i == currentIndex}">
+	                    <li class="active"><a href="${pageUrl}"><c:out value="${i}"/></a></li>
+	                </c:when>
+	                <c:otherwise>
+		                    <li><a href="${pageUrl}"><c:out value="${i}" /></a></li>
+	                </c:otherwise>
+	            </c:choose>
+	        </c:forEach>
+	        <c:choose>
+	            <c:when test="${currentIndex == totalPages}">
+	                <li class="disabled"><a href="#">&gt;</a></li>
+	                <li class="disabled"><a href="#">&gt;&gt;</a></li>
+	            </c:when>
+	            <c:otherwise>
+	                <li><a href="${nextUrl}">&gt;</a></li>
+	                <li><a href="${lastUrl}">&gt;&gt;</a></li>
+	            </c:otherwise>
+	        </c:choose>
+	    </ul>
+		
+		
+	</div><!-- #페이징 처리 -->
 </div>
 </body>
 </html>

@@ -8,11 +8,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class MypageController {
 	@RequestMapping("/mypage/mypage.do")
 	public ModelAndView mypagemain(){
-
-		ModelAndView mav = new ModelAndView();
-		
+		ModelAndView mav = new ModelAndView();		
 		mav.setViewName("mypage");
 		return mav;
-	}
-	
+	}	
 }

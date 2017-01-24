@@ -19,14 +19,15 @@ public class UserDAOImpl implements UserDAO {
 	
 	
 	@Override
-	public void insert(UserVO user) {
+	public int insert(UserVO user) {
 		System.out.println(user);
-		sqlSession.insert("kitri.perform.user.insert", user);
+		return sqlSession.insert("kitri.perform.user.insert", user);
 	
 	}
 
 	@Override
 	public loginVO login(String user_id, String user_pass) {
+		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("id", user_id);
 		map.put("pass", user_pass);
