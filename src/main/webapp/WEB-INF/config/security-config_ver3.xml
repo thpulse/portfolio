@@ -21,8 +21,7 @@
 		<security:intercept-url pattern="/index.do" access="permitAll"/>
 		<security:intercept-url pattern="/insert.do" access="permitAll"/>
 
-		<security:intercept-url pattern="/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"
-		 										requires-channel="https"/>
+		<security:intercept-url pattern="/**" access="permitAll"/> <!-- requires-channel="https"/> -->
 		
 		<security:form-login
 			username-parameter="user_id"
@@ -37,9 +36,9 @@
 			invalidate-session="true"
 		
 		/>
-		<security:port-mappings>
+<!-- 		<security:port-mappings>
 			<security:port-mapping http="8088" https="8443"/>
-		</security:port-mappings>
+		</security:port-mappings> -->
 		<!-- 세션 컨트롤 (중복로그인안되게하는것) expired-url==>처음접속한 사람이 끊긴다.-->
 		<security:session-management invalid-session-url="/userlogin">
 			<security:concurrency-control max-sessions="1"
