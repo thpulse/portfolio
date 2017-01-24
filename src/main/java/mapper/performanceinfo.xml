@@ -27,7 +27,7 @@
 	<select id="Performance_Info" resultType="perform" parameterType="perform">
 		select prf.*,plc.plcnm
 		from performance prf, prf_place plc
-		where prf.prfid=#{prfid} and prf.plcid = plc.plcid
+		where prf.plcid = plc.plcid and prf.prfid=#{prfid}
 	</select>
 	<select id="PerformanceImg_Info" resultType="performsogae" parameterType="performsogae">
 		select * from performance_sogaeimg where prfid=#{prfid} order by styurl asc

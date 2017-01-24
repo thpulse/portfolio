@@ -6,8 +6,10 @@
 		insert into review 
 		values(revno_seq.nextval,#{revgrade},#{revcomment},sysdate,#{mem_id},#{revgb},#{prf_id})
 	</insert>
-	<select id="list" resultType="review">
-		select * from review
+	<select id="list" parameterType="String" resultType="review">
+		select r.revno,r.revgrade,r.revcomment,r.revdate,r.mem_id,r.revgb,r.prf_id
+		from review r
+		where r.prf_id = #{pfr_id}
 	</select>
 	<delete id="delete" parameterType="review">
 		delete from review where revno= #{revno}

@@ -37,9 +37,9 @@ public class ReviewDAOImpl implements ReviewDAO{
 	}
 	
 	@Override
-	public List<ReviewVO> readall() {
+	public List<ReviewVO> readall(String pfr_id) {
 		System.out.println("이것도해조라");
-		return sqlSession.selectList("kitri.review.list");
+		return sqlSession.selectList("kitri.review.list",pfr_id);
 	}
 	
 
