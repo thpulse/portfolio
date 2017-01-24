@@ -15,6 +15,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,10 +61,11 @@ public class PrfplaceController {
 		return mav;
 	}
 	
+	//공연장 정보 매일 낮 12시 20분에 자동 업데이트
+	@Scheduled(cron="0 20 12 * * *")
 	@RequestMapping("/perform/prfplc/insert.do")
-	public String Add_Prfplace(){
+	public void Add_Prfplace(){
 		service.Add_Prfplace();
-		return "admin";
 	}
 	
 	@RequestMapping("/perform/prfplc/read.do")

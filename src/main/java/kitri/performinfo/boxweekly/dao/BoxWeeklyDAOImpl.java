@@ -2,6 +2,7 @@ package kitri.performinfo.boxweekly.dao;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 import kitri.performinfo.boxweekly.dto.BoxWeeklyDTO;
@@ -20,7 +21,8 @@ public class BoxWeeklyDAOImpl implements BoxWeeklyDAO {
 	SqlSession sqlSession;
 
 	@Override
-	public void Add_BoxWeekly(String genre) {
+	public List<BoxWeeklyDTO> Show_BoxWeekly(String genre) {
+		List<BoxWeeklyDTO> boxlist = new ArrayList<BoxWeeklyDTO>();
 		try {
 			JSONParser parser = new JSONParser();
 			getService service = new getService();
@@ -40,7 +42,7 @@ public class BoxWeeklyDAOImpl implements BoxWeeklyDAO {
 													(String)obj.get("prfnm"),(Long)obj.get("rnum"),
 													(Long)obj.get("seatcnt"),(String)obj.get("poster"),
 													(String)obj.get("mt20id"));
-						
+						boxlist.add(box);
 					}
 			}catch(ClassCastException e){
 				JSONObject obj = (JSONObject) boxofsObj.get("boxof");
@@ -50,17 +52,16 @@ public class BoxWeeklyDAOImpl implements BoxWeeklyDAO {
 						(String)obj.get("prfnm"),(Long)obj.get("rnum"),
 						(Long)obj.get("seatcnt"),(String)obj.get("poster"),
 						(String)obj.get("mt20id"));
+				boxlist.add(box);
 			}
-			sqlSession.insert("kitri.boxweekly.Add_BoxWeekly",box);
+			
 		} catch (MalformedURLException e) {
 		e.printStackTrace();
 		}catch (ParseException e) {
 			e.printStackTrace();
-		}	
-	}
-
-	@Override
-	public List<BoxWeeklyDTO> Total_BoxWeekly(BoxWeeklyDTO dto) {
-		return sqlSession.selectList("kitri.boxweekly.Total_BoxWeekly", dto);
+		}
+		
+		return boxlist;
+		
 	}
 }

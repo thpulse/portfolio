@@ -138,4 +138,8 @@
 	<definition name="perform_place_info" extends="perform_main">
 		<put-attribute name="content" value="/WEB-INF/performinfo/placeinfo/read.jsp"/>
 	</definition>
+	<!-- 메인(박스오피스 슬라이드) -->
+	<definition name="index_normal" extends="mainTemplate">
+		<put-attribute name="content" value="/WEB-INF/performinfo/include/content.jsp"/>
+	</definition>
 </tiles-definitions>

@@ -17,9 +17,12 @@ public class IndexController{
 	BoxWeeklyService service;
 	
 	@RequestMapping("/index.do")
-	public ModelAndView main(BoxWeeklyDTO dto){
+	public ModelAndView main(String genre){
 		// 박스오피스 파싱 결과 뿌림
-		List<BoxWeeklyDTO> boxlist = service.Total_BoxWeekly(dto);
-		return new ModelAndView("index","boxlist",boxlist);
+		if (genre==null) {
+			genre = "YK";
+		}
+		List<BoxWeeklyDTO> boxlist = service.Show_BoxWeekly(genre);
+		return new ModelAndView("index_normal","boxlist",boxlist);
 	}
 }

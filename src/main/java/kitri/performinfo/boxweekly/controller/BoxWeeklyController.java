@@ -1,5 +1,8 @@
 package kitri.performinfo.boxweekly.controller;
 
+import java.util.List;
+
+import kitri.performinfo.boxweekly.dto.BoxWeeklyDTO;
 import kitri.performinfo.boxweekly.service.BoxWeeklyService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +16,8 @@ public class BoxWeeklyController {
 	
 	@RequestMapping("/perform/boxweekly/insert.do")
 	public String Add_BoxWeekly(String genre){
-		service.Add_BoxWeekly(genre);
+		List<BoxWeeklyDTO> boxlist = service.Show_BoxWeekly(genre);
+		System.out.println(boxlist);
 		return "index";
 	}
 	
