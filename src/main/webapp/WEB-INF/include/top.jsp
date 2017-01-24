@@ -54,7 +54,7 @@ input[.tb1] {
                 <li class="dropdown active">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">
 						<i class="fa fa-tasks"></i><br>Admin<span class="caret"></span>
-							</a>
+					</a>
 					<ul class="dropdown-menu dropdown-menu-left" role="menu">
 						<li><a href="/project_final/review/adminlist.do">review</a></li>
 						<li><a href="/project_final/list.do">Member</a></li>              

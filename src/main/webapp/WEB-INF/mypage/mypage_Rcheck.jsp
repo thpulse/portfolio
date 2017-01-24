@@ -83,41 +83,41 @@
 <div class="wrapper">
   	<div class="table">
 		<div class="row header">
-		<%-- <c:forEach var="reserv" items="Rlist"> --%>
-      		<div class="cell">
-      			예매번호
-      		</div>
       		<div class="cell">
 				공연명
       		</div>
       		<div class="cell">
-				예매일
+				공연시작일
+			</div>
+			<div class="cell">
+				공연시작시간
+      		</div>
+			<div class="cell">
+				예매시간
       		</div>
       		<div class="cell">
-				예매일시
-			</div>
- 			<div class="cell">
-				예매취소
+				공연 취소
       		</div>
     </div>
+    	<c:forEach var="reserv" items="${Rlist}">
 	    <div class="row">
 	      	<div class="cell">
-	        <!-- ${reserv.prf_reserve_num} -->
+	        ${reserv.prfnm}
 	      	</div>
 	      	<div class="cell">
-	        <!-- ${reserv.prf_day} -->
+	        ${reserv.prf_day}
 	      	</div>
 	      	<div class="cell">
-	        <!-- ${reserv.prfnm} -->
+	        ${reserv.reserv_date}
 	      	</div>
 	      	<div class="cell">
-	        <!-- ${reserv.frf_starttime} -->
+	        ${reserv.prf_starttime}
 	      	</div>
 	      	<div class="cell">
-	        
+	        	O
 	      	</div>
 	    </div>
-	    <%-- </c:forEach>  --%>
+	     </c:forEach>
   	</div>
 </div>
 </body>

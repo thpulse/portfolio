@@ -15,7 +15,7 @@ public class RcheckServiceImpl implements RcheckService {
 	
 	@Override
 	public List<RcheckVO> Rcheck(String userid) {
-		// TODO Auto-generated method stub
+		
 		return dao.Rcheck(userid);
 	}
 	
