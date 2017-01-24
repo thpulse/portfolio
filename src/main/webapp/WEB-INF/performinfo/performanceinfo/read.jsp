@@ -15,7 +15,7 @@
 		
 		<!-- 상세정보 top -->
 		<div class="col-sm-12 portfolio-filters wow fadeInLeft" style="padding:0px;">
-			<a href="/project_final/perform/prfinfo/select.do">공연보기</a> /
+			<a href="/project_final/perform/prfinfo/select.do">공연보기</a>
 			<a>${prf.prfnm}</a>
 		</div>
 		
@@ -63,7 +63,10 @@
 		<!-- 댓글 -->
 		<div class="col-sm-10">
 		 <table class="table">
-		                   <thead>                  
+		                   <thead>
+		                   	<td>
+		                   	좋아요:${count1 } 싫어요:${count2 }
+		                   	</td>                  
                               <tr>
                                  <th style="text-align: center;">번호</th>
                                  <th style="text-align: center;">아이디</th>

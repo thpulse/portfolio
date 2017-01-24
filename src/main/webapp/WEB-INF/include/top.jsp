@@ -48,16 +48,21 @@ input[.tb1] {
                 <li>
                  <a href="/project_final/mypage/mypage.do"><i class="fa fa-user"></i><br>MyPage</a>
                 </li>
-                </se:authorize>
+                </se:authorize> 
                 
-               <se:authorize access="hasRole('ROLE_ADMIN')">  
-               	<li class="dropdown active">
+                <li>
+                <a href="/project_final/review/Reviewlist.do"><i class="fa fa-envelope"></i><br>Review</a>
+                </li>
+                
+                <se:authorize access="hasRole('ROLE_ADMIN')">  
+                <li class="dropdown active">
 					<a href="/project_final/admin/main.do" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">
-						<i class="fa fa-tasks"></i><br>Admin <span class="caret"></span>
+						<i class="fa fa-tasks"></i><br>Admin<span class="caret"></span>
 							</a>
 					<ul class="dropdown-menu dropdown-menu-left" role="menu">
-						<li class="active"><a href="/project_final/list.do">Member</a></li>
-						
+						<li class="active"><a href="/project_final/admin/main.do">Weather</a></li>
+						<li><a href="/project_final/review/adminlist.do">review</a></li>
+					
 					</ul>
 				</li>
                 </se:authorize>

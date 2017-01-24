@@ -45,14 +45,18 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 	
 	@Override
-	public List<ReviewVO> readpfr(String pfr_id) {
-		return dao.readpfr(pfr_id);
+	public List<ReviewVO> readadmin() {
+		return dao.readadmin();
+	}
+	
+	@Override
+	public List<ReviewVO> readid(String tag, String search) {
+		return dao.readid(tag, search);
 	}
 
 	@Override
-	public List<ReviewVO> readid(String mem_id) {
-		return dao.readid(mem_id);
+	public int count() {
+		return dao.count();
 	}
 
-	
 }

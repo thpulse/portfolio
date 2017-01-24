@@ -95,6 +95,10 @@
 	<definition name="review_update" extends="mainTemplate">
 		<put-attribute name="content" 	value="/WEB-INF/review/include/Reviewupdate.jsp"/>		
 	</definition>
+	<definition name="review_admin" extends="mainTemplate">
+		<put-attribute name="content" 	value="/WEB-INF/review/include/Reviewadmin.jsp"/>		
+	</definition>
+	
   
   	<!-- 승현 -->
 	<definition name="register_member" extends="mainTemplate">
