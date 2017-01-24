@@ -37,17 +37,17 @@
     <body>
         
         <!-- Top menu -->
-		
-			<tiles:insertAttribute name="top"/>					
-
+        <div class="col-sm-12">
+			<tiles:insertAttribute name="top"/>
+		</div>	
         <!-- Slider -->
-        
+        <div class="col-sm-12">
             <tiles:insertAttribute name="content"/>
-             
+         </div>    
         <!-- Footer -->
-        
+        <div class="col-sm-12">
             <tiles:insertAttribute name="footer"/>
-        
+        </div>
 
         
     </body>
