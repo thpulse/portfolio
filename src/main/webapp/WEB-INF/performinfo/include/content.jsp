@@ -19,17 +19,21 @@
 <body>
 <div class="container-fluid">
 
-	<div class="w3-content w3-section col-sm-12" style="max-width:100%; margin:0px; padding:0px;">
-		<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/0.jpg" style="width:100%">
-		<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/1.jpg" style="width:100%">
-		<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/2.jpg" style="width:100%">
-		<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/3.jpg" style="width:100%">
-		<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/4.jpg" style="width:100%">
-		<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/5.jpg" style="width:100%">
-		<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/6.jpg" style="width:100%">
-		<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/7.jpg" style="width:100%">
-		<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/8.jpg" style="width:100%">
-		<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/9.jpg" style="width:100%">
+	<div class="w3-content w3-section col-sm-12" style="max-width:100%; margin:0px; margin-top:20px; padding:0px;">
+		<a href="/project_final/index.do">
+			<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/0.jpg" style="width:100%">
+			<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/1.jpg" style="width:100%">
+			<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/2.jpg" style="width:100%">
+			<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/3.jpg" style="width:100%">
+			<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/4.jpg" style="width:100%">
+			<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/5.jpg" style="width:100%">
+			<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/6.jpg" style="width:100%">
+			<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/7.jpg" style="width:100%">
+			<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/8.jpg" style="width:100%">
+			<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/9.jpg" style="width:100%">
+			<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/10.jpg" style="width:100%">
+			<img class="mySlides w3-animate-fading" src="/project_final/assets/img/bg/11.jpg" style="width:100%">
+		</a>
 	</div>
 	<script>
 	var myIndex = 0;
@@ -44,7 +48,7 @@
 	    myIndex++;
 	    if (myIndex > x.length) {myIndex = 1}    
 	    x[myIndex-1].style.display = "block";  
-	    setTimeout(carousel, 6000);    
+	    setTimeout(carousel, 2000);    
 	}
 	</script>
 	
@@ -52,12 +56,12 @@
 	<div class="col-sm-12">
 		<br/>
 		<br/>
-		<h1 style="text-align:right">[ 장르별 박스오피스 ]</h1>
+		<h1 style="text-align:left">[ 장르별 박스오피스 ]</h1>
 	</div>
 	<br/>
-	<div class="col-sm-6"></div>
+	
    	<div class="col-sm-6 w3-container" style="text-align: center;">
-   		<div style="padding:10px;text-align:right;" class="w3-panel w3-round-small w3-teal">
+   		<div style="padding:10px;text-align:left;" class="w3-panel w3-round-small w3-teal">
 		<!-- 박스오피스 상단 -->
     	<h5><a style="color:black;" href="/project_final/index.do?genre=YK">연극</a> |
     	<a style="color:black;" href="/project_final/index.do?genre=MU">뮤지컬</a> |
@@ -66,20 +70,35 @@
     	<a style="color:black;" href="/project_final/index.do?genre=KKB">국악/복합</a></h5>
     	</div>
     </div>
-    <div class="col-sm-2"></div>
-    <div class="col-sm-10">
-       	<!-- 장르별 박스오피스 -->
-       	<div style="text-align:center;margin-top:60px">
-		<c:forEach var="boxoffice" items="${boxlist}">
-			<div class="col-sm-2" style="margin-bottom:20px;">
-				<p style="text-align:left;">${boxoffice.rank}위</p>
-				<a href="/project_final/perform/prfinfo/read.do?prfid=${boxoffice.prfid}">
-					<img src="${boxoffice.poster}" style="height:200px;">
-				</a>
-			</div>
-		</c:forEach>
-		</div>
+    <div class="col-sm-12"></div>
+    
+    <!-- 장르별 박스오피스 -->
+    <div class="col-sm-5">
+		<table class="table">
+       		<tr>
+       			<td style="color:white; background-color: #aaaaaa">순위</td>
+       			<td style="color:white; background-color: #aaaaaa">포스터</td>
+       			<td style="color:white; background-color: #aaaaaa">공연명</td>
+       			<td style="color:white; background-color: #aaaaaa">관객수</td>
+       		</tr>
+       		<c:forEach var="boxoffice" items="${boxlist}">
+       		<tr>
+       			<td>${boxoffice.rank}</td>
+       			<td>
+       				<a href="/project_final/perform/prfinfo/read.do?prfid=${boxoffice.prfid}">
+						<img src="${boxoffice.poster}" style="height:100px;">
+					</a>
+				</td>
+       			<td>
+       				(${boxoffice.area})
+       				<a href="/project_final/perform/prfinfo/read.do?prfid=${boxoffice.prfid}">${boxoffice.prfnm}</a>
+       			</td>
+       			<td>${boxoffice.nmrs}명</td>
+       		</tr>
+       		</c:forEach>
+		</table>
 	</div><!-- #박스오피스 -->
+	<div class="col-sm-6"></div>
 
 </div>
 </body>

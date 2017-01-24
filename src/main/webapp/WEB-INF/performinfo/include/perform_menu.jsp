@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/earlyaccess/hanna.css" />
 </head>
 <body>
-	<div class="well" style="margin-top: 30px; background-color: white;">
+	<div class="well" style="margin-top: 30px;background-color: white">
 		<br/>
 		<h3>공 연 정 보</h3>
 		<hr/>
