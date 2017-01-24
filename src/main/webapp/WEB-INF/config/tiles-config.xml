@@ -107,6 +107,15 @@
 	<definition name="userlogin" extends="mainTemplate">
 		<!-- <put-attribute name="content" value="/WEB-INF/user/include/loginPage.jsp"/> -->
 	</definition>
+	
+	
+	<definition name="idsearch" extends="mainTemplate">
+		<put-attribute name="content" value="/WEB-INF/user/include/idsearch.jsp"/>
+	</definition>
+	
+	<definition name="passsearch" extends="mainTemplate">
+		<put-attribute name="content" value="/WEB-INF/user/include/idsearch.jsp"/>
+	</definition>
 
 	<!-- 수정 -->
 	<!-- 관리자페이지 메인 -->
