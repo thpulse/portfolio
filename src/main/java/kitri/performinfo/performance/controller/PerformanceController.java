@@ -127,7 +127,7 @@ public class PerformanceController {
 			}
 		}
 		List<StatsVO> userinfo = statsService.stats(prf.getPrfid());
-		//System.out.println(userinfo);
+		System.out.println(userinfo);
 		int teens=0;
 		int twenty=0;
 		int thirty=0;
