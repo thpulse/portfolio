@@ -6,6 +6,21 @@
 	<insert id="statinsert" parameterType="stat">
 		insert into stat values(#{days}, #{prfid}, #{prfnm}, #{cate}, #{fcltynm}, #{totnmrs})
 	</insert>
+	<select id="selectstat" resultType="selectstat">
+		select a.days,a.prfnm,a.cate,a.fcltynm,a.totnmrs,c.address from stat a , performance b , prf_place c where a.prfid=b.prfid and b.plcid=c.plcid
+	</select>
+	<insert id="insertstatistics" parameterType="statistics">
+		insert into statistics values(#{days}, #{prfnm}, #{cate}, #{fcltynm},#{addr1},#{addr2}, #{totnmrs})
+	</insert>
+	<select id="selectdays" resultType="weather" parameterType="String">
+		select * from weather where info like '%'|| #{weather}||'%'
+	</select>
+	<select id="find" resultType="preferences" parameterType="String">
+		select a.addr1,a.addr2,a.cate,sum(a.totnmrs) as totnmrs from statistics a,(select addr2,addr4,days from weather where info like '%'|| #{weather}||'%') b where a.addr1 = b.addr2 and a.addr2 = b.addr4 and a.days = b.days group by a.addr1,a.addr2,a.cate order by a.addr1
+	</select>
+		<select id="find2" resultType="preferences" parameterType="String">
+		select addr1,addr2,cate,sum(totnmrs) as totnmrs from statistics where days like '%.'|| #{month}||'.%' group by addr1,addr2,cate order by addr1
+	</select>
 </mapper>
 
 

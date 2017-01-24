@@ -25,6 +25,7 @@ input[.tb1] {
                <li>
                   <a href="/project_final/index.do"><i class="fa fa-home"></i><br>Home</a>
                </li>
+               
                <li>
                    <a href="/project_final/perform/prfinfo/select2.do/0/all"><i class="fa fa-camera"></i><br>Perform_Info</a>
                 </li>
@@ -56,6 +57,7 @@ input[.tb1] {
 						<i class="fa fa-tasks"></i><br>Admin<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu dropdown-menu-left" role="menu">
+						<li><a href="/project_final/admin/main.do">Pro</a></li>
 						<li><a href="/project_final/review/adminlist.do">review</a></li>
 						<li><a href="/project_final/list.do">Member</a></li>              
 						<li><a href="/project_final/recommend/main.do">RecommendService</a></li> 
