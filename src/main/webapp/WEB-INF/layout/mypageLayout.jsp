@@ -57,9 +57,10 @@ background:#933 url("http://www.blueb.co.kr/data/201010/IJ12872476173279/vert-on
 </style>
 </head>
 <body>
-	    <!-- Top menu -->
-		
-			<tiles:insertAttribute name="top"/>		
+	    <div class="col-sm-12">
+			<!-- top -->
+			<tiles:insertAttribute name="top"/>
+		</div>	
 		<div class="col-sm-2 sidenav">
 			<!-- JeonInGyu 170110 update Start -->
 			<tiles:insertAttribute name="mypage_menu"/>
@@ -71,9 +72,10 @@ background:#933 url("http://www.blueb.co.kr/data/201010/IJ12872476173279/vert-on
             <tiles:insertAttribute name="content"/>
             
  		</div>
-        <!-- Footer -->
-
-            <tiles:insertAttribute name="footer"/>
+        <div class="col-sm-12">
+			<!-- footer -->
+			<tiles:insertAttribute name="footer"/>
+		</div>
 </body>
 <!-- Javascript -->
         <script src="/project_final/assets/js/jquery-1.11.1.min.js"></script>

@@ -70,7 +70,7 @@
        	<!-- 장르별 박스오피스 -->
        	<div style="text-align:center;margin-top:60px">
 		<c:forEach var="boxoffice" items="${boxlist}">
-			<div class="col-sm-2" style="margin-bottom:20px; background-color: #f4f4f4">
+			<div class="col-sm-2" style="margin-bottom:20px;">
 				<p style="text-align:left;">${boxoffice.rank}위</p>
 				<a href="/project_final/perform/prfinfo/read.do?prfid=${boxoffice.prfid}">
 					<img src="${boxoffice.poster}" style="height:200px;">

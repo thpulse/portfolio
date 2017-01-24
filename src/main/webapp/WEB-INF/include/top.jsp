@@ -49,10 +49,6 @@ input[.tb1] {
                 </li>
                 </se:authorize> 
                 
-                <li>
-                <a href="/project_final/review/Reviewlist.do"><i class="fa fa-envelope"></i><br>Review</a>
-                </li>
-                
                 <se:authorize access="hasRole('ROLE_ADMIN')">  
                 <li>
 				<a href="/project_final/admin/main.do"><i class="fa fa-user"></i><br>Admin</a>
