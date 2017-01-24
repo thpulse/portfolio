@@ -16,6 +16,7 @@ public class RcheckDAOImpl implements RcheckDAO {
 	@Override
 	public List<RcheckVO> Rcheck(String userid) {
 		// TODO Auto-generated method stub
+		
 		return sqlsession.selectList("kitri.perform.Rcheck.list", userid);
 	}
 

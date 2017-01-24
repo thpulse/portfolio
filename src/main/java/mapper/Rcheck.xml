@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kitri.perform.Rcheck">
-	<select id="list" resultType="Rcheck" parameterType="Rcheck">
-		SELECT r.prf_reserve_num, r.prf_day, r.ftf_starttime, p.prfnm FROM performance p, reservation r WHERE p.prfid = r.mem_id
+	<select id="list" resultType="Rcheck" parameterType="String">
+		SELECT r.reserv_date, r.prf_day, r.prf_starttime, p.prfnm FROM performance p, reservation r WHERE r.prf_id = p.prfid and r.user_id = #{userid}
 	</select>
 </mapper>
 

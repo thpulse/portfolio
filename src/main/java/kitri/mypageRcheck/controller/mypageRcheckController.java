@@ -17,10 +17,12 @@ public class mypageRcheckController {
 
 	@RequestMapping("/mypageRcheck/list.do")
 	public ModelAndView mypagemain(String userid){
+		//System.out.println(userid);
 		ModelAndView mav = new ModelAndView();
-		//List<RcheckVO> Rlist = service.Rcheck(userid);
+		List<RcheckVO> Rlist = service.Rcheck(userid);
+		System.out.println(Rlist);
 		
-		//mav.addObject("Rlist", Rlist);
+		mav.addObject("Rlist", Rlist);
 		mav.setViewName("mypageRcheck/list");
 		return mav;
 	}

@@ -8,7 +8,7 @@ public class SearchVO {
 	String prfpdto; // 공연종료일
 	String prfcast; // 공연 출연진
 	String story; // 줄거리
-	String prfstats; // 공연 상태
+	String prfstate;
 	
 	public SearchVO(){
 		
@@ -16,7 +16,7 @@ public class SearchVO {
 
 	public SearchVO(String prfid, String poster, String prfnm,
 			String prfpdfrom, String prfpdto, String prfcast, String story,
-			String prfstats) {
+			String prfstate) {
 		super();
 		this.prfid = prfid;
 		this.poster = poster;
@@ -25,16 +25,20 @@ public class SearchVO {
 		this.prfpdto = prfpdto;
 		this.prfcast = prfcast;
 		this.story = story;
-		this.prfstats = prfstats;
+		this.prfstate = prfstate;
 	}
+
+
 
 	@Override
 	public String toString() {
 		return "SearchVO [prfid=" + prfid + ", poster=" + poster + ", prfnm="
 				+ prfnm + ", prfpdfrom=" + prfpdfrom + ", prfpdto=" + prfpdto
-				+ ", prfcast=" + prfcast + ", story=" + story + ", prfstats="
-				+ prfstats + "]";
+				+ ", prfcast=" + prfcast + ", story=" + story + ", prfstate="
+				+ prfstate + "]";
 	}
+
+
 
 	public String getPrfid() {
 		return prfid;
@@ -76,11 +80,11 @@ public class SearchVO {
 		this.prfpdto = prfpdto;
 	}
 
-	public String getprfcast() {
+	public String getPrfcast() {
 		return prfcast;
 	}
 
-	public void setprfcast(String prfcast) {
+	public void setPrfcast(String prfcast) {
 		this.prfcast = prfcast;
 	}
 
@@ -92,11 +96,13 @@ public class SearchVO {
 		this.story = story;
 	}
 
-	public String getPrfstats() {
-		return prfstats;
+	public String getPrfstate() {
+		return prfstate;
 	}
 
-	public void setPrfstats(String prfstats) {
-		this.prfstats = prfstats;
+	public void setPrfstate(String prfstate) {
+		this.prfstate = prfstate;
 	}
+
+	
 }

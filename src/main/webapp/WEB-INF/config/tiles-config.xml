@@ -12,19 +12,19 @@
 		
 	</definition>
   
-  <definition name="index" extends="mainTemplate">
+    <definition name="index" extends="mainTemplate">
 	</definition>		
  
-  <!--인규	-->
-  <definition name="mypageTemplate" template="/WEB-INF/layout/mypageLayout.jsp">
+  	<!--인규	-->
+ 	<definition name="mypageTemplate" template="/WEB-INF/layout/mypageLayout.jsp">
 		<put-attribute name="top" 		value="/WEB-INF/include/top.jsp"/>
 		<put-attribute name="mypage_menu" value="/WEB-INF/mypage/mypage_menu.jsp"/>
 		<put-attribute name="content" 	value="/WEB-INF/include/content.jsp"/>
 		<put-attribute name="footer" 	value="/WEB-INF/include/footer.jsp"/>
 	</definition>
 	
-	
 	<definition name="mypage" extends="mypageTemplate"/>
+	
 	<definition name="stats/list" extends="mypageTemplate">
 		<put-attribute name="content" value="/WEB-INF/mypage/statsResult.jsp" />
 	</definition>
@@ -36,11 +36,15 @@
 		<put-attribute name="content" value="/WEB-INF/mypage/twitterTest.jsp" />
 	</definition>
 	
-	<!-- JeonInGyu mypageTemplate update Start -->
-	<definition name="searchResult/list" extends="mainTemplate">
-		<put-attribute name="content" value="/WEB-INF/search/searchResult.jsp" />
+	<definition name="searchTemplate" template="/WEB-INF/layout/searchLayout.jsp">
+		<put-attribute name="top" 		value="/WEB-INF/include/top.jsp"/>
+		<put-attribute name="search_side"	value="/WEB-INF/search/search_menu.jsp"/>
+		<put-attribute name="content" 	value="/WEB-INF/search/searchResult.jsp"/>
+		<put-attribute name="footer" 	value="/WEB-INF/include/footer.jsp"/>
 	</definition>
-	<!-- JeonInGyu mypageTemplate update End -->	
+	
+	<definition name="searchResult/list" extends="searchTemplate"/>
+	<!--인규	-->
 	
 	<!-- 공연예매 17.01.07 By.kimtaehyung-->
 	<definition name="reservationTemplate" template="/WEB-INF/layout/reservationLayout.jsp">

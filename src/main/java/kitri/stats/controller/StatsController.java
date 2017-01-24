@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import kitri.performinfo.performance.dto.PerformanceDTO;
 import kitri.search.vo.SearchVO;
 import kitri.stats.service.StatsService;
 import kitri.stats.vo.StatsVO;
@@ -27,9 +28,9 @@ public class StatsController {
 	StatsService service;
 	
 	@RequestMapping("/stats/statsResult.do")
-	public ModelAndView stats() throws ParseException{
+	public ModelAndView stats(PerformanceDTO prf) throws ParseException{
 		ModelAndView mav = new ModelAndView();
-		List<StatsVO> userinfo = service.stats();
+		/*List<StatsVO> userinfo = service.stats(prf.getPrfid());
 		
 		int teens=0;
 		int twenty=0;
@@ -90,13 +91,13 @@ public class StatsController {
 			
 		}
 		System.out.println(teens+","+twenty+","+thirty+","+forty);
-		//System.out.println(male + "," + female);
+		System.out.println(male + "," + female);
 		mav.addObject("teens", teens);
 		mav.addObject("twenty", twenty);
 		mav.addObject("thirty", thirty);
 		mav.addObject("forty", forty);
 		mav.addObject("male", male);
-		mav.addObject("female", female);
+		mav.addObject("female", female);*/
 		mav.setViewName("stats/list");
 
 		

@@ -38,6 +38,7 @@ public class SearchController extends HttpServlet{
 		ModelAndView mav = new ModelAndView();
 		List<SearchVO> Plist = service.search(tag ,Sword);
 		List<SearchResultVO> resultList = service.searchResult();
+		System.out.println(Plist);
 		service.insertSearch(Sword);
 		
 		mav.addObject("resultList", resultList);
@@ -54,18 +55,21 @@ public class SearchController extends HttpServlet{
 	            List<Status> statuses = twitter.getHomeTimeline();
 	            //System.out.println("Showing @" + user.getScreenName() + "'s home timeline.");
 	            
-	            //List<Status> staList = new ArrayList<Status>();
+	            List<Status> staList = new ArrayList<Status>();
 	            for (Status status : statuses) {
 	        		if((status.getText()).contains(Sword)){
 	        			System.out.println("@" + status.getUser().getScreenName() + " - " + status.getText());
+	        			staList.add(status);
 	        			
-	        			mav.addObject("twitterList", status);
-	        			mav.setViewName(url);
 	        		} else if(!(status.getText()).contains(Sword)){
 	        			mav.setViewName(url);
 	        		}
 	         
 	            }
+	            
+	            //System.out.println(staList.size());
+    			mav.addObject("twitterList", staList);
+    			mav.setViewName(url);
 	       } catch (TwitterException te) {
 	            te.printStackTrace();
 	            System.out.println("Failed to get timeline: " + te.getMessage());
