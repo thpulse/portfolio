@@ -11,4 +11,8 @@ public interface UserService {
 	int insert(UserVO user);//회원가입
 	List<UserVO> userList();//user리스트
 	List<UserVO> delete(String user_id);//회원삭제
+	String idsearch(String user_name, String user_tel);
+	String passsearch(String user_id, String user_ssn);
+
+	
 }

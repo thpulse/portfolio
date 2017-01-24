@@ -30,7 +30,7 @@
         <th>전화번호</th>
         <th>선호장르</th>
         <th>회원삭제</th>
-        <th>권한</th>
+       
       </tr>
     </thead>
     		<tbody>
@@ -45,7 +45,7 @@
 					<td><a href="/project_final/delete.do?id=${item.user_id }">회원삭제</a>
 			       	<td></td>
 			 		</tr>
-	      			 </c:forEach>
+	       </c:forEach>
 	      
     </tbody>
   </table>

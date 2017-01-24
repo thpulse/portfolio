@@ -118,7 +118,6 @@
 			 				<li style="text-align: center;"><a href="/project_final/review/write.do?prf_id=${prf.prfid}">±Û¾²±â</a></li>
 						</ul>
 			</div>
-			
 	</div>
 </div>
 </body>
