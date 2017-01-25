@@ -231,12 +231,25 @@ a.button {
 				success : function(search){
 					$("#result_id").html("");
 					$("#result_id").append("아이디: "+search);
+					$("#result_id").append(search
+									/* 	"<table class= 'table'>"+
+										"<thead>"+
+										"<tr>"+
+										"<th>"+"아 이 디 : "+"</th>"+
+										"</tr>"+
+										"</thead>"+
+										"<tbody>"+
+										"<tr>"+
+										"<td>"+ search +"</td>"+
+										"</tr>"+
+										"</tbody>"+
+										"</table">" */
+									);
+								}
 				
-				}
-				
-			})
-		});
-	});		
+							})
+					});
+				});		
 
 </script>
 <script type="text/javascript">

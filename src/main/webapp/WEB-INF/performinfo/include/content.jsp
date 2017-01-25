@@ -53,53 +53,48 @@
 	</script>
 	
 	<!-- 박스오피스 -->
-	<div class="col-sm-12">
+	<div class="col-sm-6 w3-container" style="text-align: center;">
 		<br/>
 		<br/>
 		<h1 style="text-align:left">[ 장르별 박스오피스 ]</h1>
-	</div>
-	<br/>
+		<br/>
 	
-   	<div class="col-sm-6 w3-container" style="text-align: center;">
    		<div style="padding:10px;text-align:left;" class="w3-panel w3-round-small w3-teal">
-		<!-- 박스오피스 상단 -->
-    	<h5><a style="color:black;" href="/project_final/index.do?genre=YK">연극</a> |
-    	<a style="color:black;" href="/project_final/index.do?genre=MU">뮤지컬</a> |
-    	<a style="color:black;" href="/project_final/index.do?genre=CCO">클래식/오페라</a> |
-    	<a style="color:black;" href="/project_final/index.do?genre=MMB">무용/발레</a> |
-    	<a style="color:black;" href="/project_final/index.do?genre=KKB">국악/복합</a></h5>
+			<!-- 박스오피스 상단 -->
+	    	<h5>
+		    	<a style="color:black;" href="/project_final/index.do?genre=YK">연극</a> |
+		    	<a style="color:black;" href="/project_final/index.do?genre=MU">뮤지컬</a> |
+		    	<a style="color:black;" href="/project_final/index.do?genre=CCO">클래식/오페라</a> |
+		    	<a style="color:black;" href="/project_final/index.do?genre=MMB">무용/발레</a> |
+		    	<a style="color:black;" href="/project_final/index.do?genre=KKB">국악/복합</a>
+	    	</h5>
     	</div>
-    </div>
-    <div class="col-sm-12"></div>
     
-    <!-- 장르별 박스오피스 -->
-    <div class="col-sm-5">
+	    <!-- 장르별 박스오피스 -->
 		<table class="table">
-       		<tr>
-       			<td style="color:white; background-color: #aaaaaa">순위</td>
-       			<td style="color:white; background-color: #aaaaaa">포스터</td>
-       			<td style="color:white; background-color: #aaaaaa">공연명</td>
-       			<td style="color:white; background-color: #aaaaaa">관객수</td>
-       		</tr>
-       		<c:forEach var="boxoffice" items="${boxlist}">
-       		<tr>
-       			<td>${boxoffice.rank}</td>
-       			<td>
-       				<a href="/project_final/perform/prfinfo/read.do?prfid=${boxoffice.prfid}">
+	  		<tr>
+	  			<td style="color:white; background-color: #aaaaaa">순위</td>
+	   			<td style="color:white; background-color: #aaaaaa">포스터</td>
+	   			<td style="color:white; background-color: #aaaaaa">공연명</td>
+	   			<td style="color:white; background-color: #aaaaaa">관객수</td>
+	  		</tr>
+	   		<c:forEach var="boxoffice" items="${boxlist}">
+	   		<tr>
+	   			<td>${boxoffice.rank}</td>
+	  			<td>
+	   				<a href="/project_final/perform/prfinfo/read.do?prfid=${boxoffice.prfid}">
 						<img src="${boxoffice.poster}" style="height:100px;">
 					</a>
 				</td>
-       			<td>
-       				(${boxoffice.area})
-       				<a href="/project_final/perform/prfinfo/read.do?prfid=${boxoffice.prfid}">${boxoffice.prfnm}</a>
-       			</td>
-       			<td>${boxoffice.nmrs}명</td>
-       		</tr>
-       		</c:forEach>
+	   			<td>
+	   				(${boxoffice.area})
+	   				<a href="/project_final/perform/prfinfo/read.do?prfid=${boxoffice.prfid}">${boxoffice.prfnm}</a>
+	   			</td>
+	   			<td>${boxoffice.nmrs}명</td>
+	   		</tr>
+	   		</c:forEach>
 		</table>
-	</div><!-- #박스오피스 -->
-	<div class="col-sm-6"></div>
-
+	</div>
 </div>
 </body>
 
