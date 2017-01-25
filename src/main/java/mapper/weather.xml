@@ -10,7 +10,7 @@
 		insert into weather values(#{days},#{max_temp},#{min_temp},#{info},#{addr1},#{addr2},#{addr3},#{addr4})
 	</insert>
 		<select id="lastweather" resultType="weather">
-		 	select * from (select * from weather order by rownum desc) where rownum=1
+		 	select * from (select * from weather order by to_number(substr(days,1,4)) desc) where rownum=1
 	</select>
 </mapper>
 

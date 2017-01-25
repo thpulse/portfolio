@@ -35,7 +35,7 @@ public class WeatherLogicImpl implements WeatherLogic {
 		int date = Integer.parseInt(e_date);*/
 		int year = 2017;
 		int month = 1;
-		int date = 1;
+		int date = 24;
 
 		try {
 			for (int area = 0; area < size; area++) {
@@ -84,6 +84,7 @@ public class WeatherLogicImpl implements WeatherLogic {
 								
 							}else{
 								WeatherVO weather=new WeatherVO(days, max_temp, min_temp, info, addr1, addr2, addr3, addr4);
+								System.out.println(weather);
 								sqlSession.insert("kitri.pro.weather.weatherinsert", weather);
 							}	
 						}
