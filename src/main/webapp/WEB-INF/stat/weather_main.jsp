@@ -98,14 +98,7 @@ $(document).ready(function()
 					arr[6]+=parseInt(total);
 				}else if(cate=='บนวี'){
 					arr[7]+=parseInt(total);
-				}
-  				$("#weather_show").append("<div class = 'wrapper'>"
- 						+"<table class= 'table'>"+
-											"<tr>"+
-											"<td>"+addr1+"</td>"+"<td>"+addr2+"</td>"+"<td>"+cate+"</td>"+"<td>"+total+"</td>"+
-											"</tr>" +
-											"</table>"	+	"</div>"
-				)  	
+				}	
 			}
 			var sum=arr[0]+arr[1]+arr[2]+arr[3]+arr[4]+arr[5]+arr[6]+arr[7];
 			arr[0]=Math.round(arr[0]*100/sum);
