@@ -39,7 +39,7 @@ var aaa = function(revno) {
 				style="padding: 0px;">
 				<a href="/project_final/perform/prfinfo/select.do">공연보기</a> <a>${prf.prfnm}</a>
 			</div>
-
+	
 			<br /> <br /> <br />
 			<!-- 상세정보 포스터 -->
 			<div class="col-sm-5">
@@ -71,6 +71,72 @@ var aaa = function(revno) {
 						${prf.tckprice}</li>
 				</ul>
 			</div>
+			
+			
+
+	<div class="white-panel pn donut-chart">
+		<div class="white-header">
+			<h5>성별</h5>
+       	</div>
+		<div class="row">
+			<span class="label label-primary">남자</span>
+			<span class="label label-danger">여자</span>
+			<canvas id="serverstatus01" height="120" width="120"></canvas>
+	    </div>
+		<script>
+			var doughnutData = [
+				{
+					value: parseInt("${male}"),
+					color:"#428bca"
+				},
+				{
+					value : parseInt("${female}"),
+					color : "#d9534f"
+				}
+			];
+		var myDoughnut = new Chart(document.getElementById("serverstatus01").getContext("2d")).Doughnut(doughnutData);
+		</script>
+	</div>
+
+<!-- 성별 통계 View -->
+
+<!-- 나이 통계 View -->
+
+	<div class="white-panel pn donut-chart">
+		<div class="white-header">
+			<h5>나이</h5>
+		</div>
+		<div class="row">
+			<span class="badge bg-success">10</span>
+			<span class="badge bg-info">20</span>
+			<span class="badge bg-inverse">30</span>
+			<span class="badge bg-warning">40</span>  				
+      		<canvas id="serverstatus02" height="120" width="120"></canvas>
+      	</div>
+	</div>
+
+	<script>
+ 		var doughnutData2 = [
+			{
+				value :parseInt("${teens}"),
+				color :"#a9d86e"
+			},
+			{
+				value :parseInt("${twenty}"),
+				color :"#41cac0"
+			},
+			{
+				value :parseInt("${thirty}"),
+				color :"#2a3542"
+			},					
+			{
+				value :parseInt("${forty}"),
+				color :"#fcb322"
+			}
+			];
+		var myDoughnut2 = new Chart(document.getElementById("serverstatus02").getContext("2d")).Doughnut(doughnutData2);
+	</script>
+			
 			<!-- 소개이미지 -->
 			<div class="col-sm-10 well">공연상세정보▼</div>
 			<div class="col-sm-10">${prf.story}</div>
@@ -81,6 +147,7 @@ var aaa = function(revno) {
 			</div>
 
 			<!-- 댓글 -->
+			<div class="col-sm-10 well">공연후기▼</div>
 			<table class="table">
 				<thead>
 					<td>좋아요:${count1 } 싫어요:${count2 }</td>
@@ -147,5 +214,8 @@ var aaa = function(revno) {
 
 	</div>
 
+<!-- 통계 CSS -->
+<script src="/project_final/assets/js/sparkline-chart.js"></script>    
+<!-- 통계 CSS -->
 </body>
 </html>

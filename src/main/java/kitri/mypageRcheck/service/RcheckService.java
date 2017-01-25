@@ -6,4 +6,5 @@ import kitri.mypageRcheck.vo.RcheckVO;
 
 public interface RcheckService {
 	List<RcheckVO> Rcheck(String userid);
+	void Rcancel(String reserv_num);
 }

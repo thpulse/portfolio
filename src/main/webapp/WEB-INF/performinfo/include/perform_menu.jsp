@@ -18,9 +18,6 @@
 			<li class="list-group-item">
 				<a href="/project_final/perform/prfplc/select.do/0">공연장보기</a>
 			</li>
-			<li class="list-group-item">
-				<a href="/project_final/perform/admin/index.do">관리자페이지</a>
-			</li>
 		</ul>
 	</div>
 </body>

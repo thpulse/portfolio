@@ -18,5 +18,10 @@ public class RcheckServiceImpl implements RcheckService {
 		
 		return dao.Rcheck(userid);
 	}
+
+	@Override
+	public void Rcancel(String reserv_num) {
+		dao.Rcancel(reserv_num);
+	}
 	
 }

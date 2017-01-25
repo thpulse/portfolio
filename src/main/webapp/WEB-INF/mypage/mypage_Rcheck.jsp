@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,28 +81,45 @@
 	</ul>
 </div> -->
 
-<div class="col-sm-12">
-	<table class="table">
-		<!-- thead -->
-		<tr>
-			<td style="color:white; background-color: #aaaaaa">공연명</td>
-			<td style="color:white; background-color: #aaaaaa">공연시작일</td>
-			<td style="color:white; background-color: #aaaaaa">공연시작시간</td>
-			<td style="color:white; background-color: #aaaaaa">예매시간</td>
-			<td style="color:white; background-color: #aaaaaa">공연 취소</td>
-		</tr>
-		<!-- tbody -->
-		<c:forEach var="reserv" items="${Rlist}">
-		<tr>
-			<td>${reserv.prfnm}</td>
-			<td>${reserv.prf_day}</td>
-			<td>${reserv.reserv_date}</td>
-			<td>${reserv.prf_starttime}</td>
-			<td>O</td>
-		</tr>
-		</c:forEach>
-	</table>
+<div class="wrapper">
+  	<div class="table">
+		<div class="row header">
+      		<div class="cell">
+				공연명
+      		</div>
+      		<div class="cell">
+				공연시작일
+			</div>
+			<div class="cell">
+				예매시간
+      		</div>
+			<div class="cell">
+				공연시작시간
+      		</div>
+      		<div class="cell">
+				공연 취소
+      		</div>
+    </div>
+    	<c:forEach var="reserv" items="${Rlist}">
+	    <div class="row">
+	      	<div class="cell">
+	        ${reserv.prfnm}
+	      	</div>
+	      	<div class="cell">
+	        ${reserv.prf_day}
+	      	</div>
+	      	<div class="cell">
+	        ${reserv.reserv_date}
+	      	</div>
+	      	<div class="cell">
+	        ${reserv.prf_starttime}
+	      	</div>
+	      	<div class="cell">
+	        	<a href="/project_final/mypageRcheck/Rcancel.do?reserv_num=${reserv.reserv_num}&userid=<sec:authentication property="principal.username"/>">취소</a>
+	      	</div>
+	    </div>
+	     </c:forEach>
+  	</div>
 </div>
-
 </body>
 </html>

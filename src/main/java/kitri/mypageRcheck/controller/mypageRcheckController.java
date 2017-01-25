@@ -26,4 +26,16 @@ public class mypageRcheckController {
 		mav.setViewName("mypageRcheck/list");
 		return mav;
 	}
+	
+	
+	@RequestMapping("/mypageRcheck/Rcancel.do")
+	public ModelAndView Rcancel(String reserv_num,String userid){
+		System.out.println(reserv_num);
+		ModelAndView mav = new ModelAndView();
+		
+		service.Rcancel(reserv_num);
+		
+		mav.setViewName("redirect:/mypageRcheck/list.do?userid="+userid);
+		return mav;
+	}
 }

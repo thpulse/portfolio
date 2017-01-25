@@ -20,4 +20,10 @@ public class RcheckDAOImpl implements RcheckDAO {
 		return sqlsession.selectList("kitri.perform.Rcheck.list", userid);
 	}
 
+	@Override
+	public void Rcancel(String reserv_num) {
+		
+		sqlsession.selectList("kitri.perform.Rcheck.delete", reserv_num);
+	}
+
 }

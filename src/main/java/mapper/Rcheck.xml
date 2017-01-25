@@ -3,8 +3,12 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kitri.perform.Rcheck">
 	<select id="list" resultType="Rcheck" parameterType="String">
-		SELECT r.reserv_date, r.prf_day, r.prf_starttime, p.prfnm FROM performance p, reservation r WHERE r.prf_id = p.prfid and r.user_id = #{userid}
+		SELECT r.reserv_date, r.prf_day, r.prf_starttime, r.del_flg, r.reserv_num, p.prfnm FROM performance p, reservation r WHERE r.prf_id = p.prfid and r.user_id = #{userid} and del_flg = 1
 	</select>
+	
+	<update id="delete" parameterType="String">
+    	update reservation set del_flg=0 where reserv_num = #{reserv_num}
+    </update>
 </mapper>
 
 

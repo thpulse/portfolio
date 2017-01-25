@@ -131,10 +131,11 @@
 						<i class="fa fa-tasks"></i><br>Admin<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu dropdown-menu-left" role="menu">
-						<li><a href="/project_final/admin/main.do">Pro</a></li>
+					<li><a href="/project_final/admin/main.do">Pro</a></li>
 						<li><a href="/project_final/review/adminlist.do">review</a></li>
 						<li><a href="/project_final/list.do">Member</a></li>              
 						<li><a href="/project_final/recommend/main.do">RecommendService</a></li> 
+						<li><a href="/project_final/perform/admin/index.do">PerformInsert</a></li>
 					</ul>
 				</li>
  			</se:authorize>

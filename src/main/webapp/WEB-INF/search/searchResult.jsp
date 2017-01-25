@@ -256,7 +256,7 @@ h3 {
 	</div>
 </div>
 	
-<%-- 	 <%  
+ 	 <%  
  		if(request.getAttribute("twitterList") != null){
  			ArrayList<Status> twiList = (ArrayList<Status>)request.getAttribute("twitterList"); 
 			int size = twiList.size();
@@ -293,6 +293,6 @@ h3 {
 		</ul>
 	
 		<% } %>
-<% } %>	 --%>
+<% } %>
 </body>
 </html>
