@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
     <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+    <%@ taglib prefix="se" uri="http://www.springframework.org/security/tags"%>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
+</head>
 
     <body>
-        <!-- Slider -->
+    	<!-- Slider -->
         <div class="slider-container">
             <div class="container">
                 <div class="row">
