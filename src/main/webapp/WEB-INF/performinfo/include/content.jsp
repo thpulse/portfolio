@@ -11,9 +11,7 @@
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/earlyaccess/hanna.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
-   $(document).ready(function(){
-      
-   })
+
 </script>
 </head>
 <body>
@@ -124,5 +122,6 @@
 		    </c:otherwise>		
 		</c:choose>	   
    </div>   
+
 </body>
 </html>

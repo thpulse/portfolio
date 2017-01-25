@@ -1,9 +1,16 @@
 package kitri.pro.stat.weather.dao;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import kitri.performinfo.boxweekly.dao.getService;
+import kitri.pro.stat.weather.dto.PreferencesVO;
+import kitri.pro.stat.weather.dto.SelectStatVO;
 import kitri.pro.stat.weather.dto.StatVO;
+import kitri.pro.stat.weather.dto.StatisticsVO;
+import kitri.pro.weather.dto.WeatherVO;
 
 import org.apache.ibatis.session.SqlSession;
 import org.json.XML;
@@ -46,7 +53,7 @@ public class PreferencesWeatherDAOImpl implements PreferencesWeatherDAO {
 									|| date == 4 || date == 5 || date == 6
 									|| date == 7 || date == 8 || date == 9) {
 								url = new URL(
-										"http://www.kopis.or.kr/openApi/restful/prfstsPrfBy?service=a9461f6b770f45d8a93c5457eaeb7838&cpage=1&rows=10&stdate="
+										"http://www.kopis.or.kr/openApi/restful/prfstsPrfBy?service=a9461f6b770f45d8a93c5457eaeb7838&cpage=1&rows=1000&stdate="
 												+ year
 												+ month
 												+ "0"
@@ -57,7 +64,7 @@ public class PreferencesWeatherDAOImpl implements PreferencesWeatherDAO {
 												+ "0" + date);
 							} else {
 								url = new URL(
-										"http://www.kopis.or.kr/openApi/restful/prfstsPrfBy?service=a9461f6b770f45d8a93c5457eaeb7838&cpage=1&rows=10&stdate="
+										"http://www.kopis.or.kr/openApi/restful/prfstsPrfBy?service=a9461f6b770f45d8a93c5457eaeb7838&cpage=1&rows=1000&stdate="
 												+ year
 												+ month
 												+ date
@@ -67,12 +74,12 @@ public class PreferencesWeatherDAOImpl implements PreferencesWeatherDAO {
 												+ date);
 							}
 						} else {
-							days = year + ".0" + month + "." + date;
+							days = year + "." + month + "." + date;
 							if (date == 1 || date == 2 || date == 3
 									|| date == 4 || date == 5 || date == 6
 									|| date == 7 || date == 8 || date == 9) {
 								url = new URL(
-										"http://www.kopis.or.kr/openApi/restful/prfstsPrfBy?service=a9461f6b770f45d8a93c5457eaeb7838&cpage=1&rows=10&stdate="
+										"http://www.kopis.or.kr/openApi/restful/prfstsPrfBy?service=a9461f6b770f45d8a93c5457eaeb7838&cpage=1&rows=1000&stdate="
 												+ year
 												+ "0"
 												+ month
@@ -83,7 +90,7 @@ public class PreferencesWeatherDAOImpl implements PreferencesWeatherDAO {
 												+ "0" + month + "0" + date);
 							} else {
 								url = new URL(
-										"http://www.kopis.or.kr/openApi/restful/prfstsPrfBy?service=a9461f6b770f45d8a93c5457eaeb7838&cpage=1&rows=10&stdate="
+										"http://www.kopis.or.kr/openApi/restful/prfstsPrfBy?service=a9461f6b770f45d8a93c5457eaeb7838&cpage=1&rows=1000&stdate="
 												+ year
 												+ "0"
 												+ month
@@ -110,8 +117,10 @@ public class PreferencesWeatherDAOImpl implements PreferencesWeatherDAO {
 							String cate = (String) obj.get("cate");
 							StatVO stat = new StatVO(days,prfid, prfnm, cate,fcltynm, totnmrs);
 							System.out.println(stat);
-							sqlSession.insert("kitri.pro.preferences.statinsert", stat);
-							count++;
+							if(!(totnmrs.equals("0"))){
+								sqlSession.insert("kitri.pro.preferences.statinsert", stat);
+								count++;
+							}
 						}
 						}
 						}
@@ -123,5 +132,21 @@ public class PreferencesWeatherDAOImpl implements PreferencesWeatherDAO {
 		}
 		System.out.println(count);
 		return 1;
+	}
+	@Override
+	public List<SelectStatVO> selectStat() {
+		return sqlSession.selectList("kitri.pro.preferences.selectstat");
+	}
+	@Override
+	public int insertStatistics(StatisticsVO statistics) {
+		return sqlSession.insert("kitri.pro.preferences.insertstatistics", statistics);
+	}
+	@Override
+	public List<WeatherVO> weatherlist(String weather) {
+		return sqlSession.selectList("kitri.pro.preferences.selectdays",weather);
+	}
+	@Override
+	public List<PreferencesVO> preferences(String weather) {
+		return sqlSession.selectList("kitri.pro.preferences.find",weather);
 	}
 }

@@ -53,7 +53,7 @@ html{
 .testbox {
   margin: 20px auto;
   width: 700px; 
-  height: 830px; 
+  height: auto; 
   -webkit-border-radius: 8px/7px; 
   -moz-border-radius: 8px/7px; 
   border-radius: 8px/7px; 
@@ -75,10 +75,22 @@ html{
 
 }
 
-input[type=radio] {
-  visibility: hidden;
+.testbox3 {
+	margin: 20px auto;
+   	width: 350px; 
+   	height: 30px; 
+	background-color: #ebebeb; 
+  -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  border: solid 1px #cbc9c9;
+
 }
 
+/* input[type=radio] {
+  visibility: hidden;
+}
+ */
 form{
   margin: 0 30px;
 }
@@ -134,14 +146,8 @@ hr{
 
 input[type=text],input[type=password]{
   width: 350px; 
-  height: 40px; 
-  -webkit-border-radius: 0px 4px 4px 0px/5px 5px 4px 4px; 
-  -moz-border-radius: 0px 4px 4px 0px/0px 0px 4px 4px; 
-  border-radius: 0px 4px 4px 0px/5px 5px 4px 4px; 
-  background-color: #fff; 
-  -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
-  -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
-  box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  height: 40px;
+  background-color: #fff;
   border: solid 1px #cbc9c9;
   margin-left: -5px;
   margin-top: 13px; 
@@ -211,7 +217,10 @@ a.button {
   box-shadow: none;
   
 }
- 
+
+input{
+	background-color: white;
+}
 
 </style>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -240,52 +249,53 @@ a.button {
 
 
 <div class="container-fluid">
-           <div class="row">   
-                 <div class="col-sm-3" style="background-color:white;"></div>
-                <div class="col-sm-6" style="background-color:white;">
-                
-                   	<div class="testbox">
-  						<h1>Registration</h1>
-
- 					 <form role="form" action="/project_final/insert.do" method="POST">
-   
+	
+	<div class="row">   
+		<div class="col-sm-3" style="background-color:white;"></div>
+		<div class="col-sm-6" style="background-color:white;">
+			<div class="testbox">
+				<h1>Registration</h1>
+				<br>
+				<br>
+				<form role="form" action="/project_final/insert.do" method="POST">
+					<input style="background-color: white;" type="text" name="user_id" placeholder="Id" required/><br>
+					<input type="password" name="user_pass" id="pass" placeholder="Password" required/><br>
+					<input type="password" name="user_pass2" id="pass2" placeholder="Confirm Password" required/><br>
+					<div><font name="check" size="3" color="red"></font></div>
+						<br><input style="background-color: white;" type="text" name="user_name" placeholder="Name" required/><br>
+					<br><input style="background-color: white;" type="text" name="user_ssn" placeholder="SSN" maxlength="14" required/><br>
+					<br><input style="background-color: white;" type="text" name="user_tel" placeholder="Tel" required/><br>
+					<br><input style="background-color: white;" type="text" name="user_email" placeholder="Email" required/><br>
 					
- 						 <input type="text" name="user_id" placeholder="Id" required/><br>
-						 <input type="password" name="user_pass" id="pass" placeholder="Password" required/><br>
-						 <input type="password" name="user_pass2" id="pass2" placeholder="Confirm Password" required/><br>
-  						 <div><font name="check" size="3" color="red"></font></div>
-  						 <input type="text" name="user_name" placeholder="Name" required/><br>   
-     					 <input type="text" name="user_ssn" placeholder="SSN" required/><br>
-   						 <input type="text" name="user_tel" placeholder="Tel" required/><br>
- 						 <input type="text" name="user_email" placeholder="Email" required/><br>
-  						 <input type="text" name="user_gender" placeholder="Gender" required/>
-  					
-  					 <div class="testbox2">
-  						 <div class="checkbox">
- 						 	<label>Gerne Choice</label><br>
-  							 
-  							 <label><input type="checkbox" name="user_gerne" value="play" >Play</label><br>
-  							 <label><input type="checkbox" name="user_gerne" value="musical" >Musical</label><br>
-  							 <label><input type="checkbox" name="user_gerne" value="classic" >Classic</label><br>
-  							 <label><input type="checkbox" name="user_gerne" value="opera" >Opera</label><br>
-  							 <label><input type="checkbox" name="user_gerne" value="dance" >Dance</label><br>
-  							 <label><input type="checkbox" name="user_gerne" value="ballet" >Ballet</label><br>
-  							 <label><input type="checkbox" name="user_gerne" value="gugak" >Gugak</label><br>
-  						</div>
-  			    	</div>
- 			
-  
-  						 <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
-  							<input type="submit" value="Register" class="btn btn-success"/>
-  							 <!-- <a href="/project_final/insert.do" class="button">Register</a> -->
- 						 </form>
- 						
+					<div class="testbox3">
+						<label><input type="radio" name="user_gender" value="Male" checked/>Male</label>
+						<label><input type="radio" name="user_gender" value="Female"/>Female</label>
+					</div>
+				
+					<div class="testbox2">
+						<div class="checkbox">
+							<label>Gerne Choice</label><br>
+							<label><input type="checkbox" name="user_gerne" value="play" >Play</label><br>
+							<label><input type="checkbox" name="user_gerne" value="musical" >Musical</label><br>
+							<label><input type="checkbox" name="user_gerne" value="classic" >Classic</label><br>
+							<label><input type="checkbox" name="user_gerne" value="opera" >Opera</label><br>
+							<label><input type="checkbox" name="user_gerne" value="dance" >Dance</label><br>
+							<label><input type="checkbox" name="user_gerne" value="ballet" >Ballet</label><br>
+							<label><input type="checkbox" name="user_gerne" value="gugak" >Gugak</label><br>
 						</div>
-                   
-           		  </div>
-                <div class="col-sm-3" style="background-color:white;"></div>
-           </div>
-      </div>
+					</div>
+						<div>By clicking Register, you agree on our <a href="#">terms and condition</a>.</div>
+						<br>	
+						
+					<input type="submit" value="Register" class="btn btn-success"/><br><br><br>
+					<!-- <a href="/project_final/insert.do" class="button">Register</a> -->
+				</form>
+			</div><!-- #testbox -->
+		</div>
+		<div class="col-sm-3" style="background-color:white;"></div>
+	</div>
+	
+</div>
 	
 	
 

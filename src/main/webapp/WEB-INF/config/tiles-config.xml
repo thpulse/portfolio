@@ -23,7 +23,9 @@
 		<put-attribute name="footer" 	value="/WEB-INF/include/footer.jsp"/>
 	</definition>
 
-	<definition name="mypage" extends="mypageTemplate"/>
+	<definition name="mypage" extends="mypageTemplate">
+		<put-attribute name="content" value="/WEB-INF/mypage/mypage_Rcheck.jsp" />
+	</definition>
 	
 	<definition name="stats/list" extends="mypageTemplate">
 		<put-attribute name="content" value="/WEB-INF/mypage/statsResult.jsp" />

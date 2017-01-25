@@ -36,17 +36,21 @@
 </style>
 </head>
 <body>
-	<table id="customers1">
-	<tr>
-	  <th>순위</th>
-	  <th>검색어</th>
-	</tr>
-	<c:forEach var="sea" items="${resultList}" begin="0" varStatus="status" end="8">
-	<tr>
-		<td align="center">${status.count}</td>
-		<td align="center">${sea.search_word}</td>
-	</tr>
-	</c:forEach>
-</table>
+<div class="col-sm-12">
+	<h2>공연 검색 순위 </h2>
+	<br/>
+	<table class="table">
+		<tr>
+		  <th style="text-align: center">순위</th>
+		  <th style="text-align: center">검색어</th>
+		</tr>
+		<c:forEach var="sea" items="${resultList}" begin="0" varStatus="status" end="8">
+		<tr>
+			<td align="center">${status.count}</td>
+			<td align="center">${sea.search_word}</td>
+		</tr>
+		</c:forEach>
+	</table>
+</div>
 </body>
 </html>

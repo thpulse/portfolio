@@ -36,7 +36,7 @@
     <body>
         
         <!-- Top menu -->
-        <div class="col-sm-12" style="background-image: url('C:/iot/workspace/bigdatawork/final_test/src/main/webapp/assets/img/bg/catch.jpg') !important">
+        <div class="col-sm-12">
 			<tiles:insertAttribute name="top"/>
 		</div>	
         <!-- Slider -->

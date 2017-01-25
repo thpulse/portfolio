@@ -2,6 +2,7 @@
     pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +20,7 @@
 		
 		<!-- 상세정보 top -->
 		<div class="col-sm-12 portfolio-filters wow fadeInLeft" style="padding:0px;">
-			<a href="/project_final/perform/prfinfo/select.do">공연보기</a>
+			<a href="/project_final/perform/prfinfo/select.do">공연보기</a> /
 			<a>${prf.prfnm}</a>
 		</div>
 		
@@ -72,9 +73,8 @@
 		                   	좋아요:${count1 } 싫어요:${count2 }
 		                   	</td>                  
                               <tr>
-                                 <th style="text-align: center;">번호</th>
-                                 <th style="text-align: center;">아이디</th>
                                  <th style="text-align: center;">내용</th>
+                                 <th style="text-align: center;">작성자</th>
                                  <th style="text-align: center;">별점</th>
                                  <th style="text-align: center;">추천</th>
 							 </tr>
@@ -83,9 +83,8 @@
                           
                               <c:forEach var="review" items="${reviewlist}">
                                  <tr>
-                                    <td><a href="/project_final/review/read.do?revno=${review.revno}&action=READ">${review.revno}</a></td>
-                                    <td>${review.mem_id}</td>
-                                    <td>${review.revcomment}</td>                                
+                                    <td>${review.revcomment}</td>
+                                    <td>${review.mem_id}</td>                                
                              		<c:choose>
                              			<c:when test="${review.revgrade=='1'}">
                              				<td>★</td>
@@ -112,7 +111,7 @@
                              				<td>좋아요</td>
                              			</c:otherwise>	
                              		</c:choose>
-                             		<td><a href="/project_final/review/delete.do?revno=${review.revno}">삭제</a></td>
+                             			<td><a href="/project_final/review/delete.do?revno=${review.revno}">삭제</a></td>
                                  </tr>
                                  
                               </c:forEach>

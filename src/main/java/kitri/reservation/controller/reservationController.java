@@ -90,6 +90,7 @@ public class reservationController {
 		//time 그 날의 시간 ex) 18:00
 		//day 예약한 요일
 		//day2 예약한 날짜 (일)
+		System.out.println("%%%%"+prfid);
 		SimpleDateFormat  formatter04 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		String todayDate=  formatter04.format(new Date());
 		//id세션에서 끌어와야함

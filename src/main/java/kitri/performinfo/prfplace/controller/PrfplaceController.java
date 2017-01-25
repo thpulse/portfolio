@@ -8,6 +8,7 @@ import kitri.performinfo.performance.dto.PerformanceDTO;
 import kitri.performinfo.performance.service.PerformanceService;
 import kitri.performinfo.prfplace.dto.PrfplaceDTO;
 import kitri.performinfo.prfplace.service.PrfplaceService;
+import kitri.reservation.service.reservationService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -31,6 +32,9 @@ public class PrfplaceController {
 	
 	@Autowired
 	Prf_PlaceRepository repository;
+	
+	@Autowired
+	reservationService resservice;
 	
 	@RequestMapping("/perform/prfplc/index.do")
 	public ModelAndView Total_PrfPlace(){

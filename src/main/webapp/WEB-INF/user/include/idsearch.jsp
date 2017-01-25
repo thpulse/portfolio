@@ -230,13 +230,26 @@ a.button {
 				data : param,
 				success : function(search){
 					$("#result_id").html("");
-					$("#result_id").append(search);
+					$("#result_id").append("아이디: "+search);
+					$("#result_id").append(search
+									/* 	"<table class= 'table'>"+
+										"<thead>"+
+										"<tr>"+
+										"<th>"+"아 이 디 : "+"</th>"+
+										"</tr>"+
+										"</thead>"+
+										"<tbody>"+
+										"<tr>"+
+										"<td>"+ search +"</td>"+
+										"</tr>"+
+										"</tbody>"+
+										"</table">" */
+									);
+								}
 				
-				}
-				
-			})
-		});
-	});		
+							})
+					});
+				});		
 
 </script>
 <script type="text/javascript">
@@ -252,7 +265,7 @@ $(document).ready(function(){
 			data : param,
 			success : function(search2){
 				$("#result_pass").html("");
-				$("#result_pass").append(search2)(
+				$("#result_pass").append("비밀번호: "+search2)(
 													
 				);
 			
@@ -270,60 +283,52 @@ $(document).ready(function(){
 <body>
 
 
-<div class="container-fluid">
-           <div class="row">   
-                 <div class="col-sm-3" style="background-color:white;"></div>
-                <div class="col-sm-6" style="background-color:white;">
+	<div class="container-fluid">
+		<div class="row">   
+			<div class="col-sm-3" style="background-color:white;"></div>
+			<div class="col-sm-6" style="background-color:white;">
                 
-                   	<div class="testbox">
-  						<h1>아이디 찾기</h1>
+	           	<div class="testbox">
+					<h1>아이디 찾기</h1>
 
- 					 <form role="form" action="/project_final/idsearch.do" method="POST">
-   
-						 <input type="text" name="user_name" id="user_name" placeholder="Name" required/><br>   
-     					 <input type="text" name="user_tel" id="user_tel" placeholder="Tel" required/><br>
- 						
-  						
-  						 <p>비밀번호가 잊으셨습니까? 아래를 보세요.</p>
-  							<input type="button" id="idsearch" value="아이디찾기" class="btn btn-info"/>
-  					   </form><br>
- 							<div id="result_id">
- 							
- 							</div>
-						</div>
-                   
-           		  </div>
-                <div class="col-sm-3" style="background-color:white;"></div>
-           </div>
+					<form role="form" action="/project_final/idsearch.do" method="POST">
+						<input type="text" name="user_name" id="user_name" placeholder="Name" required/><br><br>
+						<input type="text" name="user_tel" id="user_tel" placeholder="Tel" required/><br><br>
+							<input type="button" id="idsearch" value="아이디찾기" class="btn btn-info"/>
+					</form>
+					<br>
+					<div id="result_id" style="font-size: 20px;">
+							
+					</div>
+				<h4>비밀번호가 기억이 나지 않으시면 아래▼ "비밀번호 찾기"를 이용해주세요.</h4>
+				</div>
+			
+			</div>
+			
+               <div class="col-sm-3" style="background-color:white;"></div>
+		</div>
 	</div>
       
-<div class="container-fluid">
-           <div class="row">   
-                 <div class="col-sm-3" style="background-color:white;"></div>
-                <div class="col-sm-6" style="background-color:white;">
-                
-                   	<div class="testbox">
-  						<h1>비밀번호 찾기</h1>
-
- 					 <form role="form" action="/project_final/passsearch.do" method="POST">
-   							
-   						 <input type="text" name="user_id" id="user_id" placeholder="Id" required/><br>	
-						 <input type="password" name="user_ssn" id="user_ssn" placeholder="SSN" maxlength="14" required/><br>
-						
-						
-							<p>또 까먹으면 안얄랴쥼. 잊지마세요!</p>
-  							<input type="button" id="passsearch" value="비밀번호 찾기" class="btn btn-info"/>
-  							
- 						 </form><br>
- 						<div id="result_pass">
- 						
- 						</div>
-						</div>
-                   
-           		  </div>
-                <div class="col-sm-3" style="background-color:white;"></div>
-           </div>
-      </div>
+	<div class="container-fluid">
+		<div class="row">   
+			<div class="col-sm-3" style="background-color:white;"></div>
+			<div class="col-sm-6" style="background-color:white;">
+				<div class="testbox">
+				<h1>비밀번호 찾기</h1>
+					
+					<form role="form" action="/project_final/passsearch.do" method="POST">
+						<input type="text" name="user_id" id="user_id" placeholder="Id" required/><br>	
+						<input type="password" name="user_ssn" id="user_ssn" placeholder="SSN" maxlength="14" required/><br><br>
+						<input type="button" id="passsearch" value="비밀번호 찾기" class="btn btn-info"/>
+					</form><br>
+					<div id="result_pass" style="font-size: 20px;">
+					
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3" style="background-color:white;"></div>
+		</div>
+	</div>
 	
 	
 
