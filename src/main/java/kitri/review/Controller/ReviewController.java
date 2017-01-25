@@ -35,10 +35,10 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("/review/delete.do")
-	public ModelAndView delete(int revno){
+	public ModelAndView delete(int revno,String prfid){
+		System.out.println(revno);
 		service.delete(revno);
-		
-		return new ModelAndView("redirect:/perform/prfinfo/read.do");
+		return new ModelAndView("redirect:/perform/prfinfo/read.do?prfid="+prfid);
 	}
 	
 	@RequestMapping("/review/update.do")
@@ -49,9 +49,9 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("/review/read.do")
-	public ModelAndView read(int revno, String action){
+	public ModelAndView read(int revno,String prfid, String action){
 		String view = "";
-		
+		ModelAndView mav = new ModelAndView();
 		if(action!=null){
 			if(action.equals("READ")){
 				view = "review/include/Reviewread";
@@ -62,7 +62,10 @@ public class ReviewController {
 			
 		}	
 		ReviewVO review = service.readno(revno);
-		return new ModelAndView(view,"review",review);
+		mav.addObject("review",review);
+		mav.addObject("prfid",prfid);
+		mav.setViewName(view);
+		return mav;
 	}
 	
 	@RequestMapping("/review/adminlist.do")
