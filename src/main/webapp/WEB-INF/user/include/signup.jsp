@@ -75,10 +75,22 @@ html{
 
 }
 
-input[type=radio] {
-  visibility: hidden;
+.testbox3 {
+	margin: 20px auto;
+   	width: 350px; 
+   	height: 30px; 
+	background-color: #ebebeb; 
+  -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  border: solid 1px #cbc9c9;
+
 }
 
+/* input[type=radio] {
+  visibility: hidden;
+}
+ */
 form{
   margin: 0 30px;
 }
@@ -255,10 +267,13 @@ a.button {
 						 <input type="password" name="user_pass2" id="pass2" placeholder="Confirm Password" required/><br>
   						 <div><font name="check" size="3" color="red"></font></div>
   						 <input type="text" name="user_name" placeholder="Name" required/><br>   
-     					 <input type="text" name="user_ssn" placeholder="SSN" required/><br>
+     					 <input type="text" name="user_ssn" placeholder="SSN" maxlength="14" required/><br>
    						 <input type="text" name="user_tel" placeholder="Tel" required/><br>
  						 <input type="text" name="user_email" placeholder="Email" required/><br>
-  						 <input type="text" name="user_gender" placeholder="Gender" required/>
+  						 <div class="testbox3">
+  						 <label><input type="radio" name="user_gender" value="Male" checked/>Male</label>
+  						 <label><input type="radio" name="user_gender" value="Female"/>Female</label>
+  						</div>
   					
   					 <div class="testbox2">
   						 <div class="checkbox">

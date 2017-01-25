@@ -230,13 +230,26 @@ a.button {
 				data : param,
 				success : function(search){
 					$("#result_id").html("");
-					$("#result_id").append(search);
+					$("#result_id").append(search
+									/* 	"<table class= 'table'>"+
+										"<thead>"+
+										"<tr>"+
+										"<th>"+"¾Æ ÀÌ µð : "+"</th>"+
+										"</tr>"+
+										"</thead>"+
+										"<tbody>"+
+										"<tr>"+
+										"<td>"+ search +"</td>"+
+										"</tr>"+
+										"</tbody>"+
+										"</table">" */
+									);
 				
-				}
+								}
 				
-			})
-		});
-	});		
+							})
+					});
+				});		
 
 </script>
 <script type="text/javascript">

@@ -31,7 +31,7 @@ input[.tb1] {
                    <a href="/project_final/reservation/main.do"><i class="fa fa-comments"></i><br>Reservation</a>
                 </li>
                
-               <se:authorize access="hasRole('ROLE_ADMIN')">
+               <se:authorize access="hasRole('SPECIAL_USER')">
                <li class="dropdown active">
 					<a href="/project_final/stat/weather_main.do" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">
 						<i class="fa fa-tasks"></i><br>Pro 2.0 <span class="caret"></span>
