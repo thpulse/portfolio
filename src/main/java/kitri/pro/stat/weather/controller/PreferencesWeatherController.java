@@ -53,9 +53,7 @@ public class PreferencesWeatherController {
 	}
 	@RequestMapping(value="/stat/find.do", method=RequestMethod.GET,produces="application/json;charset=utf-8")
 	public @ResponseBody String find(@RequestParam String weather) throws Exception{
-		System.out.println(URLDecoder.decode(weather,"UTF-8"));
 		List<PreferencesVO> preferences= service.preferences(URLDecoder.decode(weather,"UTF-8"));
-		System.out.println(preferences.size());
 		JSONObject weather_json = new JSONObject();
 		JSONArray weather_list = new JSONArray();
 
@@ -70,6 +68,27 @@ public class PreferencesWeatherController {
 			}
 		}
 		weather_json.put("weather_list", weather_list);
+		return weather_json.toJSONString();
+	}
+	@RequestMapping(value="/stat/cate_find.do", method=RequestMethod.GET,produces="application/json;charset=utf-8")
+	public @ResponseBody String cate_find(@RequestParam String weather,@RequestParam String cate) throws Exception{
+		String cate_en=URLDecoder.decode(cate,"UTF-8");
+		List<PreferencesVO> preferences= service.preferences(URLDecoder.decode(weather,"UTF-8"));
+		JSONObject weather_json = new JSONObject();
+		JSONArray weather_list = new JSONArray();
+		if(preferences.size()>0){
+			for (int i = 1; i < preferences.size(); i++) {
+				if(cate_en.equals(preferences.get(i).getCate())){
+				JSONObject weather_json_item = new JSONObject();
+				weather_json_item.put("addr1", preferences.get(i).getAddr1());
+				weather_json_item.put("addr2", preferences.get(i).getAddr2());
+				weather_json_item.put("cate", preferences.get(i).getCate());
+				weather_json_item.put("total", preferences.get(i).getTotnmrs());
+				weather_list.add(weather_json_item);
+				}
+			}
+		}
+		weather_json.put("cate_list", weather_list);
 		return weather_json.toJSONString();
 	}
 }
