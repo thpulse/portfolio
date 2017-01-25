@@ -159,6 +159,7 @@ public class reservationController {
 			}
 		}
 		//예약이 완료되면 예약완료창으로 이동시킨다.
+		mav.setViewName("index_normal");
 		return mav;		
 	}
 	
@@ -192,11 +193,11 @@ public class reservationController {
 				unique_num_reserv.setReserv_num(time_val);
 				time_list = reservService.preChk_byTime_detail(unique_num_reserv);
 				for(int j=0; j< time_list.size();j++){
-					timeTable_list.add(time_list.get(j));
-					
+					timeTable_list.add(time_list.get(j));					
 				}
 			}
 			chk_json.put("timeTable", timeTable_list);
+			System.out.println(chk_json);
 		}				
 		return chk_json.toJSONString();
 	}
@@ -316,6 +317,7 @@ public class reservationController {
 		//얻은 reserv_num을 꺼내서 조회한다.
 		*/		
 		PerformanceDTO dto = reservService.perform_detail(prf_id);	
+		System.out.println(dto);
 		JSONObject prf_json = new JSONObject();
 		JSONObject timeTable = new JSONObject();
 		JSONArray timeTable_arr = new JSONArray();

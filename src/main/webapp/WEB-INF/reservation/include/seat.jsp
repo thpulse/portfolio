@@ -215,6 +215,7 @@
 		    data : formData,
 		    success: function(data, textStatus, jqXHR)
 		    {
+		    	setTimeout("location.href='/project_final/index.do'",100);
 		        //data - response from server
 		    },
 		    error: function (jqXHR, textStatus, errorThrown)

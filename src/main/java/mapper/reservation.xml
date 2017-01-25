@@ -11,11 +11,11 @@
 	</select>	
 	
 	<select id="call_perform_byHall" parameterType="String" resultType="perform">
-		select * from performance where plcid = #{hallId}		
+		select * from performance where plcid = #{hallId}
 	</select>
 	
 	<select id="perform_detail" parameterType="String" resultType="perform">
-		select * from performance where prfid = #{prfid}		
+		select * from performance where prfid = #{prfid} and to_date(prfpdto)>=sysdate		
 	</select>
 	
 	<insert id="insert_reservation" parameterType="reservation">
@@ -38,7 +38,7 @@
 	</select>
 	
 	<select id="preChk_byTime_detail" parameterType="reservation" resultType="String">
-		select d.seat from reservation_detail d, reservation r where d.reserv_num = r.reserv_num and r.reserv_num=#{reserv_num} and r.del_flg='1'
+		select d.seat_num from reservation_detail d, reservation r where d.reserv_num = r.reserv_num and d.reserv_num=#{reserv_num} and r.del_flg='1'
 	</select>
 	
 	
