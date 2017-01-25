@@ -47,7 +47,7 @@ function find_play(data1){
 	        'dataset': {
 	            title: 'Playing time per day',
 	            values: tot_arr,
-	            colorset: ['#56b4e9'],
+	            colorset: ['#9b4069'],
 	            fields:[cate]
 	        },
 	        'chartDiv': 'chart_detail',
@@ -118,7 +118,7 @@ $(document).ready(function()
 		    			title: 'Web accessibility status',
 		    			values: [arr], 
 		    			bgColor: '#f9f9f9',
-		    			fgColor: '#cc79a7'
+		    			fgColor: '#9b4069'
 		    		},
 		    		'chartDiv': 'chart19',
 		    		'chartType': 'radar',

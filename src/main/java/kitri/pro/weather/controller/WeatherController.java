@@ -1,7 +1,9 @@
 package kitri.pro.weather.controller;
 
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import kitri.pro.area.dto.AreaVO;
 import kitri.pro.weather.dto.WeatherVO;
@@ -23,9 +25,9 @@ public class WeatherController {
 	@Autowired
 	WeatherLogic logic;
 
-	//@Scheduled(cron="0 14 18 * * *")
+	@Scheduled(cron="0 0 15 * * *")
+	//@RequestMapping("/insert_weather.do")
 	public void insert(){
-		
 		List<AreaVO> arealist = service.areaList();
 		//System.out.println(arealist.size());
 		//System.out.println(arealist.get(0));
@@ -36,5 +38,12 @@ public class WeatherController {
 		String e_date = (calendar.get(calendar.DATE)-1)+"";
 		
 		logic.weatherInsert(arealist,e_year,e_month,e_date);
+/*		
+		ModelAndView mav=  new ModelAndView();
+		Map<String, String> daylist = new HashMap<String, String>();
+		WeatherVO last = service.last_select();
+		mav.addObject("last",last);
+		mav.setViewName("adminMain");
+		return mav;*/
 	}	
 }
