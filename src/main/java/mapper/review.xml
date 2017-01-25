@@ -12,7 +12,7 @@
 		where r.prf_id = #{pfr_id}
 	</select>
 	<delete id="delete" parameterType="review">
-		delete from review where revno= #{revno}
+		delete from review where revno= #{revno} 
 	</delete>
 	<select id="read" resultType="review" parameterType="review">
 	select * from review where revno = #{revno}

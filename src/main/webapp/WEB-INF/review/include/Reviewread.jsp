@@ -30,6 +30,7 @@
 						<label class="control-label col-sm-2" for="orgid">아이디</label>
 						<div class="col-sm-3">
 							${review.mem_id}
+							<input type="hidden" value="${review.prf_id}" id="prfid" name="prfid"/>
 						</div>
 					</div>	
 				
@@ -64,8 +65,8 @@
 					<div class="form-group">
 						<!-- Button -->
 						<div class="col-sm-3 col-sm-offset-2">
-							<input type="button" value="목록" class="btn btn-success" onclick="location.href='Reviewlist.do'"/>
-							<input type="submit" value="수정" class="btn btn-success" onclick="location.href='Reviewlist.do'"/>
+							<input type="button" value="목록" class="btn btn-success" onclick="location.href='/project_final/perform/prfinfo/read.do?prfid='+document.getElementById('prfid').value;"/>
+							<input type="submit" value="수정" class="btn btn-success" />
 						</div>
 					</div>
 			</form>
