@@ -1,5 +1,6 @@
 package kitri.pro.stat.month.controller;
 
+import java.net.URLDecoder;
 import java.util.List;
 
 import kitri.pro.stat.month.service.PreferencesMonthService;
@@ -43,6 +44,28 @@ public class PreferencesMonthController {
 			}
 		}
 		month_json.put("month_list", month_list);
+		return month_json.toJSONString();
+	}
+	
+	@RequestMapping(value="/stat/cate_find2.do", method=RequestMethod.GET,produces="application/json;charset=utf-8")
+	public @ResponseBody String cate_find(@RequestParam String month,@RequestParam String cate) throws Exception{
+		String cate_en=URLDecoder.decode(cate,"UTF-8");
+		List<PreferencesVO> preferences= service.preferences(URLDecoder.decode(month,"UTF-8"));
+		JSONObject month_json = new JSONObject();
+		JSONArray month_list = new JSONArray();
+		if(preferences.size()>0){
+			for (int i = 1; i < preferences.size(); i++) {
+				if(cate_en.equals(preferences.get(i).getCate())){
+				JSONObject month_json_item = new JSONObject();
+				month_json_item.put("addr1", preferences.get(i).getAddr1());
+				month_json_item.put("addr2", preferences.get(i).getAddr2());
+				month_json_item.put("cate", preferences.get(i).getCate());
+				month_json_item.put("total", preferences.get(i).getTotnmrs());
+				month_list.add(month_json_item);
+				}
+			}
+		}
+		month_json.put("cate_list", month_list);
 		return month_json.toJSONString();
 	}
 }

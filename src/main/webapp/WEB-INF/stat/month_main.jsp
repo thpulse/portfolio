@@ -14,7 +14,51 @@
 <script type="text/javascript">
 
 var arr=[0,0,0,0,0,0,0,0];
+var play=function (catenm){
+	$( "#chart_detail" ).empty();
+	var month = $('#selectbox option:selected').val();
+	$.get("/project_final/stat/cate_find2.do", {month: encodeURI(month),cate: encodeURI(catenm)},find_play, "json");
+}
+function find_play(data1){
+		var cate_obj_arr = data1.cate_list;
+		var addr_arr=new Array(cate_obj_arr.length);
+		var tot_arr=new Array(cate_obj_arr.length);
+	 for(i = 0; i < cate_obj_arr.length; i++){
+		var obj = cate_obj_arr[i];
+		var addr1 = obj.addr1;
+		var addr2= obj.addr2;
+		var cate= obj.cate;
+		var total=obj.total;
+		addr_arr[i]=addr1+" "+addr2;
+		tot_arr[i]=parseInt(total);
+	}
+		var sum=0;
+	for (var len = 0; len < tot_arr.length; len++) {
+		sum+=tot_arr[len]
+	}
+	for (var leng = 0; leng < tot_arr.length; leng++) {
+		tot_arr[leng]=Math.ceil(tot_arr[leng]*100/sum);
+	} 
+	var options = {
+			'legend': {
+	            names: addr_arr,
+	            hrefs: []
+	        },
+	        'dataset': {
+	            title: 'Playing time per day',
+	            values: tot_arr,
+	            colorset: ['#56b4e9'],
+	            fields:[cate]
+	        },
+	        'chartDiv': 'chart_detail',
+	        'chartType': 'column',
+	        'chartSize': { width: 1300, height: 550 },
+	        'maxValue': 100,
+	        'increment': 10
+		};
 
+		Nwagon.chart(options);	
+}
 $(document).ready(function()
 		{
 		    $('#selectbox').change(function(){
@@ -75,7 +119,7 @@ $(document).ready(function()
 		    var options = {
 		    		'legend':{
 		    			names: ['연극', '뮤지컬', '클래식', '오페라', '무용', '발레', '국악','복합'],
-		    			hrefs: []
+		    			hrefs: ["javascript:play('연극')","javascript:play('뮤지컬')","javascript:play('클래식')","javascript:play('오페라')","javascript:play('무용')","javascript:play('발레')","javascript:play('국악')","javascript:play('복합')"]
 		    				},
 		    		'dataset': {
 		    			title: 'Web accessibility status',
@@ -110,6 +154,7 @@ $(document).ready(function()
 	</select>
 	</h5>
 		<div id="chart19"></div>
+		<div id = "chart_detail"></div> 
 		<div id = "month_show">
 
 	</div> 
